@@ -5,6 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HorarioComponent } from './horario/horario.component';
 import { HttpClientModule } from  '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list'; // Import MatListModule
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// 
+
 
 @NgModule({
   declarations: [
@@ -14,7 +23,14 @@ import { HttpClientModule } from  '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatSidenavModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatListModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

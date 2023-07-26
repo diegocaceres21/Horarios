@@ -1,0 +1,238 @@
+{ "carrera": "INGENIERÍA FINANCIERA",
+ "materias": 
+[
+    {
+        "semestre": 1,
+        "sigla": "CPA-111",
+        "asignatura": "Contabilidad Básica"
+    },
+    {
+        "semestre": 1,
+        "sigla": "MAT-132",
+        "asignatura": "Cálculo I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ADM-111",
+        "asignatura": "Administración I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "MAT-123",
+        "asignatura": "Algebra Lineal y matricial"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ECO-100",
+        "asignatura": "Economía General"
+    },
+    {
+        "semestre": 1,
+        "sigla": "COM-141",
+        "asignatura": "Pensamiento crítico"
+    },
+    {
+        "semestre": 2,
+        "sigla": "CPA-112",
+        "asignatura": "Contabilidad Intermedia I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-133",
+        "asignatura": "Cálculo II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FHC-140",
+        "asignatura": "FHC I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ECO-201",
+        "asignatura": "Microeconomía I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "DER-259",
+        "asignatura": "Derecho Empresarial"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ADM-182",
+        "asignatura": "Proceso del  método científico"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CPA-113",
+        "asignatura": "Contabilidad Intermedia II"
+    },
+    {
+        "semestre": 3,
+        "sigla": "MAT-242",
+        "asignatura": "Probabilidad y Estadística I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CPA-116",
+        "asignatura": "Costos I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ECO-222",
+        "asignatura": "Macroeconomía I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CPA-115",
+        "asignatura": "Técnicas financieras y actuariales"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ADM-281",
+        "asignatura": "Etica y Resposabilidad Social"
+    },
+    {
+        "semestre": 4,
+        "sigla": "MAT-243",
+        "asignatura": "Probabilidad y Estadística II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IFI-221",
+        "asignatura": "Finanzas Públicas"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IFI-211",
+        "asignatura": "Finanzas I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "FHC-240",
+        "asignatura": "FHC II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "MAT-251",
+        "asignatura": "Investigación Operativa I"
+    },
+    {
+        "semestre": 4,
+        "asignatura": "Optativa I"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ECO-340",
+        "asignatura": "Econometría I"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IFI-212",
+        "asignatura": "Finanzas II"
+    },
+    {
+        "semestre": 5,
+        "sigla": "CPA-219",
+        "asignatura": "Análisis e interpretación de estados financieros"
+    },
+    {
+        "semestre": 5,
+        "sigla": "CPA-215",
+        "asignatura": "Tributación"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IFI-231",
+        "asignatura": "Banca y Riesgos"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IFI-213",
+        "asignatura": "Ingeniería Financiera I"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IFI-214",
+        "asignatura": "Ingeniería Financiera II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "CPA-211",
+        "asignatura": "Presupuesto Público y Empresarial"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IFI-215",
+        "asignatura": "Finanzas Internacionales"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IFI-216",
+        "asignatura": "Mercado de Capitales y Valores"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IFI-232",
+        "asignatura": "Productos y Servicios del Sistema Financiero"
+    },
+    {
+        "semestre": 6,
+        "asignatura": "Optativa II"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IND-330",
+        "asignatura": "Preparación y Evaluación de Proyectos Para Ingeniería"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IFI-311",
+        "asignatura": "Finanzas de las PYMES"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IFI-312",
+        "asignatura": "Juego de Bolsa"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IFI-313",
+        "asignatura": "Modelación financiera"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IFI-331",
+        "asignatura": "Seguros y Pensiones"
+    },
+    {
+        "semestre": 7,
+        "sigla": "FHC-340",
+        "asignatura": "FHC III"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IFI-314",
+        "asignatura": "Gestión de inversiones"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IFI-315",
+        "asignatura": "Valoración Económica de Empresas"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IFI-342",
+        "asignatura": "Taller de Grado I"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IFI-341",
+        "asignatura": "Práctica preprofesional"
+    },
+    {
+        "semestre": 9,
+        "sigla": "IFI-343",
+        "asignatura": "Taller de Grado II"
+    }
+]
+}

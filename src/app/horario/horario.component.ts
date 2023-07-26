@@ -44,7 +44,15 @@ export class HorarioComponent implements OnInit{
       data => {
         this.oferta = this.filterData(data);
         console.log(this.oferta)
-      }
+      },
+    (error) =>{
+      this.siaanService.getDatos(carreraId).subscribe(
+        data => {
+          this.oferta = this.filterData(data);
+          console.log(this.oferta)
+        }
+      )
+    }
     )
   }
 

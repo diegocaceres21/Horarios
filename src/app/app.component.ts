@@ -10,39 +10,19 @@ export class AppComponent {
   header:string = 'La Jatata'
   menu: NavItem [] = [
     {
-      displayName: 'Inicio',
-      iconName: 'home',
+      displayName: 'Nuevo Horario',
+      iconName: 'edit_calendar',
       route: '/home'
     },        
     {
-      displayName: 'Reservas',
-      iconName: 'restaurant',
+      displayName: 'Horarios Definidos',
+      iconName: 'list_alt',
       route: '/reservas',
     },
     {
-      displayName: 'Cocina',
-      iconName: 'kitchen',
-      route: '/cocina',
-    },
-    {
-      displayName: 'Menu',
-      iconName: 'menu_book',
-      route: '/menu',
-    },
-    {
-      displayName: 'Productos',
-      iconName: 'brunch_dining',
-      route: '/productos',
-    },
-    {
-      displayName: 'Ventas',
-      iconName: 'assessment',
-      route: '/ventas',
-    },
-    {
-      displayName: 'Meseros',
-      iconName: 'face',
-      route: '/waiters',
+      displayName: 'Planes de Estudio',
+      iconName: 'summarize',
+      route: '/cocina', 
     }
   ];
   mobileQuery: MediaQueryList;

@@ -1,16 +1,37 @@
-<table>
-    <thead>
-      <tr>
-        <th></th>
-        <th *ngFor="let day of days">{{ day }}</th>
-      </tr>
-    </thead>
-    <tbody>
-        <ng-container *ngFor="let timeSlot of timeSlots; let timeSlotIndex = index">
-            <tr>
-              <td>{{ timeSlot }}</td>
-              <td *ngFor="let data of userScheduleData[timeSlotIndex]; let dayIndex = index"></td>
-            </tr>
-          </ng-container>
-    </tbody>
-  </table>
+<mat-toolbar class="tool-options">
+  <mat-form-field appearance="outline" class="carrera">
+    <mat-label>Carrera</mat-label>
+    <mat-select> <!--[formControl]="carrera"-->
+      <!--<mat-option>-- None --</mat-option>-->
+      <mat-optgroup *ngFor="let group of carrerasPorDepartamento" [label]="group.departamento">
+        <mat-option *ngFor="let car of group.carreras" [value]="car.codigo">
+          {{car.nombre}}
+        </mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
+  
+</mat-toolbar>
+<div class="container">
+  <div class="inside-flex">
+    Materias
+  </div>
+  <div class="inside-flex">
+    <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th *ngFor="let day of days">{{ day }}</th>
+          </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let timeSlot of timeSlots; let timeSlotIndex = index">
+                <tr>
+                  <td>{{ timeSlot }}</td>
+                  <td *ngFor="let data of userScheduleData[timeSlotIndex]; let dayIndex = index"></td>
+                </tr>
+              </ng-container>
+        </tbody>
+      </table>
+    </div>
+</div>

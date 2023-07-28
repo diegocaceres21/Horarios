@@ -1,3 +1,30 @@
 th, td, table{
     border: solid black 1px;
 }
+
+td, th{
+    min-width: 85px;
+}
+
+.tool-options{
+    //border-bottom: 1px solid black;
+    padding-top: 2%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.carrera{
+    width: 450px;
+}
+mat-optgroup{
+    font-weight: bolder;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.inside-flex{
+    flex-basis: 50%;
+    text-align: center;
+}

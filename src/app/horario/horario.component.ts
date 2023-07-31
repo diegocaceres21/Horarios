@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SiaanServiceService } from '../siaan-service.service';
+import { Materia } from '../interfaces/materia';
+import { MatDialog } from '@angular/material/dialog';
+import { NuevaMateriaComponent } from '../modals/nueva-materia/nueva-materia.component';
 
 @Component({
   selector: 'app-horario',
@@ -60,9 +63,10 @@ export class HorarioComponent implements OnInit{
     ['', '', '', '', '', ''],
     ['', '', '', '', '', ''],
   ];
-
+  carrera: string = "";
+  materias: Materia[] = []
   oferta:any[] = []
-  constructor(private siaanService: SiaanServiceService){
+  constructor(private siaanService: SiaanServiceService,public dialog: MatDialog){
 
   }
   	
@@ -87,7 +91,17 @@ export class HorarioComponent implements OnInit{
   }
 
   
+  openDialog(): void {
+    const dialogRef = this.dialog.open(NuevaMateriaComponent, {
+      data: {carrera: this.carrera},
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.materias.push(result.data);
+      console.log(this.materias)
+    });
+  }
   filterData(response: any){
     const jsonData = response as any;
 
@@ -128,5 +142,9 @@ export class HorarioComponent implements OnInit{
       }
 
       return contenidoList;
+  }
+
+  agregarMateria(){
+    console.log(this.carrera)
   }
 }

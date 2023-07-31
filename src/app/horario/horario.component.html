@@ -1,11 +1,11 @@
 <mat-toolbar class="tool-options">
   <mat-form-field appearance="outline" class="carrera">
     <mat-label>Carrera</mat-label>
-    <mat-select> <!--[formControl]="carrera"-->
+    <mat-select [(ngModel)]="carrera"> <!--[formControl]="carrera"-->
       <!--<mat-option>-- None --</mat-option>-->
       <mat-optgroup *ngFor="let group of carrerasPorDepartamento" [label]="group.departamento">
-        <mat-option *ngFor="let car of group.carreras" [value]="car.codigo">
-          {{car.nombre}}
+        <mat-option *ngFor="let carrera of group.carreras" [value]="carrera">
+          {{carrera.nombre}}
         </mat-option>
       </mat-optgroup>
     </mat-select>
@@ -14,7 +14,25 @@
 </mat-toolbar>
 <div class="container">
   <div class="inside-flex">
-    Materias
+    <div class="materias-container">
+      <mat-accordion *ngFor="let mat of materias">
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{mat.sigla}}
+            </mat-panel-title>
+            <mat-panel-description>
+              {{mat.asignatura}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>This is the primary content of the panel.</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <button (click)="openDialog()" class="new-materia" mat-fab extended color="primary">
+        <mat-icon>add </mat-icon>
+        Agregar Materia
+      </button>
+    </div>
   </div>
   <div class="inside-flex">
     <table>

@@ -1,0 +1,29 @@
+<body>
+
+    <div class="container">
+          <h1>Agregar Materia</h1>  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Sigla o Asignatura</mat-label>
+            <input required [matAutocomplete]="auto" matInput [formControl]="objectControl" [(ngModel)]="materia">  
+            <mat-autocomplete #auto="matAutocomplete"  [displayWith]="displayFn.bind(this)"> <!--[displayWith]="displayFn.bind(this)"-->
+              <mat-option *ngFor="let mat of materiasFiltro | async" [value]="mat">
+                <span>{{mat.asignatura}}</span> |
+                <small>SIGLA: {{mat.sigla}}</small>
+              </mat-option>
+            </mat-autocomplete> 
+          </mat-form-field>           
+            <!--<mat-error class="error" *ngIf="isSubmitted && myForm.get('carnet')!.invalid">
+              Este campo es <strong>obligatorio</strong>
+            </mat-error>
+          </mat-form-field>-->
+             <!--<mat-form-field appearance="outline" class="full-width">
+                <mat-label>Sigla o Asignatura</mat-label>
+                <input required matInput >  
+                <mat-error class="error" *ngIf="isSubmitted && myForm.get('nombre')!.invalid">
+                  Este campo es <strong>obligatorio</strong>
+                </mat-error>
+              </mat-form-field>-->
+            <button mat-raised-button color="primary" (click)="addMateria()" class="margin">Guardar</button>  
+          <button mat-raised-button color="warn" [mat-dialog-close]>Cancelar</button>
+      </div>   
+</body> 

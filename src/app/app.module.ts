@@ -14,14 +14,20 @@ import { MatListModule } from '@angular/material/list'; // Import MatListModule
 import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import {MatSelectModule} from '@angular/material/select';
+import { NuevaMateriaComponent } from './modals/nueva-materia/nueva-materia.component';
+import {MatInputModule} from '@angular/material/input'
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HorarioComponent
+    HorarioComponent,
+    NuevaMateriaComponent
   ],
   imports: [
     BrowserModule,
@@ -30,12 +36,16 @@ import {MatSelectModule} from '@angular/material/select';
     MatDialogModule,
     MatSidenavModule,
     MatExpansionModule,
+    MatAutocompleteModule,
     MatIconModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatListModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

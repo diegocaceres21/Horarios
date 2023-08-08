@@ -1,7 +1,7 @@
 { "carrera": "INGENIERÍA FINANCIERA",
  "materias": 
 [
-    {
+    {   
         "semestre": 1,
         "sigla": "CPA-111",
         "asignatura": "Contabilidad Básica"

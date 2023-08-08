@@ -10,9 +10,16 @@
       </mat-optgroup>
     </mat-select>
   </mat-form-field>
+  <button (click)="actualizarParalelos()" [disabled]="materias.length === 0" class="update" mat-fab extended color="primary">
+    <mat-icon>update </mat-icon>
+    Actualizar Paralelos
+  </button>
   
 </mat-toolbar>
-<div class="container">
+<div *ngIf="loaderService.isLoading | async">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="container-paralelos">
   <div class="inside-flex">
     <div class="materias-container">
       <mat-accordion *ngFor="let mat of materias">
@@ -25,7 +32,14 @@
               {{mat.asignatura}}
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <p>This is the primary content of the panel.</p>
+          <div *ngIf="mat.paralelos">
+            <div *ngFor="let par of mat.paralelos" (mouseenter)="onHover(par)" (mouseleave)="stopFunction()">
+              <span>Paralelo: {{par.paralelo}}</span>
+              <span>Cupos: {{par.disponibles}}</span>
+              <p>Horario: {{par.horario}}</p>
+            </div>
+          </div>
+          <div class="error-paralelo" *ngIf="!mat.paralelos">No existen paralelos para esta materia</div>
         </mat-expansion-panel>
       </mat-accordion>
       <button (click)="openDialog()" class="new-materia" mat-fab extended color="primary">

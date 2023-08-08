@@ -1,7 +1,7 @@
 export interface HorarioMateria {
-    //sigla: string;
-    //materia: string;
-    docente: string;
+    sigla?: string;
+    materia?: string;
+    docente?: string;
     paralelo: number;
     cupos: number;
     inscritos: number;

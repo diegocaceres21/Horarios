@@ -10,25 +10,51 @@ td, th{
     width: 100%;
 }
 
+
+
 .materias-container{
     margin: 0px 40px;
 }
 .tool-options{
-    //border-bottom: 1px solid black;
-    padding-top: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    //padding-top: 2%;
     margin-bottom: 10px;
     margin-top: 10px;
 }
+
 .carrera{
-    width: 450px;
+    width: 600px;
+    padding-top: 2%;
 }
 mat-optgroup{
     font-weight: bolder;
 }
+
+.error-paralelo{
+    color: rgb(226, 7, 7);
+    font-weight: bolder;
+}
 .container{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     flex-direction: row;
     width: 100%;
+}
+.container-paralelos{
+    display: flex;
+    //justify-content: space-between;
+    //align-items: center;
+    flex-direction: row;
+    width: 100%;
+    //margin-bottom: auto;
+}
+.update{
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
 }
 
 .inside-flex{

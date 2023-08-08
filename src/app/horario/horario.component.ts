@@ -3,6 +3,10 @@ import { SiaanServiceService } from '../siaan-service.service';
 import { Materia } from '../interfaces/materia';
 import { MatDialog } from '@angular/material/dialog';
 import { NuevaMateriaComponent } from '../modals/nueva-materia/nueva-materia.component';
+import { HorarioMateria } from '../interfaces/horario-materia';
+import { LoaderService } from '../servicios/loader.service';
+import { forkJoin } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-horario',
@@ -11,8 +15,9 @@ import { NuevaMateriaComponent } from '../modals/nueva-materia/nueva-materia.com
 })
 export class HorarioComponent implements OnInit{
 
+  isHovered = false;
   
-  days: string[] = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado'];
+  days: string[] = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
   timeSlots: string[] = [
     '07:15 - 08:00', '08:00 - 08:45', '09:00 - 09:45', '09:45 - 10:30',
     '10:45 - 11:30', '11:30 - 12:15', '12:30 - 13:15', '13:15 - 14:00',
@@ -45,52 +50,142 @@ export class HorarioComponent implements OnInit{
     {nombre: 'PSICOLOGÍA',codigo: 'Nzp7sfyERT6IMiBxtHWpNw=='}
   ]}
   ]
-  userScheduleData: string[][] = [
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-  ];
+    userScheduleData: string[][] = [
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+    ];
   carrera: string = "";
   materias: Materia[] = []
-  oferta:any[] = []
-  constructor(private siaanService: SiaanServiceService,public dialog: MatDialog){
+  paralelos :HorarioMateria[] = []
+  constructor(private _snackBar: MatSnackBar,private siaanService: SiaanServiceService,public dialog: MatDialog, public loaderService: LoaderService){
 
   }
   	
   ngOnInit(): void {
+    
+  }
+
+  actualizarParalelos(){
+    this.paralelos = []
     this.getDatos("ICmS2Zu87Y1a2ch%25252bDcfeUg==")
   }
   getDatos(carreraId: string){
+    const payloads = ["ICmS2Zu87Y1a2ch%25252bDcfeUg==","BMTCip8LyR2NuXi5k9Z%25252bxw==",
+    "p/JGTNn4GnenqvrntY8veQ==","WrdxKi286gKd8r4binzMNA==","hnZqOrd3x0J5meyJY0UlCg==", "ar5fLGPWaFBY769VhXhTWg=="];
+
+    const requests = payloads.map(payload => this.siaanService.getDatos(payload));
+
+    forkJoin(requests).subscribe(
+      responses => {
+        // Handle responses from all parallel requests
+        for (let i =0; i<responses.length; i++){
+          this.paralelos.push(...this.filterData(responses[i]))
+        }
+        console.log(this.paralelos)
+        this.findParalelosForMaterias()
+      },
+      error => {
+        this.openSnackBar()
+        /*const requests = payloads.map(payload => this.siaanService.getDatos(payload));
+        forkJoin(requests).subscribe(
+          responses => {
+            // Handle responses from all parallel requests
+            for (let i =0; i<responses.length; i++){
+              this.paralelos.push(...this.filterData(responses[i]))
+            }
+            console.log('Responses:', responses);
+            console.log(this.paralelos)
+          }
+        )*/
+      }
+    );
+    /*
     this.siaanService.getDatos(carreraId).subscribe(
       data => {
-        this.oferta = this.filterData(data);
-        console.log(this.oferta)
+        this.paralelos = this.filterData(data);
+        console.log(this.paralelos)
       },
     (error) =>{
       this.siaanService.getDatos(carreraId).subscribe(
         data => {
-          this.oferta = this.filterData(data);
-          console.log(this.oferta)
+          this.paralelos = this.filterData(data);
+          console.log(this.paralelos)
         }
       )
     }
-    )
+    )*/
   }
 
-  
+  separarHorario(horario: string){
+    let res =horario.split(",")
+    const trimmedStrings: string[] = res.map(str => str.trimStart());
+    return trimmedStrings
+  }
+
+  onHover(paral:HorarioMateria){
+    this.isHovered = true;
+    
+    /*for (let i =0; i<horarioSeparado.length; i+2){
+      let dia = this.days.indexOf(horarioSeparado[i])
+      let hora = this.timeSlots.indexOf(horarioSeparado[i + 1])
+      this.userScheduleData[dia][hora] = paral.sigla!;
+    }*/
+    this.runFunctionWhileHovered(paral);
+  }
+  stopFunction(): void {
+    this.isHovered = false;
+  }
+
+  runFunctionWhileHovered(paral:HorarioMateria): void {
+    if (this.isHovered) {
+      
+      let horarioSeparado = this.separarHorario(paral.horario)
+      console.log(horarioSeparado)
+      for (let i =0; i<horarioSeparado.length; i =i + 2){
+        let dia = this.days.indexOf(horarioSeparado[i])
+        //Trabajamos con la hora
+        const timeSlotRange =horarioSeparado[i + 1].split(' - ');
+        const startTimeSlotIndex = this.timeSlots.indexOf(timeSlotRange[0]);
+        const endTimeSlotIndex = this.timeSlots.indexOf(timeSlotRange[1]);
+        //let hora = this.timeSlots.indexOf(horarioSeparado[i + 1])
+        console.log(dia)
+        console.log(startTimeSlotIndex)
+        console.log(endTimeSlotIndex)
+        //this.userScheduleData[hora][dia] = paral.sigla!;
+      }
+      // Your logic here that runs while the element is hovered
+      //setTimeout(() => this.runFunctionWhileHovered(paral), 100); // Recursive call
+    }
+  }
+
+  openSnackBar() {
+    this._snackBar.open('Se ha actualizado el token. Por favor presione nuevamente el boton', 'Aceptar', {
+      horizontalPosition: "center",
+      verticalPosition: "top",
+    });
+  }
+
+  findParalelosForMaterias(){
+    for (let i =0; i<this.materias.length; i++){
+      let lista = this.paralelos.filter((item) => item.sigla === this.materias[i].sigla)
+      this.materias[i].paralelos = lista;
+    }
+  }
+
   openDialog(): void {
     const dialogRef = this.dialog.open(NuevaMateriaComponent, {
       data: {carrera: this.carrera},
@@ -140,8 +235,18 @@ export class HorarioComponent implements OnInit{
 
         contenidoList.push(contenidoColumn);
       }
-
-      return contenidoList;
+      //console.log(contenidoList[1])
+      let resultado : HorarioMateria[] = contenidoList.map(row => ({
+        sigla: row[1],
+        materia: row[3],
+        paralelo: row[2],
+        cupos: row[5],
+        inscritos: row[6],
+        disponibles: row[5] - row[6],
+        horario: row[8],
+      }));
+      return resultado;
+      //return contenidoList;
   }
 
   agregarMateria(){

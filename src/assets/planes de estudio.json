@@ -1,0 +1,4572 @@
+[
+{ "carrera": "ADMINISTRACIÓN DE EMPRESAS",
+  "departamento": "DAEF",
+ "materias":
+[
+    {
+        "semestre": 1,
+        "sigla": "ADM-111",
+        "asignatura": "ADMINISTRACIÓN I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "MAT-111",
+        "asignatura": "MATEMÁTICA EMPRESARIAL I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "CPA-111",
+        "asignatura": "CONTABILIDAD BÁSICA"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ECO-100",
+        "asignatura": "ECONOMÍA GENERAL"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ICO-111",
+        "asignatura": "FUNDAMENTOS DE MARKETING"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ADM-112",
+        "asignatura": "ADMINISTRACIÓN II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-112",
+        "asignatura": "MATEMÁTICA EMPRESARIAL II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "CPA-112",
+        "asignatura": "CONTABILIDAD INTERMEDIA"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ECO-222",
+        "asignatura": "MACROECONOMÍA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ICO-112",
+        "asignatura": "MARKETING OPERATIVO"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ICO-109",
+        "asignatura": "ESCRITURA ACADÉMICA"
+    },
+    {
+        "semestre": 3,
+        "sigla": "IFI-121",
+        "asignatura": "MATEMATICA FINANCIERA"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ECO-201",
+        "asignatura": "MICROECONOMÍA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CPA-116",
+        "asignatura": "COSTOS I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "MAT-142",
+        "asignatura": "PROBABILIDAD Y ESTADÍSTICA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ADM-182",
+        "asignatura": "PROCESO DEL MÉTODO\nCIENTÍFICO"
+    },
+    {
+        "semestre": 3,
+        "sigla": "FHC-125",
+        "asignatura": "FORMACIÓN HUMANO-CRISTIANA\nI"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IFI-211",
+        "asignatura": "FINANZAS I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "CPA-211",
+        "asignatura": "PRESUPUESTOS"
+    },
+    {
+        "semestre": 4,
+        "sigla": "MAT-241",
+        "asignatura": "PROBABILIDAD Y ESTADÍSTICA II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ECO-202",
+        "asignatura": "MICROECONOMÍA II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ADM-121",
+        "asignatura": "GESTIÓN DEL TALENTO HUMANO"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ADM-262",
+        "asignatura": "GESTIÓN DE PROCESOS"
+    },
+    {
+        "semestre": 4,
+        "asignatura": "LIBRE 1"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IFI-212",
+        "asignatura": "FINANZAS II"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ADM-261",
+        "asignatura": "GERENCIA DE OPERACIONES Y\nTECNOLOGÍA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "DER-259",
+        "asignatura": "DERECHO EMPRESARIAL"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ADM-221",
+        "asignatura": "COMPORTAMIENTO\nORGANIZACIONAL"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ICO-212",
+        "asignatura": "INVESTIGACIÓN DE MERCADOS I"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ADM-263",
+        "asignatura": "BUSINESS INTELLIGENCE"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ADM-264",
+        "asignatura": "CIENCIA DE DATOS Y TOMA DE\nDECISIONES"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ADM-251",
+        "asignatura": "EMPRENDIMIENTOS Y STARTUP"
+    },
+    {
+        "semestre": 6,
+        "asignatura": "LIBRE 2"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ADM-211",
+        "asignatura": "DESARROLLO ORGANIZACIONAL"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ADM-281",
+        "asignatura": "ETICA PROFESIONAL"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ADM-254",
+        "asignatura": "TALLER DE INNOVACIÓN DIGITAL"
+    },
+    {
+        "semestre": 6,
+        "sigla": "FHC-235",
+        "asignatura": "FORMACIÓN HUMANO-CRISTIANA\nII"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ADM-252",
+        "asignatura": "EMPRENDIMIENTO Y PLAN DE NEGOCIO"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ADM-212",
+        "asignatura": "DIRECCION ESTRATEGICA I"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ADM-341",
+        "asignatura": "TALLER DE HABILIDADES\nBLANDAS"
+    },
+    {
+        "semestre": 7,
+        "sigla": "FHC-346",
+        "asignatura": "FORMACIÓN HUMANO-CRISTIANA\nIII"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ICO-311",
+        "asignatura": "MARKETING ESTRATÉGICO"
+    },
+    {
+        "semestre": 8,
+        "sigla": "ADM-213",
+        "asignatura": "DIRECCIÓN ESTRATÉGICA II"
+    },
+    {
+        "semestre": 8,
+        "sigla": "ADM-381",
+        "asignatura": "PRACTICA PREPROFESIONAL"
+    },
+    {
+        "semestre": 8,
+        "sigla": "ADM-351",
+        "asignatura": "ADMINISTRACIÓN DE PROYECTOS"
+    },
+    {
+        "semestre": 8,
+        "sigla": "ADM-382",
+        "asignatura": "TALLER DE GRADO I"
+    },
+    {
+        "semestre": 9,
+        "sigla": "ADM-383",
+        "asignatura": "TALLER DE GRADO II"
+    }
+]},
+{ "carrera": "CONTADURÍA PÚBLICA",
+"departamento": "DAEF",
+  "materias": [
+    {
+        "semestre": 1,
+        "sigla": "CPA-111",
+        "asignatura": "CONTABILIDAD BÁSICA"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ADM-111",
+        "asignatura": "ADMINISTRACIÓN I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "MAT-132",
+        "asignatura": "CÁLCULO I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ECO-100",
+        "asignatura": "ECONOMÍA GENERAL"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ICO-109",
+        "asignatura": "ESCRITURA ACADÉMICA"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-142",
+        "asignatura": "PROBABILIDAD Y ESTADÍSTICA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "CPA-112",
+        "asignatura": "CONTABILIDAD INTERMEDIA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "CPA-114",
+        "asignatura": "NORMATIVA Y APLICACIÓN CONTABLE COMERCIAL"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ADM-182",
+        "asignatura": "PROCESO DEL MÉTODO CIENTÍFICO"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FHC-125",
+        "asignatura": "FORMACIÓN HUMANO-CRISTIANA I"
+    },
+    {
+        "semestre": 2,
+        "asignatura": "LIBRE I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CPA-113",
+        "asignatura": "CONTABILIDAD INTERMEDIA II"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CPA-115",
+        "asignatura": "TÉCNICAS FINANCIERAS Y ACTUARIALES"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CPA-116",
+        "asignatura": "COSTOS I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CPA-117",
+        "asignatura": "NORMATIVA Y APLICACIÓN CONTABLE LABORAL"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CPA-118",
+        "asignatura": "CONTABILIDAD DE SOCIEDADES"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ICO-131",
+        "asignatura": "TECNOLOGÍA Y SISTEMAS DE INFORMACIÓN"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IFI-211",
+        "asignatura": "FINANZAS I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "CPA-222",
+        "asignatura": "CONTABILIDAD INTERNACIONAL I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "CPA-223",
+        "asignatura": "NORMATIVA Y APLICACIÓN CONTABLE TRIBUTARIA"
+    },
+    {
+        "semestre": 4,
+        "sigla": "CPA-224",
+        "asignatura": "COSTOS II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "CPA-230",
+        "asignatura": "CONTABILIDAD DE ENTIDADES FINANCIERAS"
+    },
+    {
+        "semestre": 4,
+        "sigla": "FHC-235",
+        "asignatura": "FORMACIÓN HUMANO-CRISTIANA\nII"
+    },
+    {
+        "semestre": 5,
+        "sigla": "CPA-225",
+        "asignatura": "GABINETE DE CONTABILIDAD"
+    },
+    {
+        "semestre": 5,
+        "sigla": "CPA-226",
+        "asignatura": "TRIBUTACIÓN"
+    },
+    {
+        "semestre": 5,
+        "sigla": "CPA-227",
+        "asignatura": "CONTABILIDAD GUBERNAMENTAL"
+    },
+    {
+        "semestre": 5,
+        "sigla": "CPA-228",
+        "asignatura": "CONTABILIDAD MINERA Y PETROLERA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "CPA-229",
+        "asignatura": "CONTABILIDAD AGROPECUARIA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IFI-212",
+        "asignatura": "FINANZAS II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "CPA-219",
+        "asignatura": "ANÁLISIS E INTERPRETACIÓN DE EST. FINANCIEROS"
+    },
+    {
+        "semestre": 6,
+        "sigla": "CPA-221",
+        "asignatura": "PRESUPUESTOS"
+    },
+    {
+        "semestre": 6,
+        "sigla": "CPA-231",
+        "asignatura": "FUNDAMENTOS DE AUDITORIA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "CPA-240",
+        "asignatura": "CONTABILIDAD INTERNACIONAL II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "CPA-241",
+        "asignatura": "ÉTICA Y RESPONSABILIDAD DEL CONTADOR PÚBLICO"
+    },
+    {
+        "semestre": 6,
+        "asignatura": "LIBRE II"
+    },
+    {
+        "semestre": 7,
+        "sigla": "CPA-331",
+        "asignatura": "AUDITORIA I"
+    },
+    {
+        "semestre": 7,
+        "sigla": "CPA-333",
+        "asignatura": "AUDITORIA INTERNA Y OPERATIVA"
+    },
+    {
+        "semestre": 7,
+        "sigla": "CPA-334",
+        "asignatura": "AUDITORÍA FORENSE"
+    },
+    {
+        "semestre": 7,
+        "sigla": "CPA-341",
+        "asignatura": "PRÁCTICA PREPROFESIONAL"
+    },
+    {
+        "semestre": 7,
+        "sigla": "CPA-242",
+        "asignatura": "HERRAMIENTAS INFORMATICAS Y TECNOLOGIA"
+    },
+    {
+        "semestre": 7,
+        "sigla": "FHC-346",
+        "asignatura": "FORMACIÓN HUMANO-CRISTIANA\nIII"
+    },
+    {
+        "semestre": 8,
+        "sigla": "CPA-332",
+        "asignatura": "AUDITORIA II"
+    },
+    {
+        "semestre": 8,
+        "sigla": "CPA-335",
+        "asignatura": "GABINETE DE AUDITORIA"
+    },
+    {
+        "semestre": 8,
+        "sigla": "CPA-336",
+        "asignatura": "AUDITORIA DE SISTEMAS DE INFORMACIÓN"
+    },
+    {
+        "semestre": 8,
+        "sigla": "CPA-337",
+        "asignatura": "AUDITORIA GUBERNAMENTAL"
+    },
+    {
+        "semestre": 8,
+        "sigla": "CPA-339",
+        "asignatura": "AUDITORIA TRIBUTARIA"
+    },
+    {
+        "semestre": 8,
+        "sigla": "CPA-342",
+        "asignatura": "TALLER DE GRADO I"
+    },
+    {
+        "semestre": 9,
+        "sigla": "CPA-343",
+        "asignatura": "TALLER DE GRADO II"
+    }
+]
+},
+{ "carrera": "INGENIERÍA COMERCIAL",
+"departamento": "DAEF",
+  "materias": [
+    {
+        "semestre": 1,
+        "sigla": "ADM-111",
+        "asignatura": "ADMINISTRACION I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "MAT-111",
+        "asignatura": "MATEMATICA EMPRESARIAL I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "CPA-111",
+        "asignatura": "CONTABILIDAD BASICA"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ECO-100",
+        "asignatura": "ECONOMIA GENERAL"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ICO-111",
+        "asignatura": "FUNDAMENTOS DE MARKETING"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ADM-112",
+        "asignatura": "ADMINISTRACION II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-112",
+        "asignatura": "MATEMATICA EMPRESARIAL II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "CPA-112",
+        "asignatura": "CONTABILIDAD INTERMEDIA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ECO-222",
+        "asignatura": "MACROECONOMIA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ICO-112",
+        "asignatura": "MARKETING OPERATIVO"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ICO-109",
+        "asignatura": "ESCRITURA ACADEMICA"
+    },
+    {
+        "semestre": 3,
+        "sigla": "IFI-121",
+        "asignatura": "MATEMATICA FINANCIERA"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ECO-201",
+        "asignatura": "MICROECONOMIA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CPA-116",
+        "asignatura": "COSTOS I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "MAT-142",
+        "asignatura": "PROBABILIDAD Y ESTADISTICA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ADM-182",
+        "asignatura": "PROCESO DEL METODO CIENTIFICO"
+    },
+    {
+        "semestre": 3,
+        "sigla": "FHC-125",
+        "asignatura": "FORMACION HUMANO CRISTIANA I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IFI-211",
+        "asignatura": "FINANZAS I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "CPA-212",
+        "asignatura": "PRESUPUESTOS"
+    },
+    {
+        "semestre": 4,
+        "sigla": "MAT-143",
+        "asignatura": "PROBABILIDAD Y ESTADISTICA II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ECO-202",
+        "asignatura": "MICROECONOMIA II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ICO-215",
+        "asignatura": "ADMINISTRACION DE VENTAS"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ICO-218",
+        "asignatura": "COMERCIO INTERNACIONAL"
+    },
+    {
+        "semestre": 4,
+        "asignatura": "LIBRE 1"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IFI-212",
+        "asignatura": "FINANZAS II"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ICO-231",
+        "asignatura": "OPTIMIZACION DE OPERACIONES EMPRESARIALES"
+    },
+    {
+        "semestre": 5,
+        "sigla": "DER-259",
+        "asignatura": "DERECHO EMPRESARIAL"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ECO-340",
+        "asignatura": "ECONOMETRIA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ICO-211",
+        "asignatura": "INVESTIGACION DE MERCADOS I"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ICO-214",
+        "asignatura": "MARKETING DE SERVICIOS"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ICO-213",
+        "asignatura": "COMPORTAMIENTO DEL CONSUMIDOR"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ADM-251",
+        "asignatura": "EMPRENDIMIENTOS Y STARTUP"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ICO-212",
+        "asignatura": "INVESTIGACION DE MERCADOS II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ICO-232",
+        "asignatura": "LOGISTICA Y CADENA DE SUMINISTROS"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ADM-281",
+        "asignatura": "ETICA PROFESIONAL"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ICO-233",
+        "asignatura": "INOVACION, DESARROLLO Y TECNOLOGIA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "FHC-235",
+        "asignatura": "FORMACION HUMANO CRISTIANA II"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ADM-252",
+        "asignatura": "EMPRENDIMIENTO Y PLAN DE NEGOCIO"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ICO-313",
+        "asignatura": "MARKETING DIGITAL"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ADM-325",
+        "asignatura": "TALLER DE HABILIDADES BLANDAS"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ICO-331",
+        "asignatura": "TECNOLOGIAS Y SISTEMAS DE INFORMACION"
+    },
+    {
+        "semestre": 7,
+        "sigla": "FHC-346",
+        "asignatura": "FORMACION HUMANO CRISTIANA III"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ICO-311",
+        "asignatura": "MARKETING ESTRATEGICO"
+    },
+    {
+        "semestre": 8,
+        "sigla": "ICO-312",
+        "asignatura": "METRICAS DE MARKETING"
+    },
+    {
+        "semestre": 8,
+        "sigla": "ICO-361",
+        "asignatura": "PRACTICA PREPROFESIONAL"
+    },
+    {
+        "semestre": 8,
+        "sigla": "ICO-362",
+        "asignatura": "TALLER DE GRADO I"
+    },
+    {
+        "semestre": 8,
+        "asignatura": "LIBRE 2"
+    },
+    {
+        "semestre": 9,
+        "sigla": "ICO-363",
+        "asignatura": "TALLER DE GRADO II"
+    }
+]
+},
+{ "carrera": "INGENIERÍA EMPRESARIAL",
+"departamento": "DAEF",
+  "materias": [
+    {
+        "semestre": 1,
+        "sigla": "ADM-111",
+        "asignatura": "ADMINISTRACIÓN I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "SIS-111",
+        "asignatura": "INTRODUCCIÓN A LA PROGRAMACIÓN"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ECO-100",
+        "asignatura": "ECONOMÍA GENERAL"
+    },
+    {
+        "semestre": 1,
+        "sigla": "MAT-132",
+        "asignatura": "CÁLCULO I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "MAT-123",
+        "asignatura": "ÁLGREBRA LINEAL"
+    },
+    {
+        "semestre": 1,
+        "sigla": "FHC-125",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ADM-112",
+        "asignatura": "ADMINISTRACIÓN II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "CPA-111",
+        "asignatura": "CONTABILIDAD BÁSICA"
+    },
+    {
+        "semestre": 2,
+        "sigla": "SIS-131",
+        "asignatura": "ARQUITECTURA DE COMPUTADORAS"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ECO-201",
+        "asignatura": "MICROECONOMÍA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-133",
+        "asignatura": "CALCULO II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "SIS-112",
+        "asignatura": "PROGRAMACIÓN I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CPA-112",
+        "asignatura": "CONTABILIDAD INTERMEDIA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "SIS-122",
+        "asignatura": "BASES DE DATOS I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "SIS-132",
+        "asignatura": "SISTEMAS OPERATIVOS"
+    },
+    {
+        "semestre": 3,
+        "sigla": "SIS-113",
+        "asignatura": "PROGRAMACIÓN II"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ADM-221",
+        "asignatura": "GESTIÓN DEL TALENTO HUMANO"
+    },
+    {
+        "semestre": 4,
+        "sigla": "MAT-142",
+        "asignatura": "PROBABILIDAD Y ESTADÍSTICA I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ICO-131",
+        "asignatura": "TECNOLOGÍA Y SISTEMAS DE INFORMACIÓN"
+    },
+    {
+        "semestre": 4,
+        "sigla": "CPA-116",
+        "asignatura": "COSTOS I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ICO-111",
+        "asignatura": "FUNDAMENTOS DE MARKETING"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ADM-182",
+        "asignatura": "PROCESO DEL MÉTODO CIENTÍFICO"
+    },
+    {
+        "semestre": 4,
+        "sigla": "MAT-251",
+        "asignatura": "INVESTIGACIÓN OPERATIVA I"
+    },
+    {
+        "semestre": 5,
+        "sigla": "MAT-241",
+        "asignatura": "PROBABILIDAD Y ESTADÍSTICA II"
+    },
+    {
+        "semestre": 5,
+        "sigla": "SIS-222",
+        "asignatura": "SISTEMAS DE INFORMACIÓN I"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ADM-261",
+        "asignatura": "GERENCIA DE OPERACIONES Y TECNOLOGÍA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ICO-112",
+        "asignatura": "MARKETING OPERATIVO"
+    },
+    {
+        "semestre": 5,
+        "sigla": "MAT-252",
+        "asignatura": "INVESTIGACIÓN OPERATIVA II Y LABORATORIO"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IFI-211",
+        "asignatura": "FINANZAS I"
+    },
+    {
+        "semestre": 6,
+        "sigla": "SIS-223",
+        "asignatura": "SISTEMAS DE INFORMACIÓN II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "MAT-242",
+        "asignatura": "PROBABILIDAD Y ESTADÍSTICA III"
+    },
+    {
+        "semestre": 6,
+        "sigla": "SIS-231",
+        "asignatura": "REDES DE COMPUTADORAS I"
+    },
+    {
+        "semestre": 6,
+        "sigla": "FHC-235",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA II"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IFI-212",
+        "asignatura": "FINANZAS II"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ADM-281",
+        "asignatura": "ÉTICA Y RESPONSABILIDAD SOCIAL"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ADM-262",
+        "asignatura": "GESTIÓN DE PROCESOS"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ADM-251",
+        "asignatura": "EMPRENDIMIENTOS I"
+    },
+    {
+        "semestre": 7,
+        "sigla": "SIS-323",
+        "asignatura": "TALLER DE SISTEMAS DE INFORMACIÓN"
+    },
+    {
+        "semestre": 7,
+        "asignatura": "OPTATIVA I"
+    },
+    {
+        "semestre": 8,
+        "sigla": "ICO-232",
+        "asignatura": "LOGÍSTICA Y CADENA DE SUMINISTROS"
+    },
+    {
+        "semestre": 8,
+        "sigla": "SIS-224",
+        "asignatura": "MODELADO, DINÁMICA DE SISTEMAS Y SIMULACIÓN"
+    },
+    {
+        "semestre": 8,
+        "sigla": "ADM-252",
+        "asignatura": "EMPRENDIMIENTOS II"
+    },
+    {
+        "semestre": 8,
+        "sigla": "ADM-212",
+        "asignatura": "DIRECCIÓN ESTRATÉGICA I"
+    },
+    {
+        "semestre": 8,
+        "sigla": "FHC-346",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA III"
+    },
+    {
+        "semestre": 8,
+        "asignatura": "OPTATIVA II"
+    },
+    {
+        "semestre": 9,
+        "sigla": "ADM-305",
+        "asignatura": "ADMINISTRACIÓN DE PROYECTOS"
+    },
+    {
+        "semestre": 9,
+        "sigla": "ADM-352",
+        "asignatura": "PRACTICA PREPROFESIONAL"
+    },
+    {
+        "semestre": 9,
+        "sigla": "SIS-322",
+        "asignatura": "GERENCIA DE LAS TIC"
+    },
+    {
+        "semestre": 9,
+        "sigla": "ADM-380",
+        "asignatura": "TALLER DE GRADO I"
+    },
+    {
+        "semestre": 10,
+        "sigla": "ADM-381",
+        "asignatura": "TALLER DE GRADO II"
+    }
+]
+},
+{ "carrera": "INGENIERÍA FINANCIERA",
+"departamento": "DAEF",
+  "materias": [
+    {
+        "semestre": 1,
+        "sigla": "CPA-111",
+        "asignatura": "Contabilidad Básica"
+    },
+    {
+        "semestre": 1,
+        "sigla": "MAT-132",
+        "asignatura": "Cálculo I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ADM-111",
+        "asignatura": "Administración I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "MAT-123",
+        "asignatura": "Algebra Lineal y matricial"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ECO-100",
+        "asignatura": "Economía General"
+    },
+    {
+        "semestre": 1,
+        "sigla": "COM-141",
+        "asignatura": "Pensamiento crítico"
+    },
+    {
+        "semestre": 2,
+        "sigla": "CPA-112",
+        "asignatura": "Contabilidad Intermedia I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-133",
+        "asignatura": "Cálculo II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FHC-125",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ECO-201",
+        "asignatura": "Microeconomía I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "DER-259",
+        "asignatura": "Derecho Empresarial"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ADM-182",
+        "asignatura": "Proceso del  método científico"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CPA-113",
+        "asignatura": "Contabilidad Intermedia II"
+    },
+    {
+        "semestre": 3,
+        "sigla": "MAT-242",
+        "asignatura": "Probabilidad y Estadística I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CPA-116",
+        "asignatura": "Costos I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ECO-222",
+        "asignatura": "Macroeconomía I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CPA-115",
+        "asignatura": "Técnicas financieras y actuariales"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ADM-281",
+        "asignatura": "Etica y Resposabilidad Social"
+    },
+    {
+        "semestre": 4,
+        "sigla": "MAT-243",
+        "asignatura": "Probabilidad y Estadística II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IFI-221",
+        "asignatura": "Finanzas Públicas"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IFI-211",
+        "asignatura": "Finanzas I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "FHC-235",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "MAT-251",
+        "asignatura": "Investigación Operativa I"
+    },
+    {
+        "semestre": 4,
+        "asignatura": "Optativa I"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ECO-340",
+        "asignatura": "Econometría I"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IFI-212",
+        "asignatura": "Finanzas II"
+    },
+    {
+        "semestre": 5,
+        "sigla": "CPA-219",
+        "asignatura": "Análisis e interpretación de estados financieros"
+    },
+    {
+        "semestre": 5,
+        "sigla": "CPA-215",
+        "asignatura": "Tributación"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IFI-231",
+        "asignatura": "Banca y Riesgos"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IFI-213",
+        "asignatura": "Ingeniería Financiera I"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IFI-214",
+        "asignatura": "Ingeniería Financiera II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "CPA-211",
+        "asignatura": "Presupuesto Público y Empresarial"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IFI-215",
+        "asignatura": "Finanzas Internacionales"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IFI-216",
+        "asignatura": "Mercado de Capitales y Valores"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IFI-232",
+        "asignatura": "Productos y Servicios del Sistema Financiero"
+    },
+    {
+        "semestre": 6,
+        "asignatura": "Optativa II"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IND-330",
+        "asignatura": "Preparación y Evaluación de Proyectos Para Ingeniería"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IFI-311",
+        "asignatura": "Finanzas de las PYMES"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IFI-312",
+        "asignatura": "Juego de Bolsa"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IFI-313",
+        "asignatura": "Modelación financiera"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IFI-331",
+        "asignatura": "Seguros y Pensiones"
+    },
+    {
+        "semestre": 7,
+        "sigla": "FHC-346",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA III"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IFI-314",
+        "asignatura": "Gestión de inversiones"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IFI-315",
+        "asignatura": "Valoración Económica de Empresas"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IFI-342",
+        "asignatura": "Taller de Grado I"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IFI-341",
+        "asignatura": "Práctica preprofesional"
+    },
+    {
+        "semestre": 9,
+        "sigla": "IFI-343",
+        "asignatura": "Taller de Grado II"
+    }
+]
+},
+{ "carrera": "INGENIERÍA AMBIENTAL",
+"departamento": "DCEI",
+  "materias": [
+    {
+        "semestre": 1,
+        "sigla": "IMA-111",
+        "asignatura": "BIOLOGÍA GENERAL Y LABORATORIO"
+    },
+    {
+        "semestre": 1,
+        "sigla": "MAT-132",
+        "asignatura": "CÁLCULO I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "QMC-111",
+        "asignatura": "QUÍMICA GENERAL I Y LABORATORIO"
+    },
+    {
+        "semestre": 1,
+        "sigla": "IMA-112",
+        "asignatura": "DESARROLLO SOSTENIBLE e INTEGRAL"
+    },
+    {
+        "semestre": 1,
+        "sigla": "IMA-113",
+        "asignatura": "LAUDATO SI Ecología integral y gestión sociocomunitaria"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-133",
+        "asignatura": "CÁLCULO II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-142",
+        "asignatura": "PROBABILIDAD Y ESTADÍSTICA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "QMC-112",
+        "asignatura": "QUÍMICA GENERAL II Y LABORATORIO"
+    },
+    {
+        "semestre": 2,
+        "sigla": "IMA-114",
+        "asignatura": "ECOLOGÍA GENERAL"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FIS-111",
+        "asignatura": "FÍSICA I Y LABORATORIO"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FHC-125",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "MAT-135",
+        "asignatura": "ECUACIONES DIFERENCIALES ORDINARIAS"
+    },
+    {
+        "semestre": 3,
+        "sigla": "QMC-131",
+        "asignatura": "QUÍMICA FÍSICA Y LABORATORIO"
+    },
+    {
+        "semestre": 3,
+        "sigla": "IMA-232",
+        "asignatura": "CLIMATOLOGIA Y CAMBIO CLIMÁTICO"
+    },
+    {
+        "semestre": 3,
+        "sigla": "QMC-121",
+        "asignatura": "QUÍMICA ORGÁNICA I Y LABORATORIO"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CIV-215",
+        "asignatura": "SISTEMAS DE INFORMACIÓN GEOGRÁFICA"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IMA-231",
+        "asignatura": "QUÍMICA AMBIENTAL y LABORATORIO"
+    },
+    {
+        "semestre": 4,
+        "sigla": "CIV-162",
+        "asignatura": "METODOLOGÍA DE LA INVESTIGACIÓN"
+    },
+    {
+        "semestre": 4,
+        "sigla": "MAT-143",
+        "asignatura": "PROBABILIDAD Y ESTADÍSTICA II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IMA-115",
+        "asignatura": "LEGISLACION AMBIENTAL"
+    },
+    {
+        "semestre": 4,
+        "sigla": "CIV-141",
+        "asignatura": "HIDROLOGÍA"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IMA-116",
+        "asignatura": "MICROBIOLOGÍA y LABORATORIO"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IMA-233",
+        "asignatura": "DINÁMICA DE CONTAMINANTES"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IMA-211",
+        "asignatura": "EDAFOLOGÍA GEOMORFOLOGÍA y Laboratorio"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IMA-224",
+        "asignatura": "ECONOMIA AMBIENTAL"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IMA - 212",
+        "asignatura": "PROCESOS FISICOS Y QUIMICOS"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IMA-225",
+        "asignatura": "GESTIÓN INTEGRAL DE RESIDUOS SÓLIDOS"
+    },
+    {
+        "semestre": 5,
+        "sigla": "FHC-235",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IMA-223",
+        "asignatura": "CALIDAD DEL AIRE"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IMA-226",
+        "asignatura": "EVALUACIÓN DE IMPACTO AMBIENTAL"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IMA-342",
+        "asignatura": "EVALUACIÓN Y GESTIÓN DEL RIESGO DE DESASTRES"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IMA-337",
+        "asignatura": "TRATAMIENTO DE AGUAS RESIDUALES I"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IMA-335",
+        "asignatura": "RESTAURACIÓN ECOLÓGICA"
+    },
+    {
+        "semestre": 6,
+        "asignatura": "LIBRE 1"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IMA-322",
+        "asignatura": "GESTIÓN AMBIENTAL"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IMA-343",
+        "asignatura": "PROCESACMIENTO DE IMÁGENES SATELITALES Y MODELACIÓN AMBIENTAL"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IMA-234",
+        "asignatura": "REMEDIACIÓN AMBIENTAL"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IMA-338",
+        "asignatura": "TRATAMIENTO DE AGUAS RESIDUALES II"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IMA-235",
+        "asignatura": "ECOTOXICOLOGÍA"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IND-330",
+        "asignatura": "PREPARACIÓN Y EVALUACIÓN DE PROYECTOS PARA INGENIERÍA"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IMA-351",
+        "asignatura": "PRÁCTICA PREPROFESIONAL"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IMA-326",
+        "asignatura": "SISTEMAS INTEGRADOS DE GESTIÓN"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IMA-331",
+        "asignatura": "INSTRUMENTOS DE REGULACION AMBIENTAL"
+    },
+    {
+        "semestre": 8,
+        "asignatura": "LIBRE 2"
+    },
+    {
+        "semestre": 8,
+        "sigla": "FHC-345",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA III"
+    },
+    {
+        "semestre": 9,
+        "sigla": "IMA-352",
+        "asignatura": "TALLER DE GRADO I"
+    },
+    {
+        "semestre": 9,
+        "sigla": "IMA-336",
+        "asignatura": "AGROECOLOGIA Y SISTEMAS ALIMENTARIOS"
+    },
+    {
+        "semestre": 9,
+        "sigla": "IMA-328",
+        "asignatura": "PLANIFICACIÓN INTEGRAL DEL TERRITORIO"
+    },
+    {
+        "semestre": 9,
+        "sigla": "IMA-327",
+        "asignatura": "GESTIÓN INTEGRAL DEL AGUA Y MANEJO DE CUENCAS"
+    },
+    {
+        "semestre": 10,
+        "sigla": "IMA-352",
+        "asignatura": "TALLER DE GRADO II"
+    }
+]
+},
+{ "carrera": "INGENIERÍA CIVIL",
+"departamento": "DCEI",
+  "materias": [
+    {
+        "semestre": 1,
+        "sigla": "MAT-132",
+        "asignatura": "CÁLCULO I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "MAT-123",
+        "asignatura": "ÁLGEBRA LINEAL"
+    },
+    {
+        "semestre": 1,
+        "sigla": "FIS-111",
+        "asignatura": "FÍSICA I Y LABORATORIO"
+    },
+    {
+        "semestre": 1,
+        "sigla": "CIV-111",
+        "asignatura": "DIBUJO TÉCNICO COMPUTARIZADO"
+    },
+    {
+        "semestre": 1,
+        "sigla": "CIV-161",
+        "asignatura": "ESCRITURA ACADÉMICA"
+    },
+    {
+        "semestre": 1,
+        "sigla": "CIV-162",
+        "asignatura": "METODOLOGÍA DE LA INVESTIGACIÓN"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FIS-112",
+        "asignatura": "FÍSICA II Y LABORATORIO"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-133",
+        "asignatura": "CALCULO II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-142",
+        "asignatura": "PROBABILIDAD Y ESTADÍSTICA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-111",
+        "asignatura": "GEOMETRÍA DESCRIPTIVA"
+    },
+    {
+        "semestre": 2,
+        "sigla": "CIV-112",
+        "asignatura": "TOPOGRAFÍA"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FHC-125",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "MAT-135",
+        "asignatura": "ECUACIONES DIFERENCIALES ORDINARIAS"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CIV-113",
+        "asignatura": "COMPUTACIÓN PARA ING. CIVIL"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CIV-121",
+        "asignatura": "GEOLOGÍA"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CIV-131",
+        "asignatura": "RESISTENCIA DE MATERIALES"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CIV-141",
+        "asignatura": "HIDROLOGÍA"
+    },
+    {
+        "semestre": 3,
+        "sigla": "CIV-151",
+        "asignatura": "TRÁFICO Y VIALIDAD"
+    },
+    {
+        "semestre": 4,
+        "sigla": "CIV-211",
+        "asignatura": "SISTEMAS DE INFORMACIÓN GEOGRÁFICA"
+    },
+    {
+        "semestre": 4,
+        "sigla": "CIV-221",
+        "asignatura": "MECÁNICA DE SUELOS Y LABORATORIO"
+    },
+    {
+        "semestre": 4,
+        "sigla": "CIV-222",
+        "asignatura": "MATERIALES DE CONSTRUCCIÓN"
+    },
+    {
+        "semestre": 4,
+        "sigla": "CIV-231",
+        "asignatura": "ESTRUCTURAS ISOSTÁTICAS"
+    },
+    {
+        "semestre": 4,
+        "sigla": "CIV-241",
+        "asignatura": "HIDRÁULICA I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "CIV-251",
+        "asignatura": "CARRETERAS"
+    },
+    {
+        "semestre": 5,
+        "sigla": "CIV-223",
+        "asignatura": "GEOTECNIA Y LABORATORIO"
+    },
+    {
+        "semestre": 5,
+        "sigla": "CIV-232",
+        "asignatura": "ESTRUCTURAS HIPERESTÁTICAS I"
+    },
+    {
+        "semestre": 5,
+        "sigla": "CIV-233",
+        "asignatura": "ESTRUCTURAS DE MADERA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "CIV-242",
+        "asignatura": "HIDRÁULICA II"
+    },
+    {
+        "semestre": 5,
+        "sigla": "CIV-243",
+        "asignatura": "ING. SANITARIA I"
+    },
+    {
+        "semestre": 5,
+        "sigla": "CIV-252",
+        "asignatura": "PAVIMENTOS Y LABORATORIO"
+    },
+    {
+        "semestre": 6,
+        "sigla": "CIV-234",
+        "asignatura": "ESTRUCTURAS HIPERESTÁTICAS II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "CIV-235",
+        "asignatura": "ESTRUCTURAS METÁLICAS"
+    },
+    {
+        "semestre": 6,
+        "sigla": "CIV-244",
+        "asignatura": "ING. SANITARIA II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "CIV-351",
+        "asignatura": "MAQUINARIA DE CONSTRUCCIÓN"
+    },
+    {
+        "semestre": 6,
+        "sigla": "FHC-235",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA II"
+    },
+    {
+        "semestre": 6,
+        "asignatura": "OPTATIVA 1"
+    },
+    {
+        "semestre": 7,
+        "sigla": "CIV-321",
+        "asignatura": "TECNOLOGÍA DEL HORMIGÓN Y LABORATORIO"
+    },
+    {
+        "semestre": 7,
+        "sigla": "CIV-331",
+        "asignatura": "ESTRUCTURAS DE HORMIGÓN ARMADO I"
+    },
+    {
+        "semestre": 7,
+        "sigla": "CIV-341",
+        "asignatura": "INSTALACIONES EN EDIFICIOS"
+    },
+    {
+        "semestre": 7,
+        "sigla": "CIV-342",
+        "asignatura": "GESTIÓN AMBIENTAL DE PROYECTOS CIVILES"
+    },
+    {
+        "semestre": 7,
+        "asignatura": "OPTATIVA 2"
+    },
+    {
+        "semestre": 7,
+        "sigla": "FHC-345",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA III"
+    },
+    {
+        "semestre": 8,
+        "sigla": "CIV-333",
+        "asignatura": "ESTRUCTURAS DE HORMIGÓN ARMADO II"
+    },
+    {
+        "semestre": 8,
+        "sigla": "CIV-334",
+        "asignatura": "HORMIGÓN PRETENSADO"
+    },
+    {
+        "semestre": 8,
+        "sigla": "CIV-343",
+        "asignatura": "OBRAS HIDRÁULICAS"
+    },
+    {
+        "semestre": 8,
+        "sigla": "CIV-361",
+        "asignatura": "GESTIÓN DE PROYECTOS"
+    },
+    {
+        "semestre": 8,
+        "sigla": "CIV-362",
+        "asignatura": "CONSTRUCCIONES CIVILES"
+    },
+    {
+        "semestre": 9,
+        "sigla": "CIV-335",
+        "asignatura": "PUENTES"
+    },
+    {
+        "semestre": 9,
+        "sigla": "CIV-336",
+        "asignatura": "FUNDACIONES"
+    },
+    {
+        "semestre": 9,
+        "sigla": "CIV-363",
+        "asignatura": "PRÁCTICA PRE-PROFESIONAL"
+    },
+    {
+        "semestre": 9,
+        "sigla": "CIV-365",
+        "asignatura": "TALLER DE GRADO I"
+    },
+    {
+        "semestre": 9,
+        "sigla": "CIV-364",
+        "asignatura": "DIRECCIÓN Y ADMINISTRACIÓN DE OBRAS"
+    },
+    {
+        "semestre": 10,
+        "sigla": "CIV-366",
+        "asignatura": "TALLER DE GRADO II"
+    }
+]
+},
+{ "carrera": "INGENIERÍA INDUSTRIAL",
+"departamento": "DCEI",
+  "materias": [
+    {
+        "semestre": 1,
+        "sigla": "QMC-111",
+        "asignatura": "QUÍMICA GENERAL Y LABORATORIO"
+    },
+    {
+        "semestre": 1,
+        "sigla": "SIS-111",
+        "asignatura": "INTRODUCCIÓN A LA PROGRAMACIÓN"
+    },
+    {
+        "semestre": 1,
+        "sigla": "IND-101",
+        "asignatura": "INTRODUCCIÓN A LA INGENIERÍA INDUSTRIAL"
+    },
+    {
+        "semestre": 1,
+        "sigla": "IND-120",
+        "asignatura": "DIBUJO TÉCNICO INDUSTRIAL"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ECO-100",
+        "asignatura": "ECONOMÍA  GENERAL"
+    },
+    {
+        "semestre": 1,
+        "sigla": "FHC-125",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-132",
+        "asignatura": "CÁLCULO I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-123",
+        "asignatura": "ALGEBRA LINEAL"
+    },
+    {
+        "semestre": 2,
+        "sigla": "QMC-121",
+        "asignatura": "QUÍMICA ORGÁNICA I Y LABORATORIO"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FIS-111",
+        "asignatura": "FÍSICA I Y LABORATORIO"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-430",
+        "asignatura": "MATLAB PARA INGENIERÍA"
+    },
+    {
+        "semestre": 2,
+        "sigla": "IND-132",
+        "asignatura": "CONTABILIDAD Y COSTOS INDUSTRIALES I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "MAT-133",
+        "asignatura": "CÁLCULO II"
+    },
+    {
+        "semestre": 3,
+        "sigla": "MAT-142",
+        "asignatura": "PROBABILIDAD Y ESTADÍSTICA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "QMC-131",
+        "asignatura": "QUÍMICA FÍSICA Y LABORATORIO"
+    },
+    {
+        "semestre": 3,
+        "sigla": "FIS-113",
+        "asignatura": "ELECTRICIDAD Y MAGNETISMO"
+    },
+    {
+        "semestre": 3,
+        "sigla": "IND-133",
+        "asignatura": "CONTABILIDAD Y COSTOS INDUSTRIALES II"
+    },
+    {
+        "semestre": 3,
+        "sigla": "IND-260",
+        "asignatura": "METODOLOGÍA DE LA INVESTIGACIÓN"
+    },
+    {
+        "semestre": 4,
+        "sigla": "MAT-135",
+        "asignatura": "ECUACIONES DIFERENCIALES ORDINARIAS"
+    },
+    {
+        "semestre": 4,
+        "sigla": "MAT-241",
+        "asignatura": "PROBABILIDAD Y ESTADÍSTICA II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IND-210",
+        "asignatura": "TERMODINÁMICA Y LABORATORIO"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IND-200",
+        "asignatura": "ELECTROTECNIA Y LABORATORIO"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IND-201",
+        "asignatura": "CIENCIA DE LOS MATERIALES"
+    },
+    {
+        "semestre": 4,
+        "sigla": "MAT-251",
+        "asignatura": "INVESTIGACIÓN OPERATIVA I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IND-231",
+        "asignatura": "GESTIÓN DE PERSONAS Y SU COMPORTAMIENTO"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IND-223",
+        "asignatura": "INGENIERÍA DE MÉTODOS Y LABORATORIO"
+    },
+    {
+        "semestre": 5,
+        "sigla": "MAT-252",
+        "asignatura": "INVESTIGACION OPERATIVA II Y LABORATORIO"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IND-202",
+        "asignatura": "TECNOLOGIA MECANICA Y LABORATORIO"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IND-212",
+        "asignatura": "PROCESOS UNITARIOS I Y LABORATORIO"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IND-233",
+        "asignatura": "INGENIERIA ECONOMICA I"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IND-230",
+        "asignatura": "INV. DE MERCADOS Y COMERCIALIZACION"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IND-224",
+        "asignatura": "ERGONOMIA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IND-213",
+        "asignatura": "PROCESOS UNITARIOS II Y LABORATORIO"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IND-225",
+        "asignatura": "SISTEMAS DE PRODUCCION I"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IND-234",
+        "asignatura": "INGENIERIA ECONOMICA II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IND-241",
+        "asignatura": "SEGURIDAD Y SALUD OCUPACIONAL"
+    },
+    {
+        "semestre": 6,
+        "sigla": "FHC-235",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA II"
+    },
+    {
+        "semestre": 6,
+        "asignatura": "LIBRE I"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IND-203",
+        "asignatura": "PROCESOS AUTOMATIZADOS Y LABORATORIO"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IND-214",
+        "asignatura": "PROCESOS INDUSTRIALES I"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IND-227",
+        "asignatura": "SIMULACIÓN Y OPTIMIZACIÓN INDUSTRIAL"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IND-235",
+        "asignatura": "GESTIÓN DE LA CADENA DE SUMINISTRO"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IND-226",
+        "asignatura": "SISTEMAS DE PRODUCCION II"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IND-242",
+        "asignatura": "CONTROL ESTADISTICO DE LA CALIDAD"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ADM-252",
+        "asignatura": "EMPRENDIMIENTOS II"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IND-315",
+        "asignatura": "PROCESOS INDUSTRIALES II"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IND-323",
+        "asignatura": "DISEÑO DE PRODUCTOS Y DESARROLLO"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IND-330",
+        "asignatura": "PREPARACION Y EVALUACION DE PROYECTOS PARA INGENIERÍA"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IND-342",
+        "asignatura": "GESTION DE LA CALIDAD"
+    },
+    {
+        "semestre": 8,
+        "sigla": "FHC-345",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA III"
+    },
+    {
+        "semestre": 8,
+        "asignatura": "LIBRE II"
+    },
+    {
+        "semestre": 8,
+        "asignatura": "LIBRE III"
+    },
+    {
+        "semestre": 9,
+        "sigla": "IND-360",
+        "asignatura": "PRÁCTICA PRE PROFESIONAL"
+    },
+    {
+        "semestre": 9,
+        "sigla": "IND-361",
+        "asignatura": "TALLER DE GRADO I"
+    },
+    {
+        "semestre": 10,
+        "sigla": "IND-362",
+        "asignatura": "TALLER DE GRADO II"
+    }
+]
+},
+{ "carrera": "INGENIERÍA MECATRÓNICA",
+"departamento": "DCEI",
+  "materias": [
+    {
+        "semestre": 1,
+        "sigla": "MAT-132",
+        "asignatura": "CÁLCULO I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "MAT-123",
+        "asignatura": "ALGEBRA LINEAL"
+    },
+    {
+        "semestre": 1,
+        "sigla": "IND-120",
+        "asignatura": "DIBUJO TÉCNICO INDUSTRIAL"
+    },
+    {
+        "semestre": 1,
+        "sigla": "SIS-111",
+        "asignatura": "INTRODUCCIÓN A LA PROGRAMACIÓN"
+    },
+    {
+        "semestre": 1,
+        "sigla": "IMT-141",
+        "asignatura": "INTRODUCCIÓN A LA MECATRÓNICA"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-133",
+        "asignatura": "CÁLCULO II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-142",
+        "asignatura": "PROBABILIDAD Y ESTADÍSTICA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FIS-111",
+        "asignatura": "FÍSICA I Y LABORATORIO"
+    },
+    {
+        "semestre": 2,
+        "sigla": "IMT-121",
+        "asignatura": "CIRCUITOS ELECTRÓNICOS I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "SIS-112",
+        "asignatura": "PROGRAMACIÓN I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "MAT-134",
+        "asignatura": "CÁLCULO III"
+    },
+    {
+        "semestre": 3,
+        "sigla": "FIS-113",
+        "asignatura": "ELECTRICIDAD Y ELECTROMAGNETISMO"
+    },
+    {
+        "semestre": 3,
+        "sigla": "FIS-112",
+        "asignatura": "FÍSICA II Y LABORATORIO"
+    },
+    {
+        "semestre": 3,
+        "sigla": "IMT-122",
+        "asignatura": "CIRCUITOS ELECTRÓNICOS II"
+    },
+    {
+        "semestre": 3,
+        "sigla": "IMT-123",
+        "asignatura": "CIRCUITOS DIGITALES"
+    },
+    {
+        "semestre": 3,
+        "sigla": "FHC-125",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "MAT-135",
+        "asignatura": "ECUACIONES DIFERENCIALES ORDINARIAS"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IMT-211",
+        "asignatura": "MECANISMOS"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IND-202",
+        "asignatura": "TECNOLOGÍA MECÁNICA Y LAB."
+    },
+    {
+        "semestre": 4,
+        "sigla": "IMT-221",
+        "asignatura": "CIRCUITOS ELECTRÓNICOS III"
+    },
+    {
+        "semestre": 4,
+        "sigla": "SIS-122",
+        "asignatura": "BASES DE DATOS I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IMT-241",
+        "asignatura": "NEUMÁTICA E HIDRÁULICA"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IMT-242",
+        "asignatura": "MÁQUINAS ELÉCTRICAS"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IMT-212",
+        "asignatura": "DISEÑO DE MÁQUINAS"
+    },
+    {
+        "semestre": 5,
+        "sigla": "SIS-214",
+        "asignatura": "PROGRAMACIÓN DE DISPOSITIVOS MÓVILES"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IMT-231",
+        "asignatura": "PROGRAMACIÓN SUPERIOR"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IMT-243",
+        "asignatura": "FUNDAMENTOS DE CONTROL"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IMT-244",
+        "asignatura": "SEÑALES Y SISTEMAS"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IND-260",
+        "asignatura": "METODOLOGÍA DE LA INVESTIGACIÓN"
+    },
+    {
+        "semestre": 5,
+        "sigla": "FHC-235",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IMT-222",
+        "asignatura": "SISTEMAS EMBEBIDOS I"
+    },
+    {
+        "semestre": 6,
+        "sigla": "SIS-241",
+        "asignatura": "TECNOLOGÍAS WEB"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IMT-245",
+        "asignatura": "CONTROL I"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IMT-246",
+        "asignatura": "ELECTRÓNICA DE POTENCIA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IND-330",
+        "asignatura": "PREPARACIÓN Y EVALUACIÓN DE PROYECTOS"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IMT-311",
+        "asignatura": "PROTOTIPADO RÁPIDO"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IMT-312",
+        "asignatura": "MANUFACTURA INTEGRADA"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IMT-322",
+        "asignatura": "SISTEMAS EMBEBIDOS II"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IMT-323",
+        "asignatura": "AUTOTRÓNICA"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IMT-341",
+        "asignatura": "CONTROL II"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IMT-247",
+        "asignatura": "INSTRUMENTACIÓN INDUSTRIAL"
+    },
+    {
+        "semestre": 7,
+        "sigla": "FHC-347",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA III"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IMT-313",
+        "asignatura": "DISEÑO SUPERIOR DE INGENIERÍA"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IND-323",
+        "asignatura": "DISEÑO DE PRODUCTOS Y DESARROLLO"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IMT-325",
+        "asignatura": "TECNOLOGÍA VESTIBLE"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IMT-324",
+        "asignatura": "DOMÓTICA"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IMT-342",
+        "asignatura": "ROBÓTICA"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IMT-343",
+        "asignatura": "AUTOMATIZACIÓN INDUSTRIAL"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IND-241",
+        "asignatura": "SEGURIDAD Y SALUD OCUPACIONAL"
+    },
+    {
+        "semestre": 9,
+        "sigla": "IMT-314",
+        "asignatura": "BIOMECÁNICA Y BIOMATERIALES"
+    },
+    {
+        "semestre": 9,
+        "sigla": "SIS-234",
+        "asignatura": "INTERNET DE LAS COSAS"
+    },
+    {
+        "semestre": 9,
+        "sigla": "SIS-341",
+        "asignatura": "SISTEMAS INTELIGENTES"
+    },
+    {
+        "semestre": 9,
+        "sigla": "IMT-344",
+        "asignatura": "VISIÓN ARTIFICIAL"
+    },
+    {
+        "semestre": 9,
+        "sigla": "IMT-326",
+        "asignatura": "IDENTIFICACIÓN DE SISTEMAS"
+    },
+    {
+        "semestre": 9,
+        "sigla": "IMT-353",
+        "asignatura": "TALLER DE GRADO I"
+    },
+    {
+        "semestre": 9,
+        "sigla": "IMT-352",
+        "asignatura": "PRÁCTICAS PREPROFESIONALES"
+    },
+    {
+        "semestre": 10,
+        "sigla": "IMT-354",
+        "asignatura": "TALLER DE GRADO II"
+    }
+]
+},
+{ "carrera": "INGENIERÍA QUÍMICA",
+"departamento": "DCEI",
+  "materias": [
+    {
+        "semestre": 1,
+        "sigla": "MAT-132",
+        "asignatura": "CALCULO I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "QMC-111",
+        "asignatura": "QUIMICA GENERAL I Y LABORATORIO"
+    },
+    {
+        "semestre": 1,
+        "sigla": "FIS-111",
+        "asignatura": "FISICA I Y LABORATORIO"
+    },
+    {
+        "semestre": 1,
+        "sigla": "IND-120",
+        "asignatura": "DIBUJO TECNICO INDUSTRIAL"
+    },
+    {
+        "semestre": 1,
+        "sigla": "CAR-109",
+        "asignatura": "ESCRITURA ACADEMICA"
+    },
+    {
+        "semestre": 1,
+        "sigla": "QMC-110",
+        "asignatura": "INTRODUCCIÓN A LA INGENIERIA QUIMICA"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-133",
+        "asignatura": "CALCULO II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-123",
+        "asignatura": "ALGEBRA LINEAL"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT 142",
+        "asignatura": "PROBABILIDAD Y ESTADISTICA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "QMC-112",
+        "asignatura": "QUIMICA GENERAL II Y LABORATORIO"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FIS-113",
+        "asignatura": "ELECTRICIDAD Y ELECTROMAGNETISMO LABORATORIO"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FHC-125",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "MAT-135",
+        "asignatura": "ECUACIONES DIFERENCIALES ORDINARIAS"
+    },
+    {
+        "semestre": 3,
+        "sigla": "MAT-262",
+        "asignatura": "ANALISIS NUMERICO"
+    },
+    {
+        "semestre": 3,
+        "sigla": "IQM-152",
+        "asignatura": "PROGRAMACION EN MATEMATICA APLICADA"
+    },
+    {
+        "semestre": 3,
+        "sigla": "QMC-121",
+        "asignatura": "QUIMICA ORGANICA I Y LABORATORIO"
+    },
+    {
+        "semestre": 3,
+        "sigla": "QMC-131",
+        "asignatura": "QUIMICA FISICA Y LABORATORIO"
+    },
+    {
+        "semestre": 3,
+        "sigla": "IQM-113",
+        "asignatura": "QUIMICA ANALITICA Y ANALISIS INSTRUMENTAL Y LABORATORIO"
+    },
+    {
+        "semestre": 4,
+        "sigla": "MAT-251",
+        "asignatura": "INVESTIGACION OPERATIVA I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "QMC-122",
+        "asignatura": "QUIMICA ORGANICA II Y LABORATORIO"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IQM-223",
+        "asignatura": "QUIMICA FISICA II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IQM-231",
+        "asignatura": "MECANICA DE FLUIDOS Y LABORATORIO"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IQM-221",
+        "asignatura": "TERMODINAMICA QUIMICA Y LABORATORIO"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IQM-241",
+        "asignatura": "GEOQUIMICA APLICADA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IMT-121",
+        "asignatura": "CIRCUITOS ELECTRONICOS I Y LABORATORIO"
+    },
+    {
+        "semestre": 5,
+        "sigla": "MAT-243",
+        "asignatura": "ANALISIS Y DISEÑO DE EXPERIMENTOS"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IQM-232",
+        "asignatura": "TRANSFERENCIA DE CALOR Y LABORATORIO"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IQM-252",
+        "asignatura": "ANALISIS ECONOMICO EN INGENIERIA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IQM-253",
+        "asignatura": "INGENIERIA BIOQUIMICA Y LABORATORIO"
+    },
+    {
+        "semestre": 5,
+        "sigla": "FHC-235",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IQM-233",
+        "asignatura": "PROCESOS DE SEPARACION I Y LABORATORIO"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IQM-234",
+        "asignatura": "PETROQUIMICA Y LABORATORIO"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IQM-351",
+        "asignatura": "SEGURIDAD EN PROCESOS QUIMICOS"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IQM-222",
+        "asignatura": "CONTROL DE PROCESOS Y LABORATORIO"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IQM-235",
+        "asignatura": "QUIMICA FINA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "---",
+        "asignatura": "OPTATIVA I"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IQM-352",
+        "asignatura": "MODELADO, SIMULACION Y OPTIMIZACION"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IQM-331",
+        "asignatura": "CINETICA Y REACTORES HOMOGENEOS Y LABORATORIO"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IQM-321",
+        "asignatura": "DISEÑO DE PLANTAS"
+    },
+    {
+        "semestre": 7,
+        "sigla": "IQM-361",
+        "asignatura": "SINTESIS ORGANICA Y LABORATORIO"
+    },
+    {
+        "semestre": 7,
+        "sigla": "FHC-345",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA III"
+    },
+    {
+        "semestre": 7,
+        "sigla": "---",
+        "asignatura": "OPTATIVA II"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IQM-332",
+        "asignatura": "DISEÑO DE REACTORES HETEROGENEOS Y LABORATORIO"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IQM-322",
+        "asignatura": "FENOMENOS DE TRANSPORTE"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IQM-342",
+        "asignatura": "PRACTICA PRE PROFESIONAL"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IQM-391",
+        "asignatura": "TALLER DE GRADO I"
+    },
+    {
+        "semestre": 9,
+        "sigla": "IQM-392",
+        "asignatura": "TALLER DE GRADO II"
+    }
+]
+},
+{ "carrera": "INGENIERÍA DE SISTEMAS",
+"departamento": "DCEI",
+  "materias": [
+    {
+        "semestre": 1,
+        "sigla": "MAT-132",
+        "asignatura": "CÁLCULO I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "MAT-123",
+        "asignatura": "ALGEBRA LINEAL"
+    },
+    {
+        "semestre": 1,
+        "sigla": "MAT-122",
+        "asignatura": "MATEMÁTICAS DISCRETAS"
+    },
+    {
+        "semestre": 1,
+        "sigla": "SIS-111",
+        "asignatura": "INTRODUCCIÓN A LA PROGRAMACIÓN"
+    },
+    {
+        "semestre": 1,
+        "sigla": "SIS-121",
+        "asignatura": "INGENIERIA DE SISTEMAS I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-133",
+        "asignatura": "CÁLCULO II "
+    },
+    {
+        "semestre": 2,
+        "sigla": "FIS-111",
+        "asignatura": "FÍSICA I Y LABORATORIO"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-142",
+        "asignatura": "PROBABILIDAD Y ESTADÍSTICA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "SIS-112",
+        "asignatura": "PROGRAMACIÓN I "
+    },
+    {
+        "semestre": 2,
+        "sigla": "SIS-131",
+        "asignatura": "ARQUITECTURA DE COMPUTADORAS"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FHC-125",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "MAT-251",
+        "asignatura": "INVESTIGACIÓN OPERATIVA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "SIS-113",
+        "asignatura": "PROGRAMACIÓN II"
+    },
+    {
+        "semestre": 3,
+        "sigla": "FIS-112",
+        "asignatura": "ELECTRICIDAD Y ELECTROMAGNETISMO"
+    },
+    {
+        "semestre": 3,
+        "sigla": "SIS-122",
+        "asignatura": "BASES DE DATOS I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "MAT-143",
+        "asignatura": "PROBABILIDAD Y ESTADÍSTICA II "
+    },
+    {
+        "semestre": 3,
+        "sigla": "SIS-132",
+        "asignatura": "SISTEMAS OPERATIVOS"
+    },
+    {
+        "semestre": 4,
+        "sigla": "MAT-252",
+        "asignatura": "INVESTIGACIÓN OPERATIVA II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "MAT-135",
+        "asignatura": "ECUACIONES DIFERENCIALES ORDINARIAS"
+    },
+    {
+        "semestre": 4,
+        "sigla": "SIS-221",
+        "asignatura": "BASES DE DATOS II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "SIS-211",
+        "asignatura": "ESTRUCTURAS DE DATOS"
+    },
+    {
+        "semestre": 4,
+        "sigla": "SIS-222",
+        "asignatura": "SISTEMAS DE INFORMACIÓN I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "SIS-151",
+        "asignatura": "METODOLOGÍA DE LA INVESTIGACIÓN"
+    },
+    {
+        "semestre": 5,
+        "sigla": "MAT-262",
+        "asignatura": "ANÁLISIS NUMÉRICO "
+    },
+    {
+        "semestre": 5,
+        "sigla": "SIS-224",
+        "asignatura": "MODELADO,DINÁMICA DE SISTEMAS Y SIMULACIÓN"
+    },
+    {
+        "semestre": 5,
+        "sigla": "SIS-223",
+        "asignatura": "SISTEMAS DE INFORMACIÓN II"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ECO-100",
+        "asignatura": "ECONOMÍA GENERAL"
+    },
+    {
+        "semestre": 5,
+        "sigla": "SIS-231",
+        "asignatura": "REDES DE COMPUTADORAS I "
+    },
+    {
+        "semestre": 5,
+        "sigla": "FHC-235",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "SIS-213",
+        "asignatura": "INGENIERÍA DE SOFTWARE"
+    },
+    {
+        "semestre": 6,
+        "sigla": "SIS-241",
+        "asignatura": "TECNOLOGÍAS WEB "
+    },
+    {
+        "semestre": 6,
+        "sigla": "SIS-225",
+        "asignatura": "SISTEMAS DE INFORMACIÓN III"
+    },
+    {
+        "semestre": 6,
+        "sigla": "SIS-233",
+        "asignatura": "REDES DE COMPUTADORAS II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "SIS-234",
+        "asignatura": "INTERNET DE LAS COSAS "
+    },
+    {
+        "semestre": 6,
+        "sigla": "ADM-112",
+        "asignatura": "ADMINISTRACIÓN II"
+    },
+    {
+        "semestre": 7,
+        "sigla": "SIS-311",
+        "asignatura": "ARQUITECTURA DE SOFTWARE"
+    },
+    {
+        "semestre": 7,
+        "asignatura": "OPTATIVA I "
+    },
+    {
+        "semestre": 7,
+        "sigla": "SIS-341",
+        "asignatura": "SISTEMAS INTELIGENTES"
+    },
+    {
+        "semestre": 7,
+        "sigla": "SIS-321",
+        "asignatura": "SEGURIDAD DE SISTEMAS "
+    },
+    {
+        "semestre": 7,
+        "sigla": "SIS-322",
+        "asignatura": "GERENCIA DE LAS TIC "
+    },
+    {
+        "semestre": 7,
+        "sigla": "FHC-347",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA III"
+    },
+    {
+        "semestre": 8,
+        "sigla": "SIS-313",
+        "asignatura": "TALLER DE DESARROLLO DE SOFTWARE"
+    },
+    {
+        "semestre": 8,
+        "asignatura": "OPTATIVA II"
+    },
+    {
+        "semestre": 8,
+        "sigla": "SIS-312",
+        "asignatura": "GESTIÓN DE CALIDAD DE SISTEMAS "
+    },
+    {
+        "semestre": 8,
+        "sigla": "SIS-323",
+        "asignatura": "TALLER DE SISTEMAS DE INFORMACIÓN"
+    },
+    {
+        "semestre": 8,
+        "sigla": "ADM-261",
+        "asignatura": "GERENCIA DE OPERACIONES Y TECNOLOGÍA"
+    },
+    {
+        "semestre": 8,
+        "sigla": "IND-330",
+        "asignatura": "PREPARACIÓN Y EVALUACIÓN DE PROYECTOS PARA INGIENERÍA"
+    },
+    {
+        "semestre": 9,
+        "sigla": "SIS-314",
+        "asignatura": "PROGRAMACIÓN DE DISPOSITIVOS MÓVILES"
+    },
+    {
+        "semestre": 9,
+        "sigla": "SIS-324",
+        "asignatura": "AUDITORÍA DE SISTEMAS"
+    },
+    {
+        "semestre": 9,
+        "sigla": "DER-394",
+        "asignatura": "DERECHO DE LAS TIC Y ÉTICA"
+    },
+    {
+        "semestre": 9,
+        "sigla": "SIS-352",
+        "asignatura": "PRÁCTICA PRE PROFESIONAL "
+    },
+    {
+        "semestre": 9,
+        "sigla": "SIS-353",
+        "asignatura": "TALLER DE GRADO I"
+    },
+    {
+        "semestre": 10,
+        "sigla": "SIS-354",
+        "asignatura": "TALLER DE GRADO II"
+    }
+]
+},
+{ "carrera": "INGENIERÍA DE TELECOMUNICACIONES",
+"departamento": "DCEI",
+  "materias": [
+    {
+        "semestre": 1,
+        "sigla": "FIS-111",
+        "asignatura": "FÍSICA I Y LABORATORIO"
+    },
+    {
+        "semestre": 1,
+        "sigla": "MAT-132",
+        "asignatura": "CÁLCULO I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "TEL-101",
+        "asignatura": "INTRODUCCIÓN A LA INGENIERÍA DE TELECOMUNICACIONES"
+    },
+    {
+        "semestre": 1,
+        "sigla": "SIS-111",
+        "asignatura": "INTRODUCCIÓN A LA PROGRAMACIÓN"
+    },
+    {
+        "semestre": 1,
+        "sigla": "CIV-161",
+        "asignatura": "ESCRITURA ACADÉMICA"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-123",
+        "asignatura": "ÁLGEBRA LINEAL"
+    },
+    {
+        "semestre": 2,
+        "sigla": "SIS-120",
+        "asignatura": "MATEMÁTICAS DISCRETAS"
+    },
+    {
+        "semestre": 2,
+        "sigla": "MAT-133",
+        "asignatura": "CÁLCULO II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FIS-113",
+        "asignatura": "ELECTRICIDAD Y ELECTROMAGNETISMO"
+    },
+    {
+        "semestre": 2,
+        "sigla": "SIS-112",
+        "asignatura": "PROGRAMACIÓN I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FHC-125",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "MAT-134",
+        "asignatura": "CÁLCULO III"
+    },
+    {
+        "semestre": 3,
+        "sigla": "MAT-142",
+        "asignatura": "PROBABILIDAD Y ESTADÍSTICA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "IMT-121",
+        "asignatura": "CIRCUITOS ELECTRÓNICOS I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "SIS-113",
+        "asignatura": "PROGRAMACIÓN II"
+    },
+    {
+        "semestre": 3,
+        "sigla": "IMT-123",
+        "asignatura": "CIRCUITOS DIGITALES"
+    },
+    {
+        "semestre": 3,
+        "sigla": "IND-260",
+        "asignatura": "METODOLOGÍA DE INVESTIGACIÓN"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IMT-122",
+        "asignatura": "CIRCUITOS ELECTRÓNICOS II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "SIS-211",
+        "asignatura": "ESTRUCTURAS DE DATOS"
+    },
+    {
+        "semestre": 4,
+        "sigla": "IMT-222",
+        "asignatura": "SISTEMAS EMBEBIDOS I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "MAT-135",
+        "asignatura": "ECUACIONES DIFERENCIALES"
+    },
+    {
+        "semestre": 4,
+        "sigla": "TEL-221",
+        "asignatura": "FUNDAMENTOS DE REDES DE DATOS"
+    },
+    {
+        "semestre": 4,
+        "sigla": "TEL-211",
+        "asignatura": "COMUNICACIONES ANALÓGICAS"
+    },
+    {
+        "semestre": 5,
+        "sigla": "TEL-213",
+        "asignatura": "LÍNEAS DE TRANSMISIÓN Y ANTENAS"
+    },
+    {
+        "semestre": 5,
+        "sigla": "TEL-212",
+        "asignatura": "COMUNICACIONES DIGITALES"
+    },
+    {
+        "semestre": 5,
+        "sigla": "FHC-235",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA II"
+    },
+    {
+        "semestre": 5,
+        "sigla": "TEL-222",
+        "asignatura": "REDES DE ÁREA LOCAL"
+    },
+    {
+        "semestre": 5,
+        "sigla": "IMT-244",
+        "asignatura": "SEÑALES Y SISTEMAS"
+    },
+    {
+        "semestre": 5,
+        "sigla": "TEL-214",
+        "asignatura": "PROPAGACIÓN Y RADIOENLACES"
+    },
+    {
+        "semestre": 6,
+        "sigla": "TEL-215",
+        "asignatura": "TELEVISIÓN DIGITAL Y TRANSMISIÓN MULTIMEDIA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "IND-330",
+        "asignatura": "PREPARACIÓN Y EVALUACIÓN DE PROYECTOS PARA INGENIERÍA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "TEL-223",
+        "asignatura": "SERVICIOS DE INTERNET/INTRANET"
+    },
+    {
+        "semestre": 6,
+        "sigla": "TEL-216",
+        "asignatura": "SISTEMAS DE INFORMACIÓN EN TELEFONÍA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "TEL-217",
+        "asignatura": "SISTEMAS DE TRANSMISIÓN, MEDIOS ÓPTICOS Y LABORATORIO"
+    },
+    {
+        "semestre": 6,
+        "asignatura": "OPTATIVA I"
+    },
+    {
+        "semestre": 7,
+        "sigla": "FHC-347",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA III"
+    },
+    {
+        "semestre": 7,
+        "asignatura": "OPTATIVA II"
+    },
+    {
+        "semestre": 7,
+        "sigla": "TEL-321",
+        "asignatura": "SEGURIDAD EN REDES DE TELECOMUNICACIONES"
+    },
+    {
+        "semestre": 7,
+        "sigla": "TEL-311",
+        "asignatura": "INSTALACIONES DE TELECOMUNICACIONES"
+    },
+    {
+        "semestre": 7,
+        "sigla": "TEL-341",
+        "asignatura": "LEGISLACIÓN Y ÉTICA EN TELECOMUNICACIONES"
+    },
+    {
+        "semestre": 7,
+        "sigla": "TEL-342",
+        "asignatura": "PRÁCTICA PREPROFESIONAL"
+    },
+    {
+        "semestre": 8,
+        "sigla": "TEL-314",
+        "asignatura": "COMUNICACIONES SATELITALES"
+    },
+    {
+        "semestre": 8,
+        "sigla": "TEL-315",
+        "asignatura": "SISTEMAS DE COMUNICACIONES MÓVILES E INALÁMBRICAS"
+    },
+    {
+        "semestre": 8,
+        "sigla": "TEL-312",
+        "asignatura": "SISTEMAS DE GESTIÓN DE TELECOMUNICACIONES"
+    },
+    {
+        "semestre": 8,
+        "sigla": "TEL-313",
+        "asignatura": "SISTEMAS DE SERVICIOS CONVERGENTES"
+    },
+    {
+        "semestre": 8,
+        "sigla": "TEL-343",
+        "asignatura": "TALLER DE GRADO I"
+    },
+    {
+        "semestre": 9,
+        "sigla": "TEL-344",
+        "asignatura": "TALLER DE GRADO II"
+    }
+]
+},
+{ "carrera": "ARQUITECTURA",
+"departamento": "DCSH",
+  "materias": [
+    {
+        "semestre": 1,
+        "sigla": "CIV-111",
+        "asignatura": "DIBUJO TÉCNICO COMPUTARIZADO"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ARQ-111",
+        "asignatura": "TALLER DE DISEÑO I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ARQ-121",
+        "asignatura": "EXPRESION I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ARQ-180",
+        "asignatura": "ARQUITECTURA Y SOCIEDAD"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ARQ-151",
+        "asignatura": "CONCEPTOS ESTRUCTURALES"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ARQ-102",
+        "asignatura": "TECNICAS DE REPRESENTACION EN ORDENADOR II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ARQ-112",
+        "asignatura": "TALLER DE DISEÑO II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ARQ-122",
+        "asignatura": "EXPRESION II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ARQ-141",
+        "asignatura": "INTRODUCCION A LA EDIFICACION"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ARQ-171",
+        "asignatura": "HISTORIA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FHC-125",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ARQ-104",
+        "asignatura": "ESCRITURA ACADEMICA"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ARQ-103",
+        "asignatura": "FABRICACION DIGITAL"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ARQ-213",
+        "asignatura": "TALLER DE DISEÑO III"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ARQ-223",
+        "asignatura": "MORFOLOGIA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ARQ-241",
+        "asignatura": "EDIFICACIONES I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ARQ-251",
+        "asignatura": "DISEÑO ESTRUCTURAL I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ARQ-272",
+        "asignatura": "HISTORIA II"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ARQ-260",
+        "asignatura": "MEDIOAMBIENTE Y DESARROLLO SOSTENIBLE"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ARQ-214",
+        "asignatura": "TALLER DE DISEÑO IV"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ARQ-224",
+        "asignatura": "MORFOLOGIA II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ARQ-231",
+        "asignatura": "URBANISMO"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ARQ-242",
+        "asignatura": "EDIFICACIONES II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ARQ-252",
+        "asignatura": "DISEÑO ESTRUCTURAL II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ARQ-273",
+        "asignatura": "HISTORIA III"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ARQ-215",
+        "asignatura": "TALLER DE DISEÑO V"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ARQ-225",
+        "asignatura": "CREATICA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ARQ-232",
+        "asignatura": "DISEÑO URBANO I"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ARQ-243",
+        "asignatura": "EDIFICACIONES III"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ARQ-253",
+        "asignatura": "DISEÑO ESTRUCTURAL III"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ARQ-261",
+        "asignatura": "INSTALACIONES I"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ARQ-274",
+        "asignatura": "HISTORIA IV"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ARQ-216",
+        "asignatura": "TALLER DE DISEÑO VI"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ARQ-233",
+        "asignatura": "DISEÑO URBANO II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ARQ-262",
+        "asignatura": "INSTALACIONES II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ARQ-275",
+        "asignatura": "HISTORIA V"
+    },
+    {
+        "semestre": 6,
+        "sigla": "FHC-235",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA II"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ARQ-317",
+        "asignatura": "TALLER DE DISEÑO VII"
+    },
+    {
+        "semestre": 8,
+        "sigla": "ARQ-318",
+        "asignatura": "TALLER DE DISEÑO VIII"
+    },
+    {
+        "semestre": 8,
+        "sigla": "ARQ-329",
+        "asignatura": "INVESTIGACION EN DISEÑO"
+    },
+    {
+        "semestre": 8,
+        "sigla": "FHC-345",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA III"
+    },
+    {
+        "semestre": 9,
+        "sigla": "ARQ-319",
+        "asignatura": "TALLER DE GRADO I"
+    },
+    {
+        "semestre": 9,
+        "sigla": "ARQ-389",
+        "asignatura": "PRACTICA PROFESIONAL"
+    },
+    {
+        "semestre": 9,
+        "sigla": "ARQ-320",
+        "asignatura": "TALLER DE GRADO II"
+    }
+]
+},
+{ "carrera": "ANTROPOLOGÍA",
+"departamento": "DCSH",
+  "materias": [
+    {
+        "semestre": 1,
+        "sigla": "ANT-111",
+        "asignatura": "PROYECTOS SOCIOCULTURALES I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ANT-121",
+        "asignatura": "FILOSOFÍA INTERCULTURAL"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ANT-131",
+        "asignatura": "CULTURAS AMERICANAS"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ANT-141",
+        "asignatura": "ANTROPOLOGÍA GENERAL"
+    },
+    {
+        "semestre": 1,
+        "sigla": "ANT-151",
+        "asignatura": "TÉCNICAS DE INVESTIGACIÓN"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ANT-112",
+        "asignatura": "ANTROPOLOGÍA ECONÓMICA"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ANT-122",
+        "asignatura": "ANTROPOLOGÍA DEL DESARROLLO PLURAL"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ANT-123",
+        "asignatura": "ANTROPOLOGÍA RELIGIOSA"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ANT-132",
+        "asignatura": "ANTROPOLOGÍA CULTURAL BOLIVIANA"
+    },
+    {
+        "semestre": 2,
+        "sigla": "ANT-142",
+        "asignatura": "TEORÍAS ANTROPOLÓGICAS"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FHC-124",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ANT-113",
+        "asignatura": "PROYECTOS SOCIOCULTURALES II"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ANT-124",
+        "asignatura": "MEDIACIÓN INTERCULTURAL"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ANT-125",
+        "asignatura": "ANTROPOLOGÍA ECOLÓGICA"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ANT-126",
+        "asignatura": "HISTORIA DE LA CONQUISTA Y EVANGELIZACIÒN"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ANT-133",
+        "asignatura": "ANTROPOLOGÍA DE LA COMUNICACIÓN"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ANT-143",
+        "asignatura": "METODOLOGÍA DE INVESTIGACIÓN"
+    },
+    {
+        "semestre": 3,
+        "sigla": "ANT-355",
+        "asignatura": "MANEJO DE PLATAFORMAS VIRTUALES"
+    },
+    {
+        "semestre": 3,
+        "asignatura": "OPTATIVA I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ANT-211",
+        "asignatura": "GESTIÓN CULTURAL DEL TURISMO"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ANT-221",
+        "asignatura": "ANTROPOLOGÍA MÉDICA"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ANT-222",
+        "asignatura": "ECOSISTEMAS AMERICANOS Y BOLIVIANOS"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ANT-231",
+        "asignatura": "ANTROPOLOGÍA LINGÜÍSTICA"
+    },
+    {
+        "semestre": 4,
+        "sigla": "ANT-241",
+        "asignatura": "INVESTIGACIÓN ETNOGRÁFICA"
+    },
+    {
+        "semestre": 4,
+        "sigla": "FHC-234",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA II"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ANT-212",
+        "asignatura": "ANTROPOLOGÍA DEL CONSUMO"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ANT-223",
+        "asignatura": "ANTROPOLOGÍA JURÍDICA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ANT-224",
+        "asignatura": "ANTROPOLOGÍA URBANA I"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ANT-232",
+        "asignatura": "ANTROPOLOGÍA VISUAL"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ANT-242",
+        "asignatura": "EPISTEMOLOGÍA DE LA ANTROPOLOGÍA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "ANT-251",
+        "asignatura": "REDACCIÓN CIENTÍFICA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ANT-225",
+        "asignatura": "ANTROPOLOGÍA DEL GÉNERO"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ANT-226",
+        "asignatura": "ANTROPOLOGÍA POLÍTICA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ANT-243",
+        "asignatura": "DISEÑO DOCUMENTAL ETNOGRÁFICO"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ANT-252",
+        "asignatura": "TALLER DE LENGUA ORIGINARIA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "ANT-344",
+        "asignatura": "PATRIMONIO CULTURAL"
+    },
+    {
+        "semestre": 6,
+        "asignatura": "OPTATIVA II"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ANT-311",
+        "asignatura": "PROYECTOS SOCIOCULTURALES III"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ANT-271",
+        "asignatura": "ANTROPOLOGÍA URBANA II"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ANT-272",
+        "asignatura": "ETNICIDAD E IDENTIDADES"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ANT-227",
+        "asignatura": "TEOLOGÍA DE LAS CULTURAS"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ANT-331",
+        "asignatura": "EDUCACIÓN INTRA E INTERCULTURAL"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ANT-341",
+        "asignatura": "METODOLOGÍA Y ENFOQUES DE LA ETNOHISTORIA"
+    },
+    {
+        "semestre": 7,
+        "sigla": "ANT-351",
+        "asignatura": "PRÁCTICA PREPROFESIONAL"
+    },
+    {
+        "semestre": 8,
+        "sigla": "ANT-342",
+        "asignatura": "ÉTICA EN LA INVESTIGACIÓN ETNOGRÁFICA"
+    },
+    {
+        "semestre": 8,
+        "sigla": "ANT-352",
+        "asignatura": "TALLER DE GRADO I"
+    },
+    {
+        "semestre": 8,
+        "sigla": "ANT-357",
+        "asignatura": "DISEÑO GRÁFICO EN LA WEB"
+    },
+    {
+        "semestre": 8,
+        "asignatura": "OPTATIVA III"
+    },
+    {
+        "semestre": 8,
+        "sigla": "FHC-344",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA III"
+    },
+    {
+        "semestre": 9,
+        "sigla": "ANT-354",
+        "asignatura": "TALLER DE GRADO II"
+    }
+]
+},
+{ "carrera": "COMUNICACIÓN SOCIAL",
+"departamento": "DCSH",
+  "materias": [
+    {
+        "semestre": 1,
+        "sigla": "COM-121",
+        "asignatura": "TALLER DE EXPRESIÓN Y FACILITACIÓN"
+    },
+    {
+        "semestre": 1,
+        "sigla": "COM-141",
+        "asignatura": "PENSAMIENTO CRÍTICO"
+    },
+    {
+        "semestre": 1,
+        "sigla": "COM-142",
+        "asignatura": "INTRODUCCIÓN A LA COMUNICACIÓN"
+    },
+    {
+        "semestre": 1,
+        "sigla": "COM-151",
+        "asignatura": "REDACCIÓN I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "COM-152",
+        "asignatura": "TALLER DE FOTOGRAFÍA Y DISEÑO"
+    },
+    {
+        "semestre": 1,
+        "sigla": "COM-171",
+        "asignatura": "EXPRESIÓN ORAL Y LOCUCIÓN"
+    },
+    {
+        "semestre": 2,
+        "sigla": "COM-111",
+        "asignatura": "INTRODUCCIÓN AL PERIODISMO"
+    },
+    {
+        "semestre": 2,
+        "sigla": "COM-122",
+        "asignatura": "DERECHOS HUMANOS Y CIUDADANÍA"
+    },
+    {
+        "semestre": 2,
+        "sigla": "COM-143",
+        "asignatura": "INTRODUCCIÓN A LAS CIENCIAS SOCIALES"
+    },
+    {
+        "semestre": 2,
+        "sigla": "COM-144",
+        "asignatura": "ESTUDIOS DE ACTUALIDAD I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "COM-153",
+        "asignatura": "REDACCIÓN II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "COM-154",
+        "asignatura": "REGISTRO Y EDICIÓN AUDIOVISUAL"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FHC-125",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "COM-112",
+        "asignatura": "PRODUCCIÓN DE NOTICIAS I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "COM-123",
+        "asignatura": "COMUNICACIÓN Y TEORÍAS DE DESARROLLO"
+    },
+    {
+        "semestre": 3,
+        "sigla": "COM-131",
+        "asignatura": "INTRODUCCIÓN A LA COMUNICACIÓN CORPORATIVA"
+    },
+    {
+        "semestre": 3,
+        "sigla": "COM-145",
+        "asignatura": "ANÁLISIS TRANSDISCIPLINARIO I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "COM-155",
+        "asignatura": "NARRATIVA RADIOFÓNICA"
+    },
+    {
+        "semestre": 3,
+        "asignatura": "IDIOMA NATIVO"
+    },
+    {
+        "semestre": 4,
+        "sigla": "COM-211",
+        "asignatura": "PRODUCCIÓN DE NOTICIAS II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "COM-221",
+        "asignatura": "TALLER DE EDUCOMUNICACIÓN"
+    },
+    {
+        "semestre": 4,
+        "sigla": "COM-231",
+        "asignatura": "MARKETING Y PUBLICIDAD"
+    },
+    {
+        "semestre": 4,
+        "sigla": "COM-241",
+        "asignatura": "ANÁLISIS TRANSDISCIPLINARIO II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "COM-251",
+        "asignatura": "NARRATIVA AUDIOVISUAL"
+    },
+    {
+        "semestre": 4,
+        "asignatura": "LIBRE II"
+    },
+    {
+        "semestre": 5,
+        "sigla": "COM-212",
+        "asignatura": "PERIODISMO IMPRESO"
+    },
+    {
+        "semestre": 5,
+        "sigla": "COM-222",
+        "asignatura": "PROYECTOS I"
+    },
+    {
+        "semestre": 5,
+        "sigla": "COM-232",
+        "asignatura": "IMAGEN CORPORATIVA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "COM-242",
+        "asignatura": "ANÁLISIS TRANSDISCIPLINARIO III"
+    },
+    {
+        "semestre": 5,
+        "sigla": "COM-252",
+        "asignatura": "NARRATIVA CINEMATOGRÁFICA"
+    },
+    {
+        "semestre": 5,
+        "asignatura": "LIBRE III"
+    },
+    {
+        "semestre": 5,
+        "sigla": "FHC-235",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "COM-213",
+        "asignatura": "PERIODISMO RADIOFÓNICO"
+    },
+    {
+        "semestre": 6,
+        "sigla": "COM-223",
+        "asignatura": "PROYECTOS II"
+    },
+    {
+        "semestre": 6,
+        "sigla": "COM-233",
+        "asignatura": "REPUTACIÓN CORPORATIVA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "COM-243",
+        "asignatura": "ANÁLISIS TRANSDISCIPLINARIO IV"
+    },
+    {
+        "semestre": 6,
+        "sigla": "COM-253",
+        "asignatura": "NARRATIVA MULTIMEDIA"
+    },
+    {
+        "semestre": 6,
+        "asignatura": "LIBRE IV"
+    },
+    {
+        "semestre": 7,
+        "sigla": "COM-311",
+        "asignatura": "PERIODISMO TELEVISIVO"
+    },
+    {
+        "semestre": 7,
+        "sigla": "COM-341",
+        "asignatura": "ESTUDIOS DE ACTUALIDAD II"
+    },
+    {
+        "semestre": 7,
+        "sigla": "COM-351",
+        "asignatura": "NARRATIVA TRANSMEDIA"
+    },
+    {
+        "semestre": 7,
+        "asignatura": "LIBRE V"
+    },
+    {
+        "semestre": 7,
+        "sigla": "COM-361",
+        "asignatura": "LABORATORIO DE PRODUCCIÓN"
+    },
+    {
+        "semestre": 7,
+        "sigla": "FHC-347",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA III"
+    },
+    {
+        "semestre": 8,
+        "sigla": "COM-362",
+        "asignatura": "PRÁCTICAS PREPROFESIONALES"
+    },
+    {
+        "semestre": 8,
+        "sigla": "COM-363",
+        "asignatura": "TALLER DE GRADO I"
+    },
+    {
+        "semestre": 9,
+        "sigla": "COM-364",
+        "asignatura": "TALLER DE GRADO II"
+    }
+]
+},
+{ "carrera": "DERECHO",
+"departamento": "DCSH",
+  "materias": [
+    {
+        "semestre": 1,
+        "sigla": "DER-112",
+        "asignatura": "POTESTAD PENAL Y TEORÍA DEL DELITO"
+    },
+    {
+        "semestre": 1,
+        "sigla": "DER-111",
+        "asignatura": "TEORÍA DEL ESTADO"
+    },
+    {
+        "semestre": 1,
+        "sigla": "DER-113",
+        "asignatura": "INSTITUCIONES DEL DERECHO ROMANO"
+    },
+    {
+        "semestre": 1,
+        "sigla": "DER-114",
+        "asignatura": "TEORÍA GENERAL DEL DERECHO"
+    },
+    {
+        "semestre": 1,
+        "sigla": "DER-115",
+        "asignatura": "ESCRITURA ACADÉMICA/PENSAMIENTO CRITICO"
+    },
+    {
+        "semestre": 1,
+        "sigla": "FHC-125",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "DER-122",
+        "asignatura": "TIPOLOGÍA PENAL Y ESTUDIO DE LOS DELITOS"
+    },
+    {
+        "semestre": 2,
+        "sigla": "DER-237",
+        "asignatura": "DERECHO CANÓNICO"
+    },
+    {
+        "semestre": 2,
+        "sigla": "DER-124",
+        "asignatura": "LÓGICA Y ARGUMENTACIÓN JURÍDICA"
+    },
+    {
+        "semestre": 2,
+        "sigla": "DER-121",
+        "asignatura": "TEORÍA DE LA CONSTITUCIÓN."
+    },
+    {
+        "semestre": 2,
+        "sigla": "DER-123",
+        "asignatura": "SUJETOS DE DERECHO"
+    },
+    {
+        "semestre": 2,
+        "sigla": "DER-126",
+        "asignatura": "METODOLOGÍA DE LA INVESTIGACIÓN JURÍDICA"
+    },
+    {
+        "semestre": 3,
+        "sigla": "DER-236",
+        "asignatura": "DERECHO NATURAL"
+    },
+    {
+        "semestre": 3,
+        "sigla": "DER-235",
+        "asignatura": "INTERPRETACIÓN JURISPRUDENCIAL"
+    },
+    {
+        "semestre": 3,
+        "sigla": "DER-234",
+        "asignatura": "DERECHO PROCESAL"
+    },
+    {
+        "semestre": 3,
+        "sigla": "DER-231",
+        "asignatura": "DERECHO CONSTITUCIONAL ORGÁNICO"
+    },
+    {
+        "semestre": 3,
+        "sigla": "DER-232",
+        "asignatura": "PLURALISMO JURÍDICO"
+    },
+    {
+        "semestre": 3,
+        "sigla": "DER-233",
+        "asignatura": "TEORÍA GENERAL DEL CONTRATO"
+    },
+    {
+        "semestre": 3,
+        "sigla": "FHC-235",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "DER-243",
+        "asignatura": "DERECHO AGROAMBIENTAL"
+    },
+    {
+        "semestre": 4,
+        "sigla": "DER-242",
+        "asignatura": "DERECHO ADMINISTRATIVO"
+    },
+    {
+        "semestre": 4,
+        "sigla": "DER-247",
+        "asignatura": "DERECHO AUTONÓMICO"
+    },
+    {
+        "semestre": 4,
+        "sigla": "DER-246",
+        "asignatura": "SISTEMAS ORALES Y METODOLOGÍA DE LA AUDIENCIA"
+    },
+    {
+        "semestre": 4,
+        "sigla": "DER-245",
+        "asignatura": "ESTRATEGIAS PROBATORIAS"
+    },
+    {
+        "semestre": 4,
+        "sigla": "DER-241",
+        "asignatura": "DERECHO PROCESAL CONSTITUCIONAL"
+    },
+    {
+        "semestre": 4,
+        "sigla": "DER-244",
+        "asignatura": "DERECHO DE LAS OBLIGACIONES"
+    },
+    {
+        "semestre": 5,
+        "sigla": "DER-253",
+        "asignatura": "DERECHO INTERNACIONAL PÚBLICO"
+    },
+    {
+        "semestre": 5,
+        "sigla": "DER-254",
+        "asignatura": "DERECHO PROCESAL PENAL I"
+    },
+    {
+        "semestre": 5,
+        "sigla": "DER-258",
+        "asignatura": "MEDIOS ALTERNATIVOS DE SOLUCIÓN DE CONFLICTOS"
+    },
+    {
+        "semestre": 5,
+        "sigla": "DER-251",
+        "asignatura": "DERECHO DE LAS FAMILIAS"
+    },
+    {
+        "semestre": 5,
+        "sigla": "DER-252",
+        "asignatura": "DERECHO DE LA MUJER Y DEL NIÑO, NIÑA Y ADOLESCENTE"
+    },
+    {
+        "semestre": 5,
+        "sigla": "DER-256",
+        "asignatura": "BIENES Y DERECHOS REALES"
+    },
+    {
+        "semestre": 5,
+        "sigla": "DER-257",
+        "asignatura": "DERECHO COMERCIAL"
+    },
+    {
+        "semestre": 5,
+        "sigla": "FHC-348",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA III"
+    },
+    {
+        "semestre": 6,
+        "sigla": "DER-264",
+        "asignatura": "DERECHO TRIBUTARIO"
+    },
+    {
+        "semestre": 6,
+        "sigla": "DER-262",
+        "asignatura": "DERECHO PROCESAL ADMINISTRATIVO"
+    },
+    {
+        "semestre": 6,
+        "sigla": "DER-263",
+        "asignatura": "DERECHO REGULATORIO"
+    },
+    {
+        "semestre": 6,
+        "sigla": "DER-273",
+        "asignatura": "DERECHO DEL TRABAJO Y PROCESAL LABORAL"
+    },
+    {
+        "semestre": 6,
+        "sigla": "DER-265",
+        "asignatura": "CONTRATOS CIVILES"
+    },
+    {
+        "semestre": 6,
+        "sigla": "DER-266",
+        "asignatura": "CONTRATOS COMERCIALES"
+    },
+    {
+        "semestre": 6,
+        "sigla": "DER-267",
+        "asignatura": "DERECHO PROCESAL CIVIL I."
+    },
+    {
+        "semestre": 7,
+        "sigla": "DER-268",
+        "asignatura": "ÉTICA Y DEONTOLOGÍA JURÍDICA"
+    },
+    {
+        "semestre": 7,
+        "sigla": "DER-277",
+        "asignatura": "FILOSOFÍA JURÍDICA"
+    },
+    {
+        "semestre": 7,
+        "sigla": "DER-271",
+        "asignatura": "DERECHO DE LA SEGURIDAD SOCIAL"
+    },
+    {
+        "semestre": 7,
+        "sigla": "DER-272",
+        "asignatura": "DERECHOS HUMANOS"
+    },
+    {
+        "semestre": 7,
+        "sigla": "DER-275",
+        "asignatura": "DERECHO DE LAS SUCESIONES"
+    },
+    {
+        "semestre": 7,
+        "sigla": "DER-276",
+        "asignatura": "DERECHO PROCESAL CIVIL II"
+    },
+    {
+        "semestre": 8,
+        "sigla": "DER-382",
+        "asignatura": "GESTIÓN PÚBLICA Y CONTROL GUBERNAMENTAL"
+    },
+    {
+        "semestre": 8,
+        "sigla": "DER-384",
+        "asignatura": "CLÍNICA JURÍDICA I"
+    },
+    {
+        "semestre": 8,
+        "sigla": "DER-381",
+        "asignatura": "PROTECCIÓN INTERNACIONAL DE LOS DERECHOS HUMANOS"
+    },
+    {
+        "semestre": 8,
+        "sigla": "DER-383",
+        "asignatura": "DERECHO INTERNACIONAL PRIVADO"
+    },
+    {
+        "semestre": 8,
+        "sigla": "DER-385",
+        "asignatura": "TALLER DE GRADO I"
+    },
+    {
+        "semestre": 9,
+        "sigla": "DER-391",
+        "asignatura": "CLÍNICA JURÍDICA II"
+    },
+    {
+        "semestre": 9,
+        "sigla": "DER-392",
+        "asignatura": "TALLER DE GRADO II:"
+    }
+]
+},
+{ "carrera": "FILOSOFÍA Y LETRAS",
+"departamento": "DCSH",
+  "materias": [
+    {
+        "semestre": 1,
+        "sigla": "FIL-141",
+        "asignatura": "HISTORIA DE LA FILOSOFÍA ANTIGUA"
+    },
+    {
+        "semestre": 1,
+        "sigla": "FIL-151",
+        "asignatura": "AXIOLOGÍA"
+    },
+    {
+        "semestre": 1,
+        "sigla": "FIL-136",
+        "asignatura": "HISTORIA Y TEORÍA DE LA LITERATURA I"
+    },
+    {
+        "semestre": 1,
+        "sigla": "FIL-111",
+        "asignatura": "TALLER DE ESCRITURA"
+    },
+    {
+        "semestre": 1,
+        "sigla": "FHC-125",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FIL-142",
+        "asignatura": "HISTORIA DE LA FILOSOFÍA MEDIEVAL"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FIL-112",
+        "asignatura": "INVESTIGACIÓN"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FIL-137",
+        "asignatura": "HISTORIA Y TEORÍA DE LA LITERATURA II"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FIL-152",
+        "asignatura": "ÉTICA"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FIL-161",
+        "asignatura": "LENGUA CLÁSICA I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FIL-132",
+        "asignatura": "TEORÍA Y CRÍTICA LITERARIA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "FIL-144",
+        "asignatura": "HISTORIA DE LA FILOSOFÍA MODERNA"
+    },
+    {
+        "semestre": 3,
+        "sigla": "FIL-143",
+        "asignatura": "ANTROPOLOGÍA FILOSÓFICA"
+    },
+    {
+        "semestre": 3,
+        "sigla": "FIL-153",
+        "asignatura": "METAFÍSICA"
+    },
+    {
+        "semestre": 3,
+        "sigla": "FIL-121",
+        "asignatura": "LÓGICA I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "FIL-134",
+        "asignatura": "TALLER DE ESTUDIOS CLÁSICOS I"
+    },
+    {
+        "semestre": 3,
+        "sigla": "FIL-162",
+        "asignatura": "LENGUA CLÁSICA II"
+    },
+    {
+        "semestre": 3,
+        "asignatura": "OPTATIVA I"
+    },
+    {
+        "semestre": 4,
+        "sigla": "FIL-147",
+        "asignatura": "HISTORIA DE LA FILOSOFÍA CONTEMPORÁNEA"
+    },
+    {
+        "semestre": 4,
+        "sigla": "FIL-122",
+        "asignatura": "LÓGICA II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "FIL-145",
+        "asignatura": "FILOSOFÍA DE LA TECNOLOGÍA"
+    },
+    {
+        "semestre": 4,
+        "sigla": "FIL-123",
+        "asignatura": "GNOSEOLOGÍA"
+    },
+    {
+        "semestre": 4,
+        "sigla": "FIL-135",
+        "asignatura": "TALLER DE ESTUDIOS CLÁSICOS II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "FIL-133",
+        "asignatura": "TEORÍA Y CRÍTICA LITERARIA II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "FHC-.235",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA II"
+    },
+    {
+        "semestre": 5,
+        "sigla": "FIL-242",
+        "asignatura": "HISTORIA DE LA FILOSOFÍA LATINOAMERICANA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "FIL-250",
+        "asignatura": "FILOSOFÍA POLÍTICA Y SOCIAL"
+    },
+    {
+        "semestre": 5,
+        "sigla": "FIL-243",
+        "asignatura": "FILOSOFÍA DE LA EDUCACIÓN"
+    },
+    {
+        "semestre": 5,
+        "sigla": "FIL-246",
+        "asignatura": "FILOSOFÍA DE LA HISTORIA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "FIL-251",
+        "asignatura": "ÉTICA APLICADA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "FIL-231",
+        "asignatura": "TALLER DE ESCRITURA CREATIVA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "FIL-231",
+        "asignatura": "LITERATURA LATINOAMERICANA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "FIL-232",
+        "asignatura": "FILOSOFÍA BOLIVIANA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "FIL-240",
+        "asignatura": "FILOSOFÍA DEL LENGUAJE"
+    },
+    {
+        "semestre": 6,
+        "sigla": "FIL-261",
+        "asignatura": "LITERATURA DEL SIGLO XX"
+    },
+    {
+        "semestre": 6,
+        "sigla": "FIL-342",
+        "asignatura": "DIDÁCTICA DE LA FILOSOFÍA Y LITERATURA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "FIL-252",
+        "asignatura": "ONTOLOGÍA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "FIL-211",
+        "asignatura": "TALLER DE ENSAYOS FILOSÓFICOS Y LITERARIOS"
+    },
+    {
+        "semestre": 7,
+        "sigla": "FIL-249 ",
+        "asignatura": "EPISTEMOLOGÍA"
+    },
+    {
+        "semestre": 7,
+        "sigla": "FIL-248",
+        "asignatura": "FILOSOFÍA DE LA RELIGIÓN"
+    },
+    {
+        "semestre": 7,
+        "sigla": "FIL-221",
+        "asignatura": "HERMENÉUTICA I"
+    },
+    {
+        "semestre": 7,
+        "sigla": "FIL-241",
+        "asignatura": "TALLER DE TÉCNICAS DIALÓGICAS"
+    },
+    {
+        "semestre": 7,
+        "sigla": "FIL-247",
+        "asignatura": "FILOSOFÍA DE LA CULTURA"
+    },
+    {
+        "semestre": 7,
+        "sigla": "FIL-234",
+        "asignatura": "LITERATURA BOLIVIANA"
+    },
+    {
+        "semestre": 8,
+        "sigla": "FIL-311",
+        "asignatura": "METODOLOGÍA DE LA INVESTIGACIÓN"
+    },
+    {
+        "semestre": 8,
+        "sigla": "FIL-341 ",
+        "asignatura": "TALLER DE ASESORÍA PARA EL DIÁLOGO Y LA PROFUNDIZACIÓN DE SABERES"
+    },
+    {
+        "semestre": 8,
+        "sigla": "FIL-323",
+        "asignatura": "HERMENÉUTICA II"
+    },
+    {
+        "semestre": 8,
+        "sigla": "FIL-321",
+        "asignatura": "SEMINARIO FILOSÓFICO I"
+    },
+    {
+        "semestre": 8,
+        "sigla": "FIL-331",
+        "asignatura": "ESTÉTICA"
+    },
+    {
+        "semestre": 8,
+        "sigla": "FHC-348",
+        "asignatura": "FORMACIÓN HUMANO CRISTIANA III"
+    },
+    {
+        "semestre": 9,
+        "sigla": "FIL-322",
+        "asignatura": "SEMINARIO FILOSÓFICO II"
+    },
+    {
+        "semestre": 9,
+        "sigla": "FIL-351",
+        "asignatura": "FORMULACIÓN DE PROYECTOS DE DESARROLLO"
+    },
+    {
+        "semestre": 9,
+        "sigla": "FIL-362",
+        "asignatura": "TALLER DE GRADO I"
+    },
+    {
+        "semestre": 9,
+        "sigla": "FIL-361",
+        "asignatura": "PRÁCTICA PREPROFESIONAL"
+    },
+    {
+        "semestre": 9,
+        "asignatura": "OPTATIVA II"
+    },
+    {
+        "semestre": 10,
+        "sigla": "FIL-363",
+        "asignatura": "TALLER DE GRADO II"
+    }
+]
+},
+{ "carrera": "PSICOLOGÍA",
+"departamento": "DCSH",
+  "materias": [
+    {
+        "semestre": 1,
+        "sigla": "PSI-121",
+        "asignatura": "PSICOFISIOLOGÍA"
+    },
+    {
+        "semestre": 1,
+        "sigla": "PSI-101",
+        "asignatura": "INTRODUCCIÓN A LA PSICOLOGÍA"
+    },
+    {
+        "semestre": 1,
+        "sigla": "PSI-125",
+        "asignatura": "ANTROPOLOGÍA CULTURAL DE LA IDENTIDAD"
+    },
+    {
+        "semestre": 1,
+        "sigla": "PSI-104",
+        "asignatura": "PSICOLOGÍA DEL DESARROLLO INFANTIL"
+    },
+    {
+        "semestre": 1,
+        "sigla": "PSI-107",
+        "asignatura": "TEORÍAS Y PARADIGMAS ACTUALES DE LA PSICOLOGÍA"
+    },
+    {
+        "semestre": 1,
+        "sigla": "COM-141",
+        "asignatura": "PENSAMIENTO CRÍTICO"
+    },
+    {
+        "semestre": 2,
+        "sigla": "PSI-128",
+        "asignatura": "PSICOBIOLOGÍA Y NEUROCIENCIA"
+    },
+    {
+        "semestre": 2,
+        "sigla": "PSI-124",
+        "asignatura": "EPISTEMOLOGÍA DE LAS CIENCIAS HUMANAS Y SOCIALES"
+    },
+    {
+        "semestre": 2,
+        "sigla": "PSI-127",
+        "asignatura": "PSICOLOGÍA DEL DESARROLLO ADOLESCENCIA-ADULTEZ"
+    },
+    {
+        "semestre": 2,
+        "sigla": "PSI-112",
+        "asignatura": "PSICOLOGÍA COGNITIVA"
+    },
+    {
+        "semestre": 2,
+        "asignatura": "LIBRE I"
+    },
+    {
+        "semestre": 2,
+        "sigla": "FHC-125",
+        "asignatura": "ANTROPOLOGÍA CRISTIANA"
+    },
+    {
+        "semestre": 3,
+        "sigla": "PSI-123",
+        "asignatura": "PSICOLINGÜÍSTICA"
+    },
+    {
+        "semestre": 3,
+        "sigla": "PSI-253",
+        "asignatura": "PSICOLOGÍA Y SALUD"
+    },
+    {
+        "semestre": 3,
+        "sigla": "SOC-245",
+        "asignatura": "PSICOLOGÍA SOCIAL"
+    },
+    {
+        "semestre": 3,
+        "sigla": "SOC-244",
+        "asignatura": "PSICOLOGÍA DE LA COMUNICACIÓN SOCIAL"
+    },
+    {
+        "semestre": 3,
+        "sigla": "SOC-143",
+        "asignatura": "TEORÍAS DE LA PERSONALIDAD"
+    },
+    {
+        "semestre": 3,
+        "sigla": "SOC-143",
+        "asignatura": "ANÁLISIS DE LA CONDUCTA APLICADA"
+    },
+    {
+        "semestre": 3,
+        "sigla": "PSI-136",
+        "asignatura": "PSICOESTADÍSTICA"
+    },
+    {
+        "semestre": 4,
+        "sigla": "PSI-245",
+        "asignatura": "PSICOLOGÍA DE GRUPOS"
+    },
+    {
+        "semestre": 4,
+        "sigla": "PSI-241",
+        "asignatura": "PSICOANÁLISIS"
+    },
+    {
+        "semestre": 4,
+        "sigla": "PSI-242",
+        "asignatura": "PSICOPATOLOGÍA PSIQUIÁTRICA"
+    },
+    {
+        "semestre": 4,
+        "sigla": "PSI-244",
+        "asignatura": "PSICOLOGÍA EDUCATIVA Y DEL APRENDIZAJE"
+    },
+    {
+        "semestre": 4,
+        "asignatura": "LIBRE II"
+    },
+    {
+        "semestre": 4,
+        "sigla": "FHC-235",
+        "asignatura": "CRISTOLOGÍA"
+    },
+    {
+        "semestre": 4,
+        "sigla": "PSI-243",
+        "asignatura": "ÉTICA, RESPONSABILIDAD LEGAL Y SOCIAL EN LA PSICOLOGÍA\n"
+    },
+    {
+        "semestre": 5,
+        "sigla": "PSI-251",
+        "asignatura": "EVALUACIÓN PSICOLÓGICA Y TÉCNICAS PROYECTIVAS"
+    },
+    {
+        "semestre": 5,
+        "sigla": "PSI-264",
+        "asignatura": "PSICOSOCIOLOGÍA APLICADA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "PSI-252",
+        "asignatura": "PSICOPATOLOGÍA PSICODINÁMICA"
+    },
+    {
+        "semestre": 5,
+        "sigla": "PSI-261",
+        "asignatura": "PSICOLOGÍA FORENSE"
+    },
+    {
+        "semestre": 5,
+        "sigla": "PSI-254",
+        "asignatura": "MEDICIÓN EN PSICOLOGÍA"
+    },
+    {
+        "semestre": 5,
+        "asignatura": "LIBRE III"
+    },
+    {
+        "semestre": 5,
+        "sigla": "PSI-255",
+        "asignatura": "INVESTIGACIÓN CUANTITATIVA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "PSI-262",
+        "asignatura": "NEGOCIACIÓN DE CONFLICTOS Y  CONCILIACIÓN"
+    },
+    {
+        "semestre": 6,
+        "sigla": "PSI-375",
+        "asignatura": "PSICOLOGÍA DEL TRABAJO Y LAS ORGANIZACIONES"
+    },
+    {
+        "semestre": 6,
+        "sigla": "PSI-263",
+        "asignatura": "MODELOS DE PSICODIAGNÓSTICO"
+    },
+    {
+        "semestre": 6,
+        "sigla": "PSI-386",
+        "asignatura": "EDUCACIÓN INCLUSIVA"
+    },
+    {
+        "semestre": 6,
+        "sigla": "FHC-348",
+        "asignatura": "DOCTRINA SOCIAL DE LA IGLESIA: DERECHOS HUMANOS, FAMILIA Y SOCIEDAD"
+    },
+    {
+        "semestre": 6,
+        "sigla": "PSI-265",
+        "asignatura": "INVESTIGACIÓN CUALITATIVA"
+    },
+    {
+        "semestre": 7,
+        "sigla": "PSI-373",
+        "asignatura": "PROYECTOS SOCIALES Y COMUNITARIOS"
+    },
+    {
+        "semestre": 7,
+        "sigla": "PSI-383",
+        "asignatura": "RECURSOS HUMANOS Y RELACIONES LABORALES"
+    },
+    {
+        "semestre": 7,
+        "sigla": "PSI-372",
+        "asignatura": "NEUROPSICOLOGÍA"
+    },
+    {
+        "semestre": 7,
+        "sigla": "PSI-371",
+        "asignatura": "INTERVENCIÓN SISTÉMICA"
+    },
+    {
+        "semestre": 7,
+        "sigla": "PSI-379",
+        "asignatura": "INTERVENCIÓN COGNITIVA"
+    },
+    {
+        "semestre": 7,
+        "sigla": "PSI-381",
+        "asignatura": "INTERVENCIÓN PSICOEDUCATIVA"
+    },
+    {
+        "semestre": 8,
+        "sigla": "PSI-374",
+        "asignatura": "INTERVENCIÓN EN PSICOLOGÍA COMUNITARIA"
+    },
+    {
+        "semestre": 8,
+        "sigla": "PSI-382",
+        "asignatura": "INTERVENCIÓN EN CLÍNICA PSICOANALÍTICA"
+    },
+    {
+        "semestre": 8,
+        "sigla": "PSI-384",
+        "asignatura": "PRÁCTICAS PREPROFESIONALES"
+    },
+    {
+        "semestre": 8,
+        "sigla": "PSI-385",
+        "asignatura": "TALLER DE GRADO I"
+    },
+    {
+        "semestre": 9,
+        "sigla": "PSI-391",
+        "asignatura": "TALLER DE GRADO II"
+    }
+]
+}]

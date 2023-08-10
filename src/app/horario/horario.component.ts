@@ -146,10 +146,17 @@ export class HorarioComponent implements OnInit{
     }*/
     this.runFunctionWhileHovered(paral);
   }
-  stopFunction(): void {
+  stopFunction(paral:HorarioMateria): void {
     this.isHovered = false;
+    this.deleteHorarioMateria(paral)
   }
 
+  deleteHorarioMateria(paral:HorarioMateria){
+    const modifiedArray = this.userScheduleData.map(innerArray =>
+      innerArray.map(item => item === paral.sigla ? "" : item)
+    );
+    this.userScheduleData = modifiedArray;
+  }
   runFunctionWhileHovered(paral:HorarioMateria): void {
     if (this.isHovered) {
       

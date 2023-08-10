@@ -33,7 +33,7 @@
             </mat-panel-description>
           </mat-expansion-panel-header>
           <div *ngIf="mat.paralelos">
-            <div *ngFor="let par of mat.paralelos" (mouseenter)="onHover(par)" (mouseleave)="stopFunction()">
+            <div *ngFor="let par of mat.paralelos" (mouseenter)="onHover(par)" (mouseleave)="stopFunction(par)">
               <span>Paralelo: {{par.paralelo}}</span>
               <span>Cupos: {{par.disponibles}}</span>
               <p>Horario: {{par.horario}}</p>

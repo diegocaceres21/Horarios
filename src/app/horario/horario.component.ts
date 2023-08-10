@@ -159,12 +159,20 @@ export class HorarioComponent implements OnInit{
         let dia = this.days.indexOf(horarioSeparado[i])
         //Trabajamos con la hora
         const timeSlotRange =horarioSeparado[i + 1].split(' - ');
-        const startTimeSlotIndex = this.timeSlots.indexOf(timeSlotRange[0]);
-        const endTimeSlotIndex = this.timeSlots.indexOf(timeSlotRange[1]);
+        let horasInicioFin = [timeSlotRange[0], timeSlotRange[1]]
+        const horas: number[] = this.timeSlots
+      .map((item, index) => (horasInicioFin.some(substring => item.includes(substring)) ? index : -1))
+      .filter(index => index !== -1);
+        //const startTimeSlotIndex = this.timeSlots.indexOf(timeSlotRange[0]);
+        //const endTimeSlotIndex = this.timeSlots.indexOf(timeSlotRange[1]);
         //let hora = this.timeSlots.indexOf(horarioSeparado[i + 1])
         console.log(dia)
-        console.log(startTimeSlotIndex)
-        console.log(endTimeSlotIndex)
+        console.log(horas)
+        //console.log(endTimeSlotIndex)
+        for (let i =0; i<horas.length; i ++){
+          this.userScheduleData[horas[i]][dia] = paral.sigla!;
+        }
+        console.log(this.userScheduleData)
         //this.userScheduleData[hora][dia] = paral.sigla!;
       }
       // Your logic here that runs while the element is hovered

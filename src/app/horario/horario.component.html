@@ -60,7 +60,7 @@
             <ng-container *ngFor="let timeSlot of timeSlots; let timeSlotIndex = index">
                 <tr>
                   <td>{{ timeSlot }}</td>
-                  <td *ngFor="let data of userScheduleData[timeSlotIndex]; let dayIndex = index"></td>
+                  <td *ngFor="let data of userScheduleData[timeSlotIndex]; let dayIndex = index">{{data}}</td>
                 </tr>
               </ng-container>
         </tbody>

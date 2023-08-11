@@ -68,13 +68,20 @@ export class HorarioComponent implements OnInit{
       ['', '', '', '', '', ''],
       ['', '', '', '', '', ''],
     ];
+
+  //previewIndices: { row: number, col: number }[] = [];
+  isPreview: boolean[][] = [];
   carrera: string = "";
   materias: Materia[] = []
   paralelos :HorarioMateria[] = []
   constructor(private _snackBar: MatSnackBar,private siaanService: SiaanServiceService,public dialog: MatDialog, public loaderService: LoaderService){
-
+    this.inicializarFalsoEstilo()
   }
   	
+  inicializarFalsoEstilo(){
+    this.isPreview= [];
+    this.userScheduleData.forEach(row => this.isPreview.push(new Array(row.length).fill(false)));
+  }
   ngOnInit(): void {
     
   }
@@ -155,7 +162,9 @@ export class HorarioComponent implements OnInit{
     const modifiedArray = this.userScheduleData.map(innerArray =>
       innerArray.map(item => item === paral.sigla ? "" : item)
     );
+
     this.userScheduleData = modifiedArray;
+    this.inicializarFalsoEstilo()
   }
   runFunctionWhileHovered(paral:HorarioMateria): void {
     if (this.isHovered) {
@@ -178,13 +187,18 @@ export class HorarioComponent implements OnInit{
         //console.log(endTimeSlotIndex)
         for (let i =0; i<horas.length; i ++){
           this.userScheduleData[horas[i]][dia] = paral.sigla!;
+          this.isPreview[horas[i]][dia] = true;//!this.highlighted[1][1];
+          //this.previewIndices.push({ row: i, col: dia });
         }
+        console.log(this.isPreview)
         console.log(this.userScheduleData)
         //this.userScheduleData[hora][dia] = paral.sigla!;
       }
-      // Your logic here that runs while the element is hovered
-      //setTimeout(() => this.runFunctionWhileHovered(paral), 100); // Recursive call
+      
     }
+  }
+  isHighlighted(row: number, col: number): boolean {
+    return this.isPreview[row] && this.isPreview[row][col];
   }
 
   openSnackBar() {

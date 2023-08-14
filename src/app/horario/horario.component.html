@@ -23,7 +23,7 @@
   <div class="inside-flex">
     <div class="materias-container">
       <mat-accordion *ngFor="let mat of materias">
-        <mat-expansion-panel hideToggle>
+        <mat-expansion-panel class="paraleloContainer" hideToggle>
           <mat-expansion-panel-header>
             <mat-panel-title>
               {{mat.sigla}}
@@ -33,11 +33,11 @@
             </mat-panel-description>
           </mat-expansion-panel-header>
           <div *ngIf="mat.paralelos">
-            <div *ngFor="let par of mat.paralelos" (mouseenter)="onHover(par)" (mouseleave)="stopFunction(par)">
+            <button mat-raised-button class="parelelo" *ngFor="let par of mat.paralelos" (click)="fijarHorario(par)" (mouseenter)="onHover(par)" (mouseleave)="stopFunction(par)">
               <span>Paralelo: {{par.paralelo}}</span>
               <span>Cupos: {{par.disponibles}}</span>
               <p>Horario: {{par.horario}}</p>
-            </div>
+            </button>
           </div>
           <div class="error-paralelo" *ngIf="!mat.paralelos">No existen paralelos para esta materia</div>
         </mat-expansion-panel>

@@ -151,11 +151,13 @@ export class HorarioComponent implements OnInit{
       let hora = this.timeSlots.indexOf(horarioSeparado[i + 1])
       this.userScheduleData[dia][hora] = paral.sigla!;
     }*/
-    this.runFunctionWhileHovered(paral);
+    this.fijarHorario(paral);
   }
   stopFunction(paral:HorarioMateria): void {
-    this.isHovered = false;
-    this.deleteHorarioMateria(paral)
+    if(this.isHovered){
+      this.isHovered = false;
+      this.deleteHorarioMateria(paral)
+   }
   }
 
   deleteHorarioMateria(paral:HorarioMateria){
@@ -166,7 +168,7 @@ export class HorarioComponent implements OnInit{
     this.userScheduleData = modifiedArray;
     this.inicializarFalsoEstilo()
   }
-  runFunctionWhileHovered(paral:HorarioMateria): void {
+  fijarHorario(paral:HorarioMateria): void {
     if (this.isHovered) {
       
       let horarioSeparado = this.separarHorario(paral.horario)
@@ -179,12 +181,6 @@ export class HorarioComponent implements OnInit{
         const horas: number[] = this.timeSlots
       .map((item, index) => (horasInicioFin.some(substring => item.includes(substring)) ? index : -1))
       .filter(index => index !== -1);
-        //const startTimeSlotIndex = this.timeSlots.indexOf(timeSlotRange[0]);
-        //const endTimeSlotIndex = this.timeSlots.indexOf(timeSlotRange[1]);
-        //let hora = this.timeSlots.indexOf(horarioSeparado[i + 1])
-        console.log(dia)
-        console.log(horas)
-        //console.log(endTimeSlotIndex)
         for (let i =0; i<horas.length; i ++){
           this.userScheduleData[horas[i]][dia] = paral.sigla!;
           this.isPreview[horas[i]][dia] = true;//!this.highlighted[1][1];

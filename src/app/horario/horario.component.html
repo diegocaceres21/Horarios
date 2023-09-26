@@ -33,7 +33,7 @@
             </mat-panel-description>
           </mat-expansion-panel-header>
           <div *ngIf="mat.paralelos">
-            <button mat-raised-button class="parelelo" *ngFor="let par of mat.paralelos" (click)="fijarHorario(par)" (mouseenter)="onHover(par)" (mouseleave)="stopFunction(par)">
+            <button mat-raised-button class="parelelo" *ngFor="let par of mat.paralelos" (click)="fijarHorario(par, true)" (mouseenter)="onHover(par)" (mouseleave)="stopFunction(par)">
               <span>Paralelo: {{par.paralelo}}</span>
               <span>Cupos: {{par.disponibles}}</span>
               <p>Horario: {{par.horario}}</p>

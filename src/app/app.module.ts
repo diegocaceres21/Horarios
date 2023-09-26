@@ -24,6 +24,7 @@ import { NuevaMateriaComponent } from './modals/nueva-materia/nueva-materia.comp
 import {MatInputModule} from '@angular/material/input'
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { InterceptorService } from './servicios/interceptor.service';
+import { OpcionesHorariosComponent } from './opciones-horarios/opciones-horarios.component';
 
 
 
@@ -31,7 +32,8 @@ import { InterceptorService } from './servicios/interceptor.service';
   declarations: [
     AppComponent,
     HorarioComponent,
-    NuevaMateriaComponent
+    NuevaMateriaComponent,
+    OpcionesHorariosComponent
   ],
   imports: [
     BrowserModule,

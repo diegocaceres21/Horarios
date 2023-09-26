@@ -151,10 +151,10 @@ export class HorarioComponent implements OnInit{
       let hora = this.timeSlots.indexOf(horarioSeparado[i + 1])
       this.userScheduleData[dia][hora] = paral.sigla!;
     }*/
-    this.fijarHorario(paral);
+    this.fijarHorario(paral, false);
   }
   stopFunction(paral:HorarioMateria): void {
-    if(this.isHovered){
+    if(!  paral.selected){
       this.isHovered = false;
       this.deleteHorarioMateria(paral)
    }
@@ -168,7 +168,7 @@ export class HorarioComponent implements OnInit{
     this.userScheduleData = modifiedArray;
     this.inicializarFalsoEstilo()
   }
-  fijarHorario(paral:HorarioMateria): void {
+  fijarHorario(paral:HorarioMateria, isClicked: boolean): void {
     if (this.isHovered) {
       
       let horarioSeparado = this.separarHorario(paral.horario)
@@ -185,6 +185,9 @@ export class HorarioComponent implements OnInit{
           this.userScheduleData[horas[i]][dia] = paral.sigla!;
           this.isPreview[horas[i]][dia] = true;//!this.highlighted[1][1];
           //this.previewIndices.push({ row: i, col: dia });
+        }
+        if(isClicked){
+          paral.selected = true;
         }
         console.log(this.isPreview)
         console.log(this.userScheduleData)

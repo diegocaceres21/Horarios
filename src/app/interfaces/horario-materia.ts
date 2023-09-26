@@ -7,4 +7,5 @@ export interface HorarioMateria {
     inscritos: number;
     disponibles: number;
     horario: string;
+    selected?: boolean; 
 }

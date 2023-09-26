@@ -12,12 +12,12 @@ export class AppComponent {
     {
       displayName: 'Nuevo Horario',
       iconName: 'edit_calendar',
-      route: '/home'
+      route: '/crearHorario'
     },        
     {
       displayName: 'Horarios Definidos',
       iconName: 'list_alt',
-      route: '/reservas',
+      route: '/opciones',
     },
     {
       displayName: 'Planes de Estudio',

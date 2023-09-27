@@ -1,0 +1,77 @@
+th, td, table{
+    border: solid black 1px;
+}
+
+td, th{
+    min-width: 85px;
+}
+
+.new-materia{
+    width: 100%;
+}
+
+
+
+.materias-container{
+    margin: 0px 40px;
+}
+.tool-options{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    //padding-top: 2%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.carrera{
+    width: 600px;
+    padding-top: 2%;
+}
+mat-optgroup{
+    font-weight: bolder;
+}
+.highlighted {
+    color: #a9a9a9;/* Change the style to your preference */
+    //font-weight: bold;
+  }
+
+.parelelo{
+    
+    height: 100%;
+    width: 100%;
+    margin-top: 10px;
+}
+.parelelo:hover{
+    //background-color: #ddf7c3;
+    //#e0e0e0
+}
+.error-paralelo{
+    color: rgb(226, 7, 7);
+    font-weight: bolder;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+.container-paralelos{
+    display: flex;
+    //justify-content: space-between;
+    //align-items: center;
+    flex-direction: row;
+    width: 100%;
+    //margin-bottom: auto;
+}
+.update{
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+.inside-flex{
+    flex-basis: 50%;
+    text-align: center;
+}

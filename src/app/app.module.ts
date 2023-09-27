@@ -25,6 +25,7 @@ import {MatInputModule} from '@angular/material/input'
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { InterceptorService } from './servicios/interceptor.service';
 import { OpcionesHorariosComponent } from './opciones-horarios/opciones-horarios.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 
@@ -53,7 +54,8 @@ import { OpcionesHorariosComponent } from './opciones-horarios/opciones-horarios
     FormsModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatPaginatorModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true}

@@ -1,1 +1,65 @@
-<p>opciones-horarios works!</p>
+<mat-toolbar class="tool-options">
+    <mat-form-field appearance="outline" class="carrera">
+      <mat-label>Carrera</mat-label>
+      <mat-select [(ngModel)]="carrera"> <!--[formControl]="carrera"-->
+        <!--<mat-option>-- None --</mat-option>-->
+        <mat-optgroup *ngFor="let group of carrerasPorDepartamento" [label]="group.departamento">
+          <mat-option *ngFor="let carrera of group.carreras" [value]="carrera">
+            {{carrera.nombre}}
+          </mat-option>
+        </mat-optgroup>
+      </mat-select>
+    </mat-form-field>
+    
+  </mat-toolbar>
+  <div *ngIf="loaderService.isLoading | async">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div class="container-paralelos">
+    <div class="inside-flex">
+      <div class="materias-container">
+        <mat-accordion *ngFor="let mat of materias">
+          <mat-expansion-panel class="paraleloContainer" hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{mat.sigla}}
+              </mat-panel-title>
+              <mat-panel-description>
+                {{mat.asignatura}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div *ngIf="mat.paralelos">
+              <button mat-raised-button class="parelelo" *ngFor="let par of mat.paralelos" >
+                <span>Paralelo: {{par.paralelo}}</span>
+                <span>Cupos: {{par.disponibles}}</span>
+                <p>Horario: {{par.horario}}</p>
+              </button>
+            </div>
+            <div class="error-paralelo" *ngIf="!mat.paralelos">No existen paralelos para esta materia</div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+    <div class="inside-flex">
+      <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th *ngFor="let day of days">{{ day }}</th>
+            </tr>
+          </thead>
+          <tbody>
+              <ng-container *ngFor="let timeSlot of timeSlots; let timeSlotIndex = index">
+                  <tr>
+                    <td>{{ timeSlot }}</td>
+                    <td *ngFor="let data of userScheduleData[timeSlotIndex]; let dayIndex = index">{{data}}</td>
+                  </tr>
+                </ng-container>
+          </tbody>
+        </table>
+      </div>
+  </div>
+  <mat-paginator [length]="4"
+              [pageSize]="1"
+              aria-label="Select page">
+</mat-paginator>

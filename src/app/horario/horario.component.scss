@@ -1,16 +1,25 @@
-th, td, table{
+
+.hvr-shrink:hover, .hvr-shrink:focus, .hvr-shrink:active {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+
+}
+mat-accordion .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  //align-items: center;
+}
+
+.horario-table th,.horario-table td,.horario-table table{
     border: solid black 1px;
 }
 
-td, th{
+.horario-table td,.horario-table th{
     min-width: 85px;
 }
 
 .new-materia{
     width: 100%;
 }
-
-
 
 .materias-container{
     margin: 0px 40px;
@@ -32,12 +41,18 @@ mat-optgroup{
     font-weight: bolder;
 }
 .highlighted {
-    color: #a9a9a9;/* Change the style to your preference */
+    color: #0b0b0c;/* Change the style to your preference */
     //font-weight: bold;
   }
-
+.paralelos-table th, .paralelos-table td{
+  text-align: center;
+}
+.mat-mdc-row:hover .mat-mdc-cell {
+  //scale: 1.2;
+  //background-color: #5975ff;
+}
 .parelelo{
-    
+
     height: 100%;
     width: 100%;
     margin-top: 10px;
@@ -71,7 +86,7 @@ mat-optgroup{
     width: 30%;
 }
 
-.inside-flex{
+.horario-table{
     flex-basis: 50%;
     text-align: center;
 }

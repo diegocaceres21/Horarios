@@ -1,0 +1,27 @@
+<body>
+
+<div class="container">
+  <div>
+
+    <h1>Guardar Horario</h1>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Carrera</mat-label>
+      <mat-select [(ngModel)]="carrera"> <!--[formControl]="carrera"-->
+        <!--<mat-option>-- None --</mat-option>-->
+        <mat-optgroup *ngFor="let group of carrerasPorDepartamento" [label]="group.departamento">
+          <mat-option *ngFor="let carrera of group.carreras" [value]="carrera.nombre">
+            {{carrera.nombre}}
+          </mat-option>
+        </mat-optgroup>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Comentarios (Opcional)</mat-label>
+      <textarea matInput [(ngModel)]="comentarios"></textarea>
+    </mat-form-field>
+    <button [disabled]="!carrera" (click)="crearMateria()" mat-raised-button color="primary" class="margin">Guardar</button>
+    <button mat-raised-button color="warn" [mat-dialog-close]>Cancelar</button>
+  </div>
+</div>
+</body>

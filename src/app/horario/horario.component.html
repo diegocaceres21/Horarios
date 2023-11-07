@@ -1,24 +1,20 @@
-<mat-toolbar class="tool-options">
+<mat-toolbar class="tool-options"><!--
   <mat-form-field appearance="outline" class="carrera">
     <mat-label>Carrera</mat-label>
-    <mat-select [(ngModel)]="carrera"> <!--[formControl]="carrera"-->
-      <!--<mat-option>-- None --</mat-option>-->
+    <mat-select [(ngModel)]="carrera">
       <mat-optgroup *ngFor="let group of carrerasPorDepartamento" [label]="group.departamento">
         <mat-option *ngFor="let carrera of group.carreras" [value]="carrera">
           {{carrera.nombre}}
         </mat-option>
       </mat-optgroup>
     </mat-select>
-  </mat-form-field>
-  <button (click)="actualizarParalelos()" [disabled]="materias.length === 0" class="update" mat-fab extended color="primary">
+  </mat-form-field>-->
+  <button (click)="guardarHorario()" [disabled]="horarioSeleccionado.length === 0" class="update hvr-float" mat-fab extended color="primary">
     <mat-icon>update </mat-icon>
-    Actualizar Paralelos
+    Guardar Horario
   </button>
-  
 </mat-toolbar>
-<div *ngIf="loaderService.isLoading | async">
-  <mat-spinner></mat-spinner>
-</div>
+
 <div class="container-paralelos">
   <div class="inside-flex">
     <div class="materias-container">
@@ -30,14 +26,64 @@
             </mat-panel-title>
             <mat-panel-description>
               {{mat.asignatura}}
+              <button mat-icon-button [appRightClickToDelete]="eliminarMateria" [item]="mat" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+               <!--<mat-menu #menu="matMenu" yPosition="above">
+                <button (click)="eliminarMateria(mat)" mat-menu-item>
+                  <mat-icon>delete</mat-icon>
+                  <span>Eliminar</span>
+                </button>
+              </mat-menu>-->
             </mat-panel-description>
           </mat-expansion-panel-header>
           <div *ngIf="mat.paralelos">
-            <button mat-raised-button class="parelelo" *ngFor="let par of mat.paralelos" (click)="fijarHorario(par, true)" (mouseenter)="onHover(par)" (mouseleave)="stopFunction(par)">
+
+            <table mat-table [dataSource]="mat.paralelos" class="mat-elevation-z8">
+              <!-- Position Column -->
+              <ng-container  matColumnDef="paralelo">
+                <th mat-header-cell *matHeaderCellDef>Paralelo</th>
+                <td mat-cell *matCellDef="let paralelo" [ngStyle] = "{'backgroundColor' : materiaTieneChoque(paralelo) ? 'pink' : 'white'}">{{paralelo.paralelo}}</td>
+              </ng-container>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="cupos">
+                <th mat-header-cell *matHeaderCellDef>Cupos</th>
+                <td mat-cell [ngStyle] = "{'backgroundColor' : materiaTieneChoque(paralelo) ? 'pink' : 'white'}" *matCellDef="let paralelo">{{paralelo.cupos}}</td>
+              </ng-container>
+
+              <!-- Weight Column -->
+              <ng-container matColumnDef="horarios">
+                <th mat-header-cell *matHeaderCellDef>Horario</th>
+                <td mat-cell [ngStyle] = "{'backgroundColor' : materiaTieneChoque(paralelo) ? 'pink' : 'white'}" *matCellDef="let paralelo">{{paralelo.horario}}</td>
+              </ng-container>
+              <ng-container matColumnDef="button">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell [ngStyle] = "{'backgroundColor' : materiaTieneChoque(paralelo) ? 'pink' : 'white'}" *matCellDef="let paralelo">
+                  <button [disabled]="materiaEstaAgregadaAlHorario(paralelo) || materiaTieneChoque(paralelo)"  *ngIf="!paralelo.selected" (click)="fijarHorario(paralelo,true)" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                  <mat-icon>add</mat-icon>
+                  </button>
+                  <button *ngIf="paralelo.selected" (click)="borrarHorario(paralelo)" mat-mini-fab color="warn" aria-label="Example icon button with a menu icon">
+                    <mat-icon>remove</mat-icon>
+                  </button>
+                </td>
+
+              </ng-container>
+
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr
+                mat-row
+                (click)="clickedRows.add(row)"
+                [class.demo-row-is-clicked]="clickedRows.has(row)"
+                *matRowDef="let row; columns: displayedColumns;"
+              ></tr>
+            </table>
+            <!--<button mat-raised-button class="parelelo" *ngFor="let par of mat.paralelos" (click)="fijarHorario(par, true)" (mouseenter)="onHover(par)" (mouseleave)="stopFunction(par)">
               <span>Paralelo: {{par.paralelo}}</span>
               <span>Cupos: {{par.disponibles}}</span>
               <p>Horario: {{par.horario}}</p>
-            </button>
+            </button>-->
           </div>
           <div class="error-paralelo" *ngIf="!mat.paralelos">No existen paralelos para esta materia</div>
         </mat-expansion-panel>
@@ -48,7 +94,7 @@
       </button>
     </div>
   </div>
-  <div class="inside-flex">
+  <div class="inside-flex horario-table">
     <table>
         <thead>
           <tr>

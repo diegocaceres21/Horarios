@@ -8,7 +8,7 @@ import { catchError, throwError } from 'rxjs';
 export class SiaanServiceService {
   token: string = ""
   uniquecode = "F3EJkUVwiOCjIIp"
-  idPeriodoAcademico = "pi4GKbnZgpyzG0Lf%25252bppwgw=="
+  idPeriodoAcademico = "8RzubTahb3U78UzxLRQHUQ=="
   idCarrera = ""
 
   constructor(private httpClient: HttpClient) { }
@@ -23,15 +23,15 @@ export class SiaanServiceService {
       'Token': this.token,
       'Uniquecode': this.uniquecode
     };
-  
+
     let options = {
       'headers': headers
     };
     return this.httpClient.get<any>(url,options).pipe(
       catchError(this.handleError.bind(this)));
-    
+
   }
-  
+
   private handleError() {
     this.login()
     let errorMessage = 'An error occurred';
@@ -43,9 +43,9 @@ export class SiaanServiceService {
       // Server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }*/
-    
+
     console.error(errorMessage);
-    
+
     return throwError(errorMessage);
   }
 
@@ -63,7 +63,7 @@ export class SiaanServiceService {
       "UniqueCode": "F3EJkUVwiOCjIIp",
       "ServiceCode": "1"
   }
-  
+
     this.httpClient.post(url,payload, { observe: 'response' }).subscribe(
       (response) => {
         // Check if the request was successful (status code 200)
@@ -71,7 +71,7 @@ export class SiaanServiceService {
           this.updateToken(tokenHeaderValue!);
           //console.log(this.token)
           //this.getDatos(this.idCarrera)
-          
+
       },
       (error) => {
         console.log('Error occurred:', error);
@@ -88,5 +88,5 @@ export class SiaanServiceService {
     localStorage.setItem('token', token);
     this.token = token;
   }
-  
+
 }

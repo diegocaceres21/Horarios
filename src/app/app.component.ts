@@ -7,13 +7,13 @@ import { MediaMatcher } from '@angular/cdk/layout';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  header:string = 'La Jatata'
+  header:string = ''
   menu: NavItem [] = [
     {
       displayName: 'Nuevo Horario',
       iconName: 'edit_calendar',
       route: '/crearHorario'
-    },        
+    },
     {
       displayName: 'Horarios Definidos',
       iconName: 'list_alt',
@@ -22,7 +22,7 @@ export class AppComponent {
     {
       displayName: 'Planes de Estudio',
       iconName: 'summarize',
-      route: '/cocina', 
+      route: '/cocina',
     }
   ];
   mobileQuery: MediaQueryList;
@@ -30,7 +30,7 @@ export class AppComponent {
   title = 'La-Jatata';
   message:any = null;
   private _mobileQueryListener: () => void;
-  
+
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -40,8 +40,8 @@ export class AppComponent {
     this.header = title;
   }
   select(index: number) {
-    this.selectedIndex = index; 
-  }  
+    this.selectedIndex = index;
+  }
   ngOnInit(): void {
     //this.requestPermission();
     //this.listen();
@@ -49,5 +49,5 @@ export class AppComponent {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-  
+
 }

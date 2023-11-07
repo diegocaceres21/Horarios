@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HorarioComponent } from './horario/horario.component';
@@ -11,12 +10,14 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list'; // Import MatListModule
+import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatMenuModule} from '@angular/material/menu';
 
-// 
+//
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {MatSelectModule} from '@angular/material/select';
@@ -26,7 +27,9 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { InterceptorService } from './servicios/interceptor.service';
 import { OpcionesHorariosComponent } from './opciones-horarios/opciones-horarios.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import {RightClickToDeleteDirective} from './right-click.directive';
+import { NuevoHorarioConfirmarComponent } from './modals/nuevo-horario-confirmar/nuevo-horario-confirmar.component';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -34,7 +37,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     AppComponent,
     HorarioComponent,
     NuevaMateriaComponent,
-    OpcionesHorariosComponent
+    OpcionesHorariosComponent,
+    RightClickToDeleteDirective,
+    NuevoHorarioConfirmarComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatAutocompleteModule,
     MatIconModule,
     ReactiveFormsModule,
+    MatMenuModule,
     MatToolbarModule,
+    MatTableModule,
     MatListModule,
     MatButtonModule,
     BrowserAnimationsModule,
@@ -57,7 +64,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatSnackBarModule,
     MatPaginatorModule
   ],
-  providers: [
+  providers: [CookieService,
     { provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true}
   ],
   bootstrap: [AppComponent]

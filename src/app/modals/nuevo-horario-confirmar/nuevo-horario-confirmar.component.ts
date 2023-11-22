@@ -17,6 +17,9 @@ export class NuevoHorarioConfirmarComponent implements OnInit{
   comentarios?: string;
   horarios?: HorarioMateria[]
   carrerasPorDepartamento : any[] =  [
+      {departamento: "MEDICINA", carreras: [
+              {nombre: 'MEDICINA'},
+          ]},
     {departamento: "DAEF", carreras: [
         {nombre: 'ADMINISTRACIÓN DE EMPRESAS'},
         {nombre: 'CONTADURÍA PÚBLICA'},
@@ -38,6 +41,7 @@ export class NuevoHorarioConfirmarComponent implements OnInit{
         {nombre: 'ANTROPOLOGÍA'},
         {nombre: 'COMUNICACIÓN SOCIAL'},
         {nombre: 'DERECHO'},
+        {nombre: 'DISEÑO DIGITAL MULTIMEDIA'},
         {nombre: 'FILOSOFÍA Y LETRAS'},
         {nombre: 'PSICOLOGÍA'}
       ]}

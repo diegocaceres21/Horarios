@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-content>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+      <h2>Log In</h2>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="email" name="username" required>
+        <mat-error>
+          Debe llenar el email para poder ingresar
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [type]="passwordType" [(ngModel)]="password" name="password" required>
+        <button *ngIf="passwordType === 'password'" matSuffix mat-icon-button aria-label="Clear" (click)="passwordType='text'">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <button *ngIf="passwordType === 'text'" matSuffix mat-icon-button aria-label="Clear" (click)="passwordType='password'">
+          <mat-icon>visibility_off</mat-icon>
+        </button>
+        <mat-error>
+          Debe llenar la contraseña para poder ingresar
+        </mat-error>
+      </mat-form-field>
+      <mat-error *ngIf="!loginValid">
+        Email o Contraseña Incorrectos
+      </mat-error>
+      <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Ingresar</button>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -10,7 +10,10 @@
         </mat-optgroup>
       </mat-select>
     </mat-form-field>
-  <mat-form-field *ngIf="carrera" appearance="outline" class="opcion">
+  <div *ngIf="carrera && opciones.length ===0">
+    No existe ningun horario guardado para esta carrera
+  </div>
+  <mat-form-field *ngIf="carrera && opciones.length !==0" appearance="outline" class="opcion">
     <mat-label>Opción</mat-label>
     <mat-select [(ngModel)]="opcion" (ngModelChange)="getHorario($event)"> <!--[formControl]="carrera"-->
       <!--<mat-option>-- None --</mat-option>-->

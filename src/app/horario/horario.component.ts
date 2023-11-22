@@ -8,6 +8,7 @@ import { LoaderService } from '../servicios/loader.service';
 import { forkJoin } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {NuevoHorarioConfirmarComponent} from "../modals/nuevo-horario-confirmar/nuevo-horario-confirmar.component";
+import {ConfirmarComponent} from "../modals/confirmar/confirmar.component";
 
 @Component({
   selector: 'app-horario',
@@ -28,6 +29,9 @@ export class HorarioComponent implements OnInit{
 
   ofertaAcademicaSiaan: { [clave: string]: Materia } = {};
   carrerasPorDepartamento : any[] =  [
+    {departamento: "MEDICINA", carreras: [
+        {nombre: 'MEDICINA'},
+      ]},
     {departamento: "DAEF", carreras: [
       {nombre: 'ADMINISTRACIÓN DE EMPRESAS', codigo: "ICmS2Zu87Y1a2ch%25252bDcfeUg=="},
       {nombre: 'CONTADURÍA PÚBLICA', codigo: 'BMTCip8LyR2NuXi5k9Z%25252bxw=='},
@@ -84,6 +88,7 @@ export class HorarioComponent implements OnInit{
     this.inicializarFalsoEstilo()
   }
 
+
   guardarHorario(){
     const dialogRef = this.dialog.open(NuevoHorarioConfirmarComponent, {
       data: {horario: this.horarioSeleccionado},
@@ -104,10 +109,7 @@ export class HorarioComponent implements OnInit{
     this.isPreview= [];
     this.userScheduleData.forEach(row => this.isPreview.push(new Array(row.length).fill(false)));
   }
-  actualizarParalelos(){
-    this.paralelos = []
-    this.getDatos()
-  }
+
   ngOnInit(): void {
 
   }
@@ -127,29 +129,7 @@ export class HorarioComponent implements OnInit{
     });
     console.log(this.ofertaAcademicaSiaan)
   }
-  getDatos(){
-    const payloads :string[] =this.carrerasPorDepartamento.flatMap(x => x.carreras.map((c: { codigo: any; }) => c.codigo))
-    //const payloads = ["GDkBLqtHlyUrvv05l%25252bcz5w=="];
 
-    const requests = payloads.map(payload => this.siaanService.getDatos(payload));
-
-    forkJoin(requests).subscribe(
-      responses => {
-        // Handle responses from all parallel requests
-        for (let i =0; i<responses.length; i++){
-          this.paralelos.push(...this.filterData(responses[i]))
-        }
-        //console.log(this.paralelos)
-        this.agruparCursos()
-        console.log(this.paralelos)
-        this.findParalelosForofertaAcademicaSiaan()
-      },
-      error => {
-        this.openSnackBar('Se ha actualizado el token. Por favor presione nuevamente el boton')
-      }
-    );
-
-  }
 
   separarHorario(horario: string){
     let res =horario.split(",")
@@ -158,8 +138,17 @@ export class HorarioComponent implements OnInit{
   }
 
   eliminarMateria(materia: Materia): void{
-    this.materias = this.materias.filter(item => item.sigla !== materia.sigla);
-    this.borrarHorario(materia.paralelos![0])
+    const dialogRef = this.dialog.open(ConfirmarComponent, {
+      data: {mensaje: "¿Desea eliminar esta materia del horario?"},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.materias = this.materias.filter(item => item.sigla !== materia.sigla);
+        this.borrarHorario(materia.paralelos![0])
+      }
+    });
+
   }
   onHover(paral:HorarioMateria){
     this.isHovered = true;
@@ -217,22 +206,97 @@ export class HorarioComponent implements OnInit{
       }*/
   }
   materiaEstaAgregadaAlHorario(paral:HorarioMateria): boolean{
-    return this.horarioSeleccionado.some(item => item.sigla === paral.sigla);
+    if(this.carrera === "MEDICINA")
+    {
+      return this.horarioSeleccionado.some(item => item.sigla === paral.sigla && item.paralelo[0] !== paral.paralelo[0]);
+    }
+    else{
+      return this.horarioSeleccionado.some(item => item.sigla === paral.sigla);
+    }
+  }
+  cambiarHorarioCarrera(value: any) {
+    if(value === "MEDICINA"){
+      this.cambiarHorarioMedicina()
+    }
+    else{
+        this.cambiarHorarioNormal()
+    }
+  }
+
+  cambiarHorarioNormal() {
+      this.timeSlots = [
+          '07:15 - 08:00', '08:00 - 08:45', '09:00 - 09:45', '09:45 - 10:30',
+          '10:45 - 11:30', '11:30 - 12:15', '12:30 - 13:15', '13:15 - 14:00',
+          '14:15 - 15:00', '15:00 - 15:45', '16:00 - 16:45', '16:45 - 17:30', '17:45 - 18:30',
+          '18:30 - 19:15', '19:30 - 20:15', '20:15 - 21:00'
+      ];
+      this.userScheduleData=  [
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+      ];
+  }
+  cambiarHorarioMedicina(){
+      this.timeSlots = [
+          '07:15 - 08:45', '08:45 - 09:30', '09:30 - 09:45', '09:45 - 10:00',
+          '10:00 - 12:00', '12:00 - 12:15', '12:15 - 14:00', '14:00 - 14:45',
+          '14:45 - 16:15', '16:15 - 17:00', '17:00 - 17:45', '17:45 - 20:00',
+      ];
+      this.userScheduleData= [
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', '']
+      ];
   }
   deleteHorarioMateria(paral:HorarioMateria){
-    const modifiedArray = this.userScheduleData.map(innerArray =>
-      innerArray.map(item => item === paral.sigla ? "" : item)
-    );
+    let modifiedArray;
+    if(paral.paralelo.includes("-")){
+      const sigla = paral.sigla + " - " + paral.paralelo.split("-")[1]
+      modifiedArray = this.userScheduleData.map(innerArray =>
+        innerArray.map(item => item === sigla ? "" : item)
+      );
+    }
+    else{
+      modifiedArray = this.userScheduleData.map(innerArray =>
+        innerArray.map(item => item === paral.sigla ? "" : item)
+      );
+    }
+
 
     this.userScheduleData = modifiedArray;
     this.quitarParaleloAHorarioFinal(paral);
     this.inicializarFalsoEstilo()
   }
+
+  EsMateriaYParaleloIgual(paral: HorarioMateria){
+    return false;
+  }
   fijarHorario(paral:HorarioMateria, isClicked: boolean): void {
     //if (this.isHovered) {
       this.materiaTieneChoque(paral)//eliminar
       let horarioSeparado = this.separarHorario(paral.horario)
-      console.log(horarioSeparado)
       for (let i =0; i<horarioSeparado.length; i =i + 2){
         let dia = this.days.indexOf(horarioSeparado[i])
         //Trabajamos con la hora
@@ -242,25 +306,37 @@ export class HorarioComponent implements OnInit{
           horas.push(this.timeSlots.indexOf(horarioSeparado[i + 1]))
         }
         else{
-          //console.log(horarioSeparado[i + 1]);
           const timeSlotRange =horarioSeparado[i + 1].split(' - ');
           let horasInicioFin = [timeSlotRange[0], timeSlotRange[1]]
           //console.log(horasInicioFin)
-          horas = this.timeSlots
-            .map((item, index) => (horasInicioFin.some(substring => item.includes(substring)) ? index : -1))
-            .filter(index => index !== -1);
+          if(this.carrera === "MEDICINA"){
+            horas = this.timeSlots
+              .map((item, index) => (item.split(' - ')[0] == horasInicioFin[0] || item.split(' - ')[1] == horasInicioFin[1] ? index : -1))
+              .filter(index => index !== -1);
+          }
+          else{
+            horas = this.timeSlots
+              .map((item, index) => (horasInicioFin.some(substring => item.includes(substring)) ? index : -1))
+              .filter(index => index !== -1);
+          }
         }
 
         for (let i =0; i<horas.length; i ++){
-          this.userScheduleData[horas[i]][dia] = paral.sigla!;
-          this.isPreview[horas[i]][dia] = true;//!this.highlighted[1][1];
+          if(paral.paralelo.includes("-")){
+            const sigla = paral.sigla + " - " + paral.paralelo.split("-")[1]
+            this.userScheduleData[horas[i]][dia] = sigla;
+            this.isPreview[horas[i]][dia] = true;//!this.highlighted[1][1];
+          }
+          else{
+            this.userScheduleData[horas[i]][dia] = paral.sigla!;
+            this.isPreview[horas[i]][dia] = true;//!this.highlighted[1][1];
+          }
+
           //this.previewIndices.push({ row: i, col: dia });
         }
         if(isClicked){
           paral.selected = true;
         }
-
-        //this.userScheduleData[hora][dia] = paral.sigla!;
       }
     this.agregarParaleloAHorarioFinal(paral);
 
@@ -271,7 +347,8 @@ export class HorarioComponent implements OnInit{
     this.horarioSeleccionado.push(paral)
   }
   quitarParaleloAHorarioFinal(paral: HorarioMateria){
-    this.horarioSeleccionado = this.horarioSeleccionado.filter(item => item.sigla !== paral.sigla);
+    this.horarioSeleccionado = this.horarioSeleccionado.filter(item => item.sigla !== paral.sigla || item.paralelo !== paral.paralelo);
+    console.log(this.horarioSeleccionado)
   }
   isHighlighted(row: number, col: number): boolean {
     return this.isPreview[row] && this.isPreview[row][col];

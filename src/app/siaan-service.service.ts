@@ -13,11 +13,13 @@ export class SiaanServiceService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getDatos(carreraId: string){
-    this.idCarrera = carreraId;
+  createUrl(carreraId: string, idPeriodo: string) : string{
+    return "https://backend.ucb.edu.bo/Academico/api/v1/Academico/Procesos/OfertaDeMaterias/ObtenerListaOfertaDeMaterias?idCarrera=" + carreraId + "&idPeriodoAcademico=" + idPeriodo + "&tamanoDePagina=200"; // Replace with the actual URL of your HTTP GET endpoint
+  }
+  getDatos(carreraId: string, idPeriodo: string){
+    //this.idCarrera = carreraId;
     this.token = this.getTokenFromLocalStorage()!
-    console.log(this.token)
-    let url = "https://backend.ucb.edu.bo/Academico/api/v1/Academico/Procesos/OfertaDeMaterias/ObtenerListaOfertaDeMaterias?idCarrera=" + carreraId + "&idPeriodoAcademico=" + this.idPeriodoAcademico + "&tamanoDePagina=200"; // Replace with the actual URL of your HTTP GET endpoint
+    let url = this.createUrl(carreraId, idPeriodo)
     //Logger.log(url)
     let headers = {
       'Token': this.token,

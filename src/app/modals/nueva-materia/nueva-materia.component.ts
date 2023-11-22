@@ -23,6 +23,9 @@ export class NuevaMateriaComponent implements OnInit{
   objectControl = new FormControl();
   ofertaAcademicaSiaan: { [clave: string]: Materia } = {};
   carrerasPorDepartamento : any[] =  [
+    {departamento: "MEDICINA", carreras: [
+        {nombre: 'MEDICINA', codigo: "dXco5R3mrnsfT189GptIEg=="},
+      ]},
     {departamento: "DAEF", carreras: [
         {nombre: 'ADMINISTRACIÓN DE EMPRESAS', codigo: "ICmS2Zu87Y1a2ch%25252bDcfeUg=="},
         {nombre: 'CONTADURÍA PÚBLICA', codigo: 'BMTCip8LyR2NuXi5k9Z%25252bxw=='},
@@ -50,7 +53,7 @@ export class NuevaMateriaComponent implements OnInit{
   paralelos :HorarioMateria[] = []
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
   private dialogRef: MatDialogRef<NuevaMateriaComponent>,private _snackBar: MatSnackBar,public loaderService: LoaderService, private planesServicio: PlanesService,private siaanService: SiaanServiceService){
-
+    this.carrera = data.carrera;
   }
 
   async ngOnInit() {
@@ -63,11 +66,22 @@ export class NuevaMateriaComponent implements OnInit{
 
   }
   getDatos(){
-    const payloads :string[] =this.carrerasPorDepartamento.flatMap(x => x.carreras.map((c: { codigo: any; }) => c.codigo))
-    //const payloads = ["GDkBLqtHlyUrvv05l%25252bcz5w=="];
+    if(this.carrera === "MEDICINA"){
+      const requests : Observable<any>[] = [this.siaanService.getDatos("dXco5R3mrnsfT189GptIEg==","dz1tK1XOR8MjlSoqwp2RUw=="), this.siaanService.getDatos("dXco5R3mrnsfT189GptIEg==","8RzubTahb3U78UzxLRQHUQ==")]
+      this.forkRequestsSiaan(requests)
+    }
+    else{
+      const payloads :string[] =this.carrerasPorDepartamento.flatMap(x => x.carreras.map((c: { codigo: any; }) => c.codigo))
+      //const payloads = ["GDkBLqtHlyUrvv05l%25252bcz5w=="];
+      const idPeriodo = "8RzubTahb3U78UzxLRQHUQ=="
+      const requests : Observable<any>[] = payloads.map(payload => this.siaanService.getDatos(payload,idPeriodo));
+      this.forkRequestsSiaan(requests)
+    }
 
-    const requests = payloads.map(payload => this.siaanService.getDatos(payload));
 
+  }
+
+  forkRequestsSiaan(requests: Observable<any>[]) {
     forkJoin(requests).subscribe(
       responses => {
         // Handle responses from all parallel requests
@@ -81,7 +95,7 @@ export class NuevaMateriaComponent implements OnInit{
       }
     );
   }
-  filterData(response: any){
+filterData(response: any){
     const jsonData = response as any;
 
     const contenidoList: any[] = [];
@@ -120,6 +134,7 @@ export class NuevaMateriaComponent implements OnInit{
       contenidoList.push(contenidoColumn);
     }
     //console.log(contenidoList[1])
+    console.log(contenidoList)
     let resultado : HorarioMateria[] = contenidoList.map(row => ({
       sigla: row[1],
       materia: row[3],
@@ -127,7 +142,7 @@ export class NuevaMateriaComponent implements OnInit{
       cupos: row[5],
       inscritos: row[6],
       disponibles: row[5] - row[6],
-      horario: row[9],
+      horario: row[8],
     }));
     return resultado;
     //return contenidoList;

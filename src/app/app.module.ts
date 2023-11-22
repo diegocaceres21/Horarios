@@ -9,7 +9,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { MatListModule } from '@angular/material/list'; // Import MatListModule
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card'; // Import MatListModule
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,6 +31,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {RightClickToDeleteDirective} from './right-click.directive';
 import { NuevoHorarioConfirmarComponent } from './modals/nuevo-horario-confirmar/nuevo-horario-confirmar.component';
 import { CookieService } from 'ngx-cookie-service';
+import { LoginComponent } from './login/login.component';
+import { ConfirmarComponent } from './modals/confirmar/confirmar.component';
 
 
 @NgModule({
@@ -39,7 +42,9 @@ import { CookieService } from 'ngx-cookie-service';
     NuevaMateriaComponent,
     OpcionesHorariosComponent,
     RightClickToDeleteDirective,
-    NuevoHorarioConfirmarComponent
+    NuevoHorarioConfirmarComponent,
+    LoginComponent,
+    ConfirmarComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +52,7 @@ import { CookieService } from 'ngx-cookie-service';
     HttpClientModule,
     MatDialogModule,
     MatSidenavModule,
+    MatCardModule,
     MatExpansionModule,
     MatAutocompleteModule,
     MatIconModule,

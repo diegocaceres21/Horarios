@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&display=swap');
+
+*{
+  font-family: Nunito;
+  font-size: 0.75rem;
+}
+.materias-table{
+  margin-bottom: 10px;
+}
+.horario-table{
+  align-self: center;
+  margin-bottom: 20px;
+}
+.materias-table tr{
+  height: 5px
+}
+.opcion{
+  text-align: center;
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+h1 {
+  text-align: center;
+  color: #03346b;
+  font-size: 1.5rem;
+  font-family: Nunito;
+  border-bottom: 1px solid rgb(225, 225, 225);
+  padding-bottom: 5px;
+
+}
+.horario-table th,.horario-table td,.horario-table table{
+  border: solid black 1px;
+}
+
+.horario-table td,.horario-table th{
+  min-width: 85px;
+}
+body {
+  padding: .5rem;
+  max-width: 1000px;
+  margin: auto;
+}
+@media (min-width: 600px) {
+  body {
+    padding: 2rem;
+  }
+}
+body, input[text] {
+  color: #333;
+  font-family: Nunito;
+}

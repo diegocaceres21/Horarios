@@ -10,7 +10,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class TokenService {
 
-  constructor(private httpClient: HttpClient, private refreshService: RefreshService, private cookieService: CookieService) { }
+  constructor(private refreshService: RefreshService, private cookieService: CookieService) { }
 
   isLogged(): boolean{
     if(this.getToken()){
@@ -21,6 +21,7 @@ export class TokenService {
 
   setToken():void{
     const token = this.cookieService.get('token');
+    console.log(token);
     this.cookieService.set('token', token);
 
     this.refreshService.refresh();
@@ -28,6 +29,7 @@ export class TokenService {
   }
 
   getToken(): string {
+
     return this.cookieService.get('token');
   }
 

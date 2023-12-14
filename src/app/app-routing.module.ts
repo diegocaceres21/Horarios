@@ -7,10 +7,14 @@ import {PaginasGuard} from "./guards/paginas/paginas.guard";
 import {LoginGuard} from "./guards/login/login.guard";
 
 const routes: Routes = [
-  {path: '', redirectTo:'opciones',pathMatch: 'full' },
-  { path: 'crearHorario', component: HorarioComponent,canActivate:[PaginasGuard] },
-  { path: 'opciones', component: OpcionesHorariosComponent, canActivate:[PaginasGuard] },
-  { path: 'login', component: LoginComponent, canActivate:[LoginGuard] }];
+  { path: 'horarios', children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: 'crearHorario', component: HorarioComponent, canActivate: [PaginasGuard] },
+      { path: 'opciones', component: OpcionesHorariosComponent, canActivate: [PaginasGuard] },
+      { path: 'login', component: LoginComponent, canActivate: [LoginGuard] }
+    ]}
+];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

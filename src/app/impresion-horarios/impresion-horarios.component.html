@@ -1,0 +1,87 @@
+<body>
+  <div *ngIf="loaderService.isLoading | async; else contentReady">
+    <mat-spinner></mat-spinner>
+  </div>
+
+
+  <ng-template #contentReady>
+    <button mat-raised-button color="primary" *ngIf="carrera && opciones.length !==0" (click)="generatePDF()">Imprimir</button>
+    <!--<button (click)="generatePDF()">Imprimir</button>-->
+    <div id="horarioContent" #horarioContent>
+      <h1>Opciones de Horario para {{carrera}}</h1>
+      <div *ngFor="let opcion of opciones; let i = index"  class="opcion">
+        <p class="opcion-title">Opcion {{opcion.opcion}}</p>
+        <div class="materias-container">
+          <table [attr.id]="'table-' + i" mat-table [dataSource]="opcion.horario" class="mat-elevation-z8 materias-table">
+            <!-- Position Column -->
+            <ng-container matColumnDef="sigla">
+              <th mat-header-cell *matHeaderCellDef>Sigla</th>
+              <td mat-cell *matCellDef="let paralelo">{{paralelo.sigla}}</td>
+            </ng-container>
+
+            <ng-container  matColumnDef="materia">
+              <th mat-header-cell *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let paralelo">{{paralelo.materia}}</td>
+            </ng-container>
+            <ng-container  matColumnDef="paralelo">
+              <th mat-header-cell *matHeaderCellDef>Paralelo</th>
+              <td mat-cell *matCellDef="let paralelo">{{paralelo.paralelo}}</td>
+            </ng-container>
+            <ng-container matColumnDef="cupos">
+              <th mat-header-cell *matHeaderCellDef>Cupos</th>
+              <td mat-cell *matCellDef="let paralelo">
+                <!-- Store the result of getCupos in a variable -->
+                <ng-container *ngIf="getCupos(paralelo) as cupos">
+
+                  <!-- You can use cupos in other conditions or styling -->
+                  <div [ngStyle]="{'backgroundColor': cupos > 0 ? 'white' : 'pink'}">
+                    {{ cupos }}
+                    <!-- Your other content based on the value of cupos -->
+                  </div>
+                </ng-container>
+              </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="docente">
+              <th mat-header-cell *matHeaderCellDef>Docente</th>
+              <td mat-cell *matCellDef="let paralelo">
+                <!-- Store the result of getCupos in a variable -->
+                <ng-container *ngIf="getDocente(paralelo) as docente">
+
+                  <!-- You can use cupos in other conditions or styling -->
+                    {{ docente }}
+                    <!-- Your other content based on the value of cupos -->
+                </ng-container>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr
+              mat-row
+              *matRowDef="let row; columns: displayedColumns;"
+            ></tr>
+          </table>
+        </div>
+        <div class="inside-flex">
+          <table [attr.id]="'opcion-' + i" class="horario-table">
+            <thead>
+            <tr>
+              <th></th>
+              <th *ngFor="let day of days">{{ day }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-container *ngFor="let timeSlot of timeSlots; let timeSlotIndex = index">
+              <tr>
+                <td>{{ timeSlot }}</td>
+                <td *ngFor="let data of userScheduleData[i].schedule[timeSlotIndex]; let dayIndex = index">{{data}}</td>
+              </tr>
+            </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</body>

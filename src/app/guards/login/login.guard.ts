@@ -13,7 +13,7 @@ export class LoginGuard implements CanActivate{
   canActivate(next: ActivatedRouteSnapshot, state:RouterStateSnapshot) : boolean{
     if( this.tokenService.isLogged()){
       if(!this.tokenService.isExpired()){
-        this.router.navigate(['/']);
+        this.router.navigate(['/horarios/opciones']);
         return false;
       }
       return true;

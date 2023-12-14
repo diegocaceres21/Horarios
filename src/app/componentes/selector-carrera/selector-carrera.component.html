@@ -1,0 +1,11 @@
+<mat-form-field appearance="outline" class="carrera">
+  <mat-label>Carrera</mat-label>
+  <mat-select [(ngModel)]="carrera" > <!--[formControl]="carrera"-->
+    <!--<mat-option>-- None --</mat-option>-->
+    <mat-optgroup *ngFor="let group of carrerasPorDepartamento" [label]="group.departamento">
+      <mat-option *ngFor="let carrera of group.carreras" [value]="carrera">
+        {{carrera.nombre}}
+      </mat-option>
+    </mat-optgroup>
+  </mat-select>
+</mat-form-field>

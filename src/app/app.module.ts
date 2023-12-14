@@ -11,6 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card'; // Import MatListModule
+
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,6 +34,9 @@ import { NuevoHorarioConfirmarComponent } from './modals/nuevo-horario-confirmar
 import { CookieService } from 'ngx-cookie-service';
 import { LoginComponent } from './login/login.component';
 import { ConfirmarComponent } from './modals/confirmar/confirmar.component';
+import { ImpresionHorariosComponent } from './impresion-horarios/impresion-horarios.component';
+import {SelectorCarreraComponent} from "./componentes/selector-carrera/selector-carrera.component";
+//import { SelectorCarreraComponent } from './componentes/selector-carrera/selector-carrera.component';
 
 
 @NgModule({
@@ -44,7 +48,9 @@ import { ConfirmarComponent } from './modals/confirmar/confirmar.component';
     RightClickToDeleteDirective,
     NuevoHorarioConfirmarComponent,
     LoginComponent,
-    ConfirmarComponent
+    ConfirmarComponent,
+    ImpresionHorariosComponent,
+    SelectorCarreraComponent
   ],
   imports: [
     BrowserModule,

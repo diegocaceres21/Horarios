@@ -1,5 +1,6 @@
 <mat-toolbar class="tool-options">
-  <mat-form-field appearance="outline" class="carrera">
+  <app-selector-carrera name="carrera" [(ngModel)]="carrera" (ngModelChange)="cambiarHorarioCarrera($event)"></app-selector-carrera>
+  <!--<mat-form-field appearance="outline" class="carrera">
     <mat-label>Carrera</mat-label>
     <mat-select [(ngModel)]="carrera" (ngModelChange)="cambiarHorarioCarrera($event)">
       <mat-optgroup *ngFor="let group of carrerasPorDepartamento" [label]="group.departamento">
@@ -8,7 +9,7 @@
         </mat-option>
       </mat-optgroup>
     </mat-select>
-  </mat-form-field>
+  </mat-form-field>-->
   <button (click)="guardarHorario()" [disabled]="horarioSeleccionado.length === 0" class="update hvr-float" mat-fab extended color="primary">
     <mat-icon>update </mat-icon>
     Guardar Horario
@@ -44,16 +45,23 @@
           <div *ngIf="mat.paralelos">
 
             <table mat-table [dataSource]="mat.paralelos" class="mat-elevation-z8">
+              <ng-container  matColumnDef="sigla">
+                <th mat-header-cell *matHeaderCellDef>Sigla</th>
+                <td mat-cell *matCellDef="let paralelo" [ngStyle] = "{'backgroundColor' : materiaTieneChoque(paralelo) ? 'pink' : 'white'}">{{paralelo.sigla}}</td>
+              </ng-container>
+              <ng-container  matColumnDef="materia">
+                <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                <td mat-cell *matCellDef="let paralelo">{{paralelo.materia}}</td>
+              </ng-container>
               <!-- Position Column -->
               <ng-container  matColumnDef="paralelo">
                 <th mat-header-cell *matHeaderCellDef>Paralelo</th>
                 <td mat-cell *matCellDef="let paralelo" [ngStyle] = "{'backgroundColor' : materiaTieneChoque(paralelo) ? 'pink' : 'white'}">{{paralelo.paralelo}}</td>
               </ng-container>
-
               <!-- Name Column -->
               <ng-container matColumnDef="cupos">
                 <th mat-header-cell *matHeaderCellDef>Cupos</th>
-                <td mat-cell [ngStyle] = "{'backgroundColor' : materiaTieneChoque(paralelo) ? 'pink' : 'white'}" *matCellDef="let paralelo">{{paralelo.cupos}}</td>
+                <td mat-cell [ngStyle] = "{'backgroundColor' : materiaTieneChoque(paralelo) ? 'pink' : 'white'}" *matCellDef="let paralelo">{{paralelo.disponibles}}</td>
               </ng-container>
 
               <!-- Weight Column -->

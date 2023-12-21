@@ -44,15 +44,26 @@ export class NuevaMateriaComponent implements OnInit{
       result => {
         // Handle the result here
         this.paralelos = result
+        if (this.paralelos.length == 0){
+          this.openSnackBar()
+        }
         console.log(result);
         this.agruparCursos()
         // Call another function or do something else with the result
       },
       error => {
         // Handle error
+
         console.error(error);
       }
     )
+  }
+
+  openSnackBar() {
+    this._snackBar.open('Se ha actualizado el token. Por favor presione nuevamente el boton', 'Aceptar', {
+      horizontalPosition: "center",
+      verticalPosition: "top",
+    });
   }
   agruparCursos() {
 
@@ -68,7 +79,7 @@ export class NuevaMateriaComponent implements OnInit{
       this.ofertaAcademicaSiaan[clave].paralelos!.push(curso);
     });
     this.materias  = Object.values(this.ofertaAcademicaSiaan);
-    console.log(this.ofertaAcademicaSiaan)
+    console.log(this.materias)
   }
   getMaterias(){
     this.planesServicio.getDatos().subscribe(

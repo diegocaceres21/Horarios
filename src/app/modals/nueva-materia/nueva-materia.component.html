@@ -17,7 +17,7 @@
               </mat-option>
             </mat-autocomplete>
           </mat-form-field>
-            <button mat-raised-button color="primary" (click)="addMateria()" class="margin">Guardar</button>
+            <button [disabled]="!materia" mat-raised-button color="primary" (click)="addMateria()" class="margin">Guardar</button>
           <button mat-raised-button color="warn" [mat-dialog-close]>Cancelar</button>
       </ng-template>
       </div>

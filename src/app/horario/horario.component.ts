@@ -9,6 +9,7 @@ import { forkJoin } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {NuevoHorarioConfirmarComponent} from "../modals/nuevo-horario-confirmar/nuevo-horario-confirmar.component";
 import {ConfirmarComponent} from "../modals/confirmar/confirmar.component";
+import {ImpresionHorariosComponent} from "../impresion-horarios/impresion-horarios.component";
 
 @Component({
   selector: 'app-horario',
@@ -77,18 +78,25 @@ export class HorarioComponent implements OnInit{
 
   //previewIndices: { row: number, col: number }[] = [];
   isPreview: boolean[][] = [];
-  carrera: string = "";
+  carrera: any;
   materias: Materia[] = []
   paralelos :HorarioMateria[] = []
   displayedColumns: string[] = ['sigla', 'materia', 'paralelo', "cupos", "horarios", "button"];
   //dataSource = ELEMENT_DATA;
   clickedRows = new Set<HorarioMateria>();
   horarioSeleccionado :HorarioMateria[] = []
+  errorAgregar = false;
   constructor(private _snackBar: MatSnackBar,private siaanService: SiaanServiceService,public dialog: MatDialog, public loaderService: LoaderService){
     this.inicializarFalsoEstilo()
   }
 
-
+  openDialogPrint(): void {
+    const dialogRef = this.dialog.open(ImpresionHorariosComponent, {
+      data: {carrera: this.carrera.nombre, horario: this.horarioSeleccionado},
+      height: '98%',
+      width: '55%',
+    });
+  }
   guardarHorario(){
     const dialogRef = this.dialog.open(NuevoHorarioConfirmarComponent, {
       data: {horario: this.horarioSeleccionado},
@@ -206,7 +214,7 @@ export class HorarioComponent implements OnInit{
       }*/
   }
   materiaEstaAgregadaAlHorario(paral:HorarioMateria): boolean{
-    if(this.carrera === "MEDICINA")
+    if(this.carrera.nombre === "MEDICINA")
     {
       return this.horarioSeleccionado.some(item => item.sigla === paral.sigla && item.paralelo[0] !== paral.paralelo[0]);
     }
@@ -214,8 +222,20 @@ export class HorarioComponent implements OnInit{
       return this.horarioSeleccionado.some(item => item.sigla === paral.sigla);
     }
   }
+
+  materiaExisteEnHorario(sigla : string) : boolean {
+    if(this.carrera.nombre != "MEDICINA")
+    {
+      return this.horarioSeleccionado.some(item => item.sigla === sigla);
+    }
+    else{
+      return false
+      //return this.horarioSeleccionado.some(item => item.sigla === paral.sigla);
+    }
+  }
   cambiarHorarioCarrera(value: any) {
-    if(value === "MEDICINA"){
+    //this.carrera = value.nombre;
+    if(value.nombre === "MEDICINA"){
       this.cambiarHorarioMedicina()
     }
     else{
@@ -309,7 +329,7 @@ export class HorarioComponent implements OnInit{
           const timeSlotRange =horarioSeparado[i + 1].split(' - ');
           let horasInicioFin = [timeSlotRange[0], timeSlotRange[1]]
           //console.log(horasInicioFin)
-          if(this.carrera === "MEDICINA"){
+          if(this.carrera.nombre === "MEDICINA"){
             horas = this.timeSlots
               .map((item, index) => (item.split(' - ')[0] == horasInicioFin[0] || item.split(' - ')[1] == horasInicioFin[1] ? index : -1))
               .filter(index => index !== -1);
@@ -344,6 +364,7 @@ export class HorarioComponent implements OnInit{
   }
 
   agregarParaleloAHorarioFinal(paral: HorarioMateria){
+    console.log(paral)
     this.horarioSeleccionado.push(paral)
   }
   quitarParaleloAHorarioFinal(paral: HorarioMateria){
@@ -370,20 +391,27 @@ export class HorarioComponent implements OnInit{
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(NuevaMateriaComponent, {
-      data: {carrera: this.carrera},
-    });
+    try{
+      this.errorAgregar = false
+      const dialogRef = this.dialog.open(NuevaMateriaComponent, {
+        data: {carrera: this.carrera.nombre},
+      });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      if(this.materias.some(x=> x.sigla ===result.data.sigla)){
-        this.openSnackBar("Esta materia ya está agregada al horario")
-      }
-      else {
-        this.materias.push(result.data);
-      }
-      //console.log(this.ofertaAcademicaSiaan)
-    });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        if(this.materias.some(x=> x.sigla ===result.data.sigla)){
+          this.openSnackBar("Esta materia ya está agregada al horario")
+        }
+        else {
+          this.materias.push(result.data);
+        }
+        //console.log(this.ofertaAcademicaSiaan)
+      });
+    }
+    catch{
+      this.errorAgregar = true
+    }
+
   }
   filterData(response: any){
     const jsonData = response as any;
@@ -438,6 +466,6 @@ export class HorarioComponent implements OnInit{
   }
 
   agregarMateria(){
-    console.log(this.carrera)
+    console.log(this.carrera.nombre)
   }
 }

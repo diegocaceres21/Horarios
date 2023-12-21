@@ -14,6 +14,7 @@
     <mat-icon>update </mat-icon>
     Guardar Horario
   </button>
+  <button class="print" mat-mini-fab color="primary" *ngIf="horarioSeleccionado.length >0" (click)="openDialogPrint()"><mat-icon>print</mat-icon></button>
 </mat-toolbar>
 
 <div class="container-paralelos">
@@ -21,7 +22,7 @@
     <div class="materias-container">
       <mat-accordion *ngFor="let mat of materias">
         <mat-expansion-panel class="paraleloContainer" hideToggle>
-          <mat-expansion-panel-header>
+          <mat-expansion-panel-header [ngStyle]="{'backgroundColor' : materiaExisteEnHorario(mat.sigla) ? '#93ef8d' : 'white'}">
             <mat-panel-title>
               {{mat.sigla}}
             </mat-panel-title>
@@ -51,7 +52,7 @@
               </ng-container>
               <ng-container  matColumnDef="materia">
                 <th mat-header-cell *matHeaderCellDef>Nombre</th>
-                <td mat-cell *matCellDef="let paralelo">{{paralelo.materia}}</td>
+                <td mat-cell *matCellDef="let paralelo" [ngStyle] = "{'backgroundColor' : materiaTieneChoque(paralelo) ? 'pink' : 'white'}">{{paralelo.materia}}</td>
               </ng-container>
               <!-- Position Column -->
               <ng-container  matColumnDef="paralelo">
@@ -104,6 +105,7 @@
         <mat-icon>add </mat-icon>
         Agregar Materia
       </button>
+      <mat-error *ngIf="errorAgregar"><b> Seleccione primero una carrera</b></mat-error>
     </div>
   </div>
   <div class="inside-flex horario-table">

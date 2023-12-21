@@ -6,7 +6,7 @@ import {HttpClient, HttpHeaders, HttpResponse} from "@angular/common/http";
   providedIn: 'root'
 })
 export class AuthService {
-  url = "http://localhost:3000/api/"
+  url = "https://cba.ucb.edu.bo/horariosbackend/"
 
   constructor(private httpClient: HttpClient) { }
 

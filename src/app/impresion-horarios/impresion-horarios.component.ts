@@ -48,24 +48,6 @@ export class ImpresionHorariosComponent {
     '18:30 - 19:15', '19:30 - 20:15', '20:15 - 21:00'
   ];
   userScheduleData: UserScheduleData[] = []
-  /*userScheduleData: string[][] = [
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-  ];*/
   generatePDF() {
     const pdf = new jsPDF("p","px","a4");
 
@@ -99,8 +81,22 @@ export class ImpresionHorariosComponent {
               private appRef: ApplicationRef,
               private injector: Injector,@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<ImpresionHorariosComponent>,private ofertaService: OfertaSiaanService, public loaderService: LoaderService, private siaanService: SiaanServiceService,  private horariosService: HorariosService) {
     this.carrera = data.carrera;
-    this.getOptions()
-    this.getDatosSiaan()
+    if (data.horario){
+      this.opciones.push({opcion: 1,carrera: data.carrera, horario: data.horario})
+      if (data.carrera == "MEDICINA"){
+        this.cambiarHorarioMedicina(0)
+      }
+      else{
+        this.cambiarHorarioNormal(0)
+      }
+      this.opciones[0].horario.map(paralelo => this.fijarHorario(paralelo, 0))
+      console.log(this.opciones)
+    }
+    else{
+      this.getOptions()
+      this.getDatosSiaan()
+    }
+
   }
 
     getCupos(paraleloDeseado: HorarioMateria){
@@ -110,6 +106,7 @@ export class ImpresionHorariosComponent {
     getDocente(paraleloDeseado: HorarioMateria){
         return  this.ofertaAcademicaSiaan[paraleloDeseado.sigla]?.paralelos!.find((paralelo) => paralelo.paralelo === paraleloDeseado.paralelo)?.docente ?? "";
     }
+
   cambiarHorarioNormal(index :number) {
     this.timeSlots = [
       '07:15 - 08:00', '08:00 - 08:45', '09:00 - 09:45', '09:45 - 10:30',

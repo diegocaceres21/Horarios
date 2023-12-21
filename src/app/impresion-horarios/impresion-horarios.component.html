@@ -31,7 +31,15 @@
               <th mat-header-cell *matHeaderCellDef>Cupos</th>
               <td mat-cell *matCellDef="let paralelo">
                 <!-- Store the result of getCupos in a variable -->
-                <ng-container *ngIf="getCupos(paralelo) as cupos">
+                <ng-container *ngIf="paralelo.disponibles">
+
+                  <!-- You can use cupos in other conditions or styling -->
+                  <div [ngStyle]="{'backgroundColor': paralelo.disponibles > 0 ? 'white' : 'pink'}">
+                    {{ paralelo.disponibles }}
+                    <!-- Your other content based on the value of cupos -->
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="!paralelo.disponibles && getCupos(paralelo) as cupos">
 
                   <!-- You can use cupos in other conditions or styling -->
                   <div [ngStyle]="{'backgroundColor': cupos > 0 ? 'white' : 'pink'}">
@@ -46,8 +54,16 @@
             <ng-container matColumnDef="docente">
               <th mat-header-cell *matHeaderCellDef>Docente</th>
               <td mat-cell *matCellDef="let paralelo">
+                <ng-container *ngIf="paralelo.docente">
+
+                  <!-- You can use cupos in other conditions or styling -->
+                  <div>
+                    {{ paralelo.docente }}
+                    <!-- Your other content based on the value of cupos -->
+                  </div>
+                </ng-container>
                 <!-- Store the result of getCupos in a variable -->
-                <ng-container *ngIf="getDocente(paralelo) as docente">
+                <ng-container *ngIf="!paralelo.docente && getDocente(paralelo) as docente">
 
                   <!-- You can use cupos in other conditions or styling -->
                     {{ docente }}

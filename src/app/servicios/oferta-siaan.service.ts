@@ -77,6 +77,7 @@ export class OfertaSiaanService {
       },)
     );
   }*/
+
   forkRequestsSiaan(requests: Observable<any>[]): Observable<any> {
     return new Observable(observer => {
       forkJoin(
@@ -85,6 +86,7 @@ export class OfertaSiaanService {
             catchError(error => {
               // Handle error for individual request
               console.error('Request error:', error);
+
               // Return an observable with a placeholder value or an empty array/object to continue the flow
               return of(null);
             })
@@ -99,8 +101,8 @@ export class OfertaSiaanService {
         },
         error => {
           // This block will only be executed if all requests fail
-          console.error('All requests failed:', error);
           observer.error(error);
+
         }
       );
     });

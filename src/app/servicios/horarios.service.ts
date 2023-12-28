@@ -12,7 +12,7 @@ import {CookieService} from "ngx-cookie-service";
 export class HorariosService {
 
   constructor( private cookieService: CookieService, private httpClient: HttpClient, private refreshService: RefreshService, private authService: AuthService) { }
-  url = "https://cba.ucb.edu.bo/horariosbackend/horarios"
+  url = "http://localhost:3000/api/horarios"
   getHorarios(carrera: string){
     return this.httpClient.get<Horario[]>(this.url + "?carrera=" + carrera, {withCredentials: true})
   }

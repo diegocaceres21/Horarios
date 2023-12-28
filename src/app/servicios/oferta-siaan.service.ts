@@ -113,6 +113,30 @@ export class OfertaSiaanService {
       verticalPosition: "top",
     });
   }
+
+  filterHorarios(cell, profesor : {profesor: string}){
+    const horarios = cell.contenidoCelda[0].contenido.datos;
+    let horariosString = "";
+    for (let k = 0; k < horarios.length; k++) {
+      const horario = horarios[k];
+      let dia = "";
+      let horas = "";
+      for (let l = 0; l < horario.length; l++) {
+        const horarioCell = horario[l];
+        if (horarioCell.nombreColumna === "Día") {
+          dia = horarioCell.contenidoCelda[0].contenido;
+        } else if (horarioCell.nombreColumna === "Horas") {
+          horas = horarioCell.contenidoCelda[0].contenido;
+        }
+        else if (horarioCell.nombreColumna === "Docente") {
+          profesor.profesor = horarioCell.contenidoCelda[0].contenido;
+        }
+      }
+      horariosString += dia + ", " + horas + ", ";
+    }
+    return horariosString.substring(0, horariosString.length - 2);
+    //profesor =  docente.substring(0, docente.length - 2)
+  }
   filterData(response: any){
     const jsonData = response as any;
 
@@ -121,15 +145,15 @@ export class OfertaSiaanService {
     for (let i = 0; i < jsonData.datos.length; i++) {
       const column = jsonData.datos[i];
       const contenidoColumn: any[] = [];
-      let profesor;
+      let profesor = { profesor: ""};
       for (let j = 0; j < column.length; j++) {
         const cell = column[j];
         let contenido = cell.contenidoCelda[0].contenido;
 
         if (cell.nombreColumna === "Horarios") {
-          const horarios = cell.contenidoCelda[0].contenido.datos;
+          contenido = this.filterHorarios(cell, profesor)
+          /*const horarios = cell.contenidoCelda[0].contenido.datos;
           let horariosString = "";
-          let docente = "";
           for (let k = 0; k < horarios.length; k++) {
             const horario = horarios[k];
             let dia = "";
@@ -147,14 +171,13 @@ export class OfertaSiaanService {
             }
             horariosString += dia + ", " + horas + ", ";
           }
-          contenido = horariosString.substring(0, horariosString.length - 2);
+          contenido = horariosString.substring(0, horariosString.length - 2);*/
           //profesor =  docente.substring(0, docente.length - 2)
         }
 
         contenidoColumn.push(contenido);
-        //contenidoColumn.push(profesor);
       }
-      contenidoColumn.push(profesor);
+      contenidoColumn.push(profesor.profesor);
       contenidoList.push(contenidoColumn);
     }
     //console.log(contenidoList[1])

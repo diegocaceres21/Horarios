@@ -310,9 +310,6 @@ export class HorarioComponent implements OnInit{
     this.inicializarFalsoEstilo()
   }
 
-  EsMateriaYParaleloIgual(paral: HorarioMateria){
-    return false;
-  }
   fijarHorario(paral:HorarioMateria, isClicked: boolean): void {
     //if (this.isHovered) {
       this.materiaTieneChoque(paral)//eliminar

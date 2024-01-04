@@ -158,16 +158,6 @@ export class HorarioComponent implements OnInit{
     });
 
   }
-  onHover(paral:HorarioMateria){
-    this.isHovered = true;
-
-    /*for (let i =0; i<horarioSeparado.length; i+2){
-      let dia = this.days.indexOf(horarioSeparado[i])
-      let hora = this.timeSlots.indexOf(horarioSeparado[i + 1])
-      this.userScheduleData[dia][hora] = paral.sigla!;
-    }*/
-    this.fijarHorario(paral, false);
-  }
   borrarHorario(paral:HorarioMateria): void {
       paral.selected = false;
       this.deleteHorarioMateria(paral)

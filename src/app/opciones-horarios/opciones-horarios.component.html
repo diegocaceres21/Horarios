@@ -43,15 +43,18 @@
             <ng-container matColumnDef="cupos">
               <th mat-header-cell *matHeaderCellDef>Cupos</th>
               <td mat-cell *matCellDef="let paralelo">
-                <!-- Store the result of getCupos in a variable -->
-                <ng-container *ngIf="getCupos(paralelo) as cupos">
-
-                  <!-- You can use cupos in other conditions or styling -->
+                <ng-container *ngIf="getCupos(paralelo) as cupos; else noCupos">
                   <div [ngStyle]="{'backgroundColor': cupos > 0 ? 'white' : 'pink'}">
                     {{ cupos }}
-                    <!-- Your other content based on the value of cupos -->
                   </div>
                 </ng-container>
+                <ng-template #noCupos>
+                  <!-- Your content when cupos is falsy (0) -->
+                  <div [ngStyle]="{'backgroundColor': 'pink'}">
+                    0
+                    <!-- Your other content when cupos is 0 -->
+                  </div>
+                </ng-template>
               </td>
             </ng-container>
 

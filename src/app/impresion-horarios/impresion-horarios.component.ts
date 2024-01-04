@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import {Horario} from "../interfaces/horario";
 import {LoaderService} from "../servicios/loader.service";
-import {forkJoin, Observable} from "rxjs";
+import {catchError, forkJoin, Observable, tap, throwError} from "rxjs";
 import {SiaanServiceService} from "../siaan-service.service";
 import {HorariosService} from "../servicios/horarios.service";
 import {OfertaSiaanService} from "../servicios/oferta-siaan.service";
@@ -35,6 +35,8 @@ import {Materia} from "../interfaces/materia";
 export class ImpresionHorariosComponent {
   @ViewChild('horarioContent', { static: false }) contentReady!: ElementRef;
 
+  mostrarAulasHabilitado: boolean = false;
+  soloConCupoHabilitado: boolean = false;
   carrera: string = "";
   paralelos :HorarioMateria[] = []
     ofertaAcademicaSiaan: { [clave: string]: Materia } = {};
@@ -48,6 +50,7 @@ export class ImpresionHorariosComponent {
     '18:30 - 19:15', '19:30 - 20:15', '20:15 - 21:00'
   ];
   userScheduleData: UserScheduleData[] = []
+  aulas: UserScheduleData[] = []
   generatePDF() {
     const pdf = new jsPDF("p","px","a4");
 
@@ -69,7 +72,18 @@ export class ImpresionHorariosComponent {
       //const rows = item.tableData.map(row => Object.values(row));
 
       autoTable(pdf,{html: '#table-' + index, theme: 'grid', headStyles: { halign: 'center', fillColor: [18, 4, 79] }, bodyStyles: { lineColor: [0,0,0]}});
-      autoTable(pdf,{html: '#opcion-' + index, theme: 'grid',  headStyles: { halign: 'center', fillColor: [18, 4, 79] },bodyStyles: { halign: 'center', lineColor: [0,0,0]} });
+      if(this.mostrarAulasHabilitado){
+        autoTable(pdf,{html: '#opcion-' + index, theme: 'grid',  headStyles: { halign: 'center', fillColor: [18, 4, 79] },bodyStyles: { halign: 'center',valign:'middle',cellPadding:2, lineColor: [0,0,0], fontSize: 9},didParseCell: function (data) {
+            //var rows = data.table.columns;
+            if (data.column.index === 0) {
+              data.column.minWidth = 55
+              data.cell.styles.fontSize = 10;
+            }
+          } });
+      }
+      else{
+        autoTable(pdf,{html: '#opcion-' + index, theme: 'grid',  headStyles: { halign: 'center', fillColor: [18, 4, 79] },bodyStyles: { halign: 'center', lineColor: [0,0,0]} });
+      }
     });
 
     // Save or open the generated PDF
@@ -90,11 +104,11 @@ export class ImpresionHorariosComponent {
         this.cambiarHorarioNormal(0)
       }
       this.opciones[0].horario.map(paralelo => this.fijarHorario(paralelo, 0))
-      console.log(this.opciones)
+
     }
     else{
       this.getOptions()
-      this.getDatosSiaan()
+      this.getDatosSiaan().subscribe()
     }
 
   }
@@ -106,6 +120,49 @@ export class ImpresionHorariosComponent {
     getDocente(paraleloDeseado: HorarioMateria){
         return  this.ofertaAcademicaSiaan[paraleloDeseado.sigla]?.paralelos!.find((paralelo) => paralelo.paralelo === paraleloDeseado.paralelo)?.docente ?? "";
     }
+
+  OcultaroMostrarAulas(){
+    this.mostrarAulasHabilitado = !this.mostrarAulasHabilitado
+    if(this.mostrarAulasHabilitado){
+      this.agregarAulas()
+    }
+  }
+
+  agregarAulas(){
+    this.getDatosSiaan(true).subscribe(() => {
+      for (let i = 0; i < this.opciones.length; i++) {
+        this.opciones[i].horario.map(paralelo => this.anadirAulasAlHorario(paralelo, i));
+      }
+      // The rest of your code that should run after getDatosSiaan and the loop
+    });
+    console.log(this.aulas)
+  }
+
+  getAula(i, indexHora, dayIndex){
+    return this.aulas[i].schedule[indexHora][dayIndex]
+  }
+
+  getAulaDelSiaan(paraleloDeseado: HorarioMateria){
+    return  this.ofertaAcademicaSiaan[paraleloDeseado.sigla]?.paralelos!.find((paralelo) => paralelo.paralelo === paraleloDeseado.paralelo)?.horario ?? "";
+  }
+  anadirAulasAlHorario(paralelo, indexSchedule){
+    let horario = this.getAulaDelSiaan(paralelo)
+    let horarioSeparado = this.separarHorario(horario)
+    for (let i =0; i<horarioSeparado.length; i =i + 3) {
+      let aula = horarioSeparado[i +2];
+      let dia = this.days.indexOf(horarioSeparado[i])
+
+      let horas = this.getHoras(horarioSeparado[i +1])
+
+      for (let j = 0; j < horas.length; j++) {
+        this.agregarAulaAlHorarioFinal(aula,indexSchedule,horas, dia, j)
+      }
+    }
+  }
+
+  agregarAulaAlHorarioFinal(aula, indexSchedule, horas, dia, i) {
+      this.aulas[indexSchedule].schedule[horas[i]][dia] = aula;
+  }
 
   cambiarHorarioNormal(index :number) {
     this.timeSlots = [
@@ -133,7 +190,9 @@ export class ImpresionHorariosComponent {
               ['', '', '', '', '', ''],
               ['', '', '', '', '', ''],
           ]};
-      this.userScheduleData.push(newSchedule)
+    let newScheduleCopy = JSON.parse(JSON.stringify(newSchedule));
+    this.userScheduleData.push(newSchedule)
+    this.aulas.push(newScheduleCopy)
   }
   cambiarHorarioMedicina(index:number){
     this.timeSlots = [
@@ -156,17 +215,26 @@ export class ImpresionHorariosComponent {
             ['', '', '', '', '', ''],
             ['', '', '', '', '', '']
         ]};
+    let newScheduleAula : UserScheduleData = {
+      schedule: [
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', '']
+      ]};
+    //let newScheduleCopy = JSON.parse(JSON.stringify(newSchedule));
     this.userScheduleData.push(newSchedule)
+    this.aulas.push(newScheduleAula)
   }
   getOptions() {
-    //this.getDatosSiaan()
-    /*if(this.carrera == "MEDICINA"){
-      this.cambiarHorarioMedicina()
-    }
-    else{
-      this.cambiarHorarioNormal()
-    }*/
-
     this.horariosService.getHorarios(this.carrera).subscribe(
       (data: Horario[]) => {
         // Save the token in your app's cookies for later use
@@ -181,6 +249,7 @@ export class ImpresionHorariosComponent {
                 this.cambiarHorarioNormal(i)
             }
           this.opciones[i].horario.map(paralelo => this.fijarHorario(paralelo, i))
+
         }
 
         // Now you can use the 'appToken' cookie for making authenticated requests
@@ -189,50 +258,56 @@ export class ImpresionHorariosComponent {
         // Handle login error
       }
     )
+
   }
   separarHorario(horario: string){
     let res =horario.split(",")
     const trimmedStrings: string[] = res.map(str => str.trimStart());
     return trimmedStrings
   }
-  fijarHorario(paral:HorarioMateria, indexSchedule: number): void {
+
+  getHoras(horario: string) {
+    let horas: number[] = [];
+    if (this.timeSlots.some(x => x === horario)) {
+      horas.push(this.timeSlots.indexOf(horario))
+    } else {
+      const timeSlotRange = horario.split(' - ');
+      let horasInicioFin = [timeSlotRange[0], timeSlotRange[1]]
+      //console.log(horasInicioFin)
+      if (this.carrera === "MEDICINA") {
+        horas = this.timeSlots
+          .map((item, index) => (item.split(' - ')[0] == horasInicioFin[0] || item.split(' - ')[1] == horasInicioFin[1] ? index : -1))
+          .filter(index => index !== -1);
+      } else {
+        horas = this.timeSlots
+          .map((item, index) => (horasInicioFin.some(substring => item.includes(substring)) ? index : -1))
+          .filter(index => index !== -1);
+      }
+    }
+    return horas
+  }
+
+  agregarAlHorarioFinal(paral: HorarioMateria, indexSchedule, horas, dia, i) {
+    if (paral.paralelo.includes("-")) {
+      const sigla = paral.sigla + " - " + paral.paralelo.split("-")[1]
+      this.userScheduleData[indexSchedule].schedule[horas[i]][dia] = sigla;
+    } else {
+      this.userScheduleData[indexSchedule].schedule[horas[i]][dia] = paral.sigla!;
+    }
+  }
+fijarHorario(paral:HorarioMateria, indexSchedule: number): void {
     let horarioSeparado = this.separarHorario(paral.horario)
     for (let i =0; i<horarioSeparado.length; i =i + 2) {
       let dia = this.days.indexOf(horarioSeparado[i])
       //Trabajamos con la hora
-      let horas: number[] = [];
-      if (this.timeSlots.some(x => x === horarioSeparado[i + 1])) {
-        horas.push(this.timeSlots.indexOf(horarioSeparado[i + 1]))
-      } else {
-        const timeSlotRange = horarioSeparado[i + 1].split(' - ');
-        let horasInicioFin = [timeSlotRange[0], timeSlotRange[1]]
-        //console.log(horasInicioFin)
-        if (this.carrera === "MEDICINA") {
-          horas = this.timeSlots
-            .map((item, index) => (item.split(' - ')[0] == horasInicioFin[0] || item.split(' - ')[1] == horasInicioFin[1] ? index : -1))
-            .filter(index => index !== -1);
-        } else {
-          horas = this.timeSlots
-            .map((item, index) => (horasInicioFin.some(substring => item.includes(substring)) ? index : -1))
-            .filter(index => index !== -1);
-        }
-      }
-
+      let horas = this.getHoras(horarioSeparado[i +1])
       for (let i = 0; i < horas.length; i++) {
-        if (paral.paralelo.includes("-")) {
-          const sigla = paral.sigla + " - " + paral.paralelo.split("-")[1]
-          this.userScheduleData[indexSchedule].schedule[horas[i]][dia] = sigla;
-        } else {
-          this.userScheduleData[indexSchedule].schedule[horas[i]][dia] = paral.sigla!;
-        }
-
-        //this.previewIndices.push({ row: i, col: dia });
+        this.agregarAlHorarioFinal(paral,indexSchedule,horas, dia, i)
       }
     }
-    //}
   }
-  getDatosSiaan(){
-    this.ofertaService.getDatosSiaan(this.carrera).subscribe(
+  /*getDatosSiaan(conAula: boolean = false){
+    this.ofertaService.getDatosSiaan(this.carrera, conAula).subscribe(
       (data) => {
         this.paralelos = data
           this.agruparCursos()
@@ -242,23 +317,34 @@ export class ImpresionHorariosComponent {
             console.error(error);
         }
     )
+  }*/
+  getDatosSiaan(conAula: boolean = false): Observable<any> {
+    return this.ofertaService.getDatosSiaan(this.carrera, conAula).pipe(
+      tap(data => {
+        this.paralelos = data;
+        this.agruparCursos();
+      }),
+      catchError(error => {
+        // Handle error
+        console.error(error);
+        // You may want to return an observable with an error here
+        return throwError(error);
+      })
+    );
   }
-
     agruparCursos() {
-
+      this.ofertaAcademicaSiaan = {};
         this.paralelos.forEach(curso => {
             const clave = curso.sigla!;
             if (!this.ofertaAcademicaSiaan[clave]) {
                 this.ofertaAcademicaSiaan[clave] = {
                     sigla: curso.sigla!,
                     asignatura: curso.materia!,
-                    paralelos: []
+                    paralelos: [],
                 };
             }
             this.ofertaAcademicaSiaan[clave].paralelos!.push(curso);
         });
-        //this.materias  = Object.values(this.ofertaAcademicaSiaan);
-        console.log(this.ofertaAcademicaSiaan)
     }
 
 

@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 //
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -56,6 +57,7 @@ import {SelectorCarreraComponent} from "./componentes/selector-carrera/selector-
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatSlideToggleModule,
     MatDialogModule,
     MatSidenavModule,
     MatCardModule,

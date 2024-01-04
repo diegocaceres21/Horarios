@@ -5,8 +5,13 @@
 
 
   <ng-template #contentReady>
-    <button mat-raised-button color="primary" *ngIf="carrera && opciones.length !==0" (click)="generatePDF()">Imprimir</button>
-    <!--<button (click)="generatePDF()">Imprimir</button>-->
+    <div class="buttons-container">
+      <mat-slide-toggle [checked]="soloConCupoHabilitado">Mostrar solo CON cupo</mat-slide-toggle>
+      <button mat-raised-button color="primary" *ngIf="carrera && opciones.length !==0" (click)="generatePDF()">Imprimir</button>
+      <!--<button (click)="generatePDF()">Imprimir</button>-->
+      <mat-slide-toggle [checked]="mostrarAulasHabilitado" (toggleChange)="OcultaroMostrarAulas()">Mostrar Aulas</mat-slide-toggle>
+    </div>
+
     <div id="horarioContent" #horarioContent>
       <h1>Opciones de Horario para {{carrera}}</h1>
       <div *ngFor="let opcion of opciones; let i = index"  class="opcion">
@@ -30,44 +35,38 @@
             <ng-container matColumnDef="cupos">
               <th mat-header-cell *matHeaderCellDef>Cupos</th>
               <td mat-cell *matCellDef="let paralelo">
-                <!-- Store the result of getCupos in a variable -->
-                <ng-container *ngIf="paralelo.disponibles">
-
-                  <!-- You can use cupos in other conditions or styling -->
-                  <div [ngStyle]="{'backgroundColor': paralelo.disponibles > 0 ? 'white' : 'pink'}">
-                    {{ paralelo.disponibles }}
-                    <!-- Your other content based on the value of cupos -->
-                  </div>
-                </ng-container>
-                <ng-container *ngIf="!paralelo.disponibles && getCupos(paralelo) as cupos">
-
-                  <!-- You can use cupos in other conditions or styling -->
-                  <div [ngStyle]="{'backgroundColor': cupos > 0 ? 'white' : 'pink'}">
-                    {{ cupos }}
-                    <!-- Your other content based on the value of cupos -->
-                  </div>
-                </ng-container>
+                <div *ngIf="paralelo.disponibles">
+                  <ng-container *ngIf="paralelo.disponibles">
+                    <div [ngStyle]="{'backgroundColor': paralelo.disponibles > 0 ? 'white' : 'pink'}">
+                      {{ paralelo.disponibles }}
+                    </div>
+                  </ng-container>
+                </div>
+                <div *ngIf="!paralelo.disponibles">
+                  <ng-container *ngIf="getCupos(paralelo) as cupos; else noCupos">
+                    <div [ngStyle]="{'backgroundColor': cupos > 0 ? 'white' : 'pink'}">
+                      {{ cupos }}
+                    </div>
+                  </ng-container>
+                  <ng-template #noCupos>
+                    <div [ngStyle]="{'backgroundColor': 'pink'}">
+                      0
+                    </div>
+                  </ng-template>
+                </div>
               </td>
             </ng-container>
 
-            <!-- Name Column -->
             <ng-container matColumnDef="docente">
               <th mat-header-cell *matHeaderCellDef>Docente</th>
               <td mat-cell *matCellDef="let paralelo">
                 <ng-container *ngIf="paralelo.docente">
-
-                  <!-- You can use cupos in other conditions or styling -->
                   <div>
                     {{ paralelo.docente }}
-                    <!-- Your other content based on the value of cupos -->
                   </div>
                 </ng-container>
-                <!-- Store the result of getCupos in a variable -->
                 <ng-container *ngIf="!paralelo.docente && getDocente(paralelo) as docente">
-
-                  <!-- You can use cupos in other conditions or styling -->
                     {{ docente }}
-                    <!-- Your other content based on the value of cupos -->
                 </ng-container>
               </td>
             </ng-container>
@@ -90,8 +89,18 @@
             <tbody>
             <ng-container *ngFor="let timeSlot of timeSlots; let timeSlotIndex = index">
               <tr>
+                <!-- ; let aula of aulas[i].schedule[timeSlotIndex] ...  - {{aula}}-->
                 <td>{{ timeSlot }}</td>
-                <td *ngFor="let data of userScheduleData[i].schedule[timeSlotIndex]; let dayIndex = index">{{data}}</td>
+                <td *ngFor="let data of userScheduleData[i].schedule[timeSlotIndex]; let dayIndex = index">
+                  {{data}}
+                  <div class="aula" *ngIf="mostrarAulasHabilitado">
+                    <br>
+                    <div *ngIf="getAula(i,timeSlotIndex,dayIndex) as aula">
+                      Aula: {{aula}}
+                    </div>
+
+                  </div>
+                </td>
               </tr>
             </ng-container>
             </tbody>

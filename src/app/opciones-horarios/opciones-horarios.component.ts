@@ -63,8 +63,10 @@ export class OpcionesHorariosComponent {
   }
 
 
-  getCupos(paraleloDeseado: HorarioMateria){
-      return  this.ofertaAcademicaSiaan[paraleloDeseado.sigla]?.paralelos!.find((paralelo) => paralelo.paralelo === paraleloDeseado.paralelo)?.disponibles ?? -1;
+  getCupos(paraleloDeseado: HorarioMateria) : number{
+    const cupos = this.ofertaAcademicaSiaan[paraleloDeseado.sigla]?.paralelos!.find((paralelo) => paralelo.paralelo === paraleloDeseado.paralelo)?.disponibles ?? -1;
+    console.log(cupos)
+    return cupos
   }
   cambiarHorarioNormal() {
         this.timeSlots = [

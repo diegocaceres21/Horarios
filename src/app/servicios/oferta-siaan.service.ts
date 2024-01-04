@@ -47,7 +47,7 @@ export class OfertaSiaanService {
   ]
   ofertaAcademicaSiaan: { [clave: string]: Materia } = {};
   constructor( private _snackBar: MatSnackBar, private siaanService: SiaanServiceService,  private horariosService: HorariosService) { }
-  getDatosSiaan(carrera: string): Observable<any> {
+  getDatosSiaan(carrera: string, conAula: boolean = false): Observable<any> {
     let requests: Observable<any>[];
 
     if (carrera === 'MEDICINA') {
@@ -63,7 +63,7 @@ export class OfertaSiaanService {
       requests = payloads.map(payload => this.siaanService.getDatos(payload, idPeriodo));
     }
 
-    return this.forkRequestsSiaan(requests);
+    return this.forkRequestsSiaan(requests, conAula);
   }
   /*forkRequestsSiaan(requests: Observable<any>[]): Observable<any[]> {
     return forkJoin(requests).pipe(
@@ -78,7 +78,7 @@ export class OfertaSiaanService {
     );
   }*/
 
-  forkRequestsSiaan(requests: Observable<any>[]): Observable<any> {
+  forkRequestsSiaan(requests: Observable<any>[], conAula: boolean): Observable<any> {
     return new Observable(observer => {
       forkJoin(
         requests.map(request =>
@@ -95,7 +95,7 @@ export class OfertaSiaanService {
       ).subscribe(
         responses => {
           // Process all responses, even if some requests failed
-          const paralelos = responses.reduce((acc, response) => (response !== null ? acc.concat(this.filterData(response)) : acc), []);
+          const paralelos = responses.reduce((acc, response) => (response !== null ? acc.concat(this.filterData(response, conAula)) : acc), []);
           observer.next(paralelos);
           observer.complete();
         },
@@ -114,13 +114,14 @@ export class OfertaSiaanService {
     });
   }
 
-  filterHorarios(cell, profesor : {profesor: string}){
+  filterHorarios(cell, profesor : {profesor: string}, conAula: boolean){
     const horarios = cell.contenidoCelda[0].contenido.datos;
     let horariosString = "";
     for (let k = 0; k < horarios.length; k++) {
       const horario = horarios[k];
       let dia = "";
       let horas = "";
+      let aula = ""
       for (let l = 0; l < horario.length; l++) {
         const horarioCell = horario[l];
         if (horarioCell.nombreColumna === "Día") {
@@ -128,16 +129,22 @@ export class OfertaSiaanService {
         } else if (horarioCell.nombreColumna === "Horas") {
           horas = horarioCell.contenidoCelda[0].contenido;
         }
+        else if (horarioCell.nombreColumna === "Aula" && conAula) {
+          aula = horarioCell.contenidoCelda[0].contenido;
+        }
         else if (horarioCell.nombreColumna === "Docente") {
           profesor.profesor = horarioCell.contenidoCelda[0].contenido;
         }
       }
       horariosString += dia + ", " + horas + ", ";
+      if(conAula){
+        horariosString += aula + ", ";
+      }
     }
     return horariosString.substring(0, horariosString.length - 2);
     //profesor =  docente.substring(0, docente.length - 2)
   }
-  filterData(response: any){
+  filterData(response: any, conAula: boolean){
     const jsonData = response as any;
 
     const contenidoList: any[] = [];
@@ -151,7 +158,7 @@ export class OfertaSiaanService {
         let contenido = cell.contenidoCelda[0].contenido;
 
         if (cell.nombreColumna === "Horarios") {
-          contenido = this.filterHorarios(cell, profesor)
+          contenido = this.filterHorarios(cell, profesor, conAula)
           /*const horarios = cell.contenidoCelda[0].contenido.datos;
           let horariosString = "";
           for (let k = 0; k < horarios.length; k++) {
@@ -181,7 +188,7 @@ export class OfertaSiaanService {
       contenidoList.push(contenidoColumn);
     }
     //console.log(contenidoList[1])
-    console.log(contenidoList)
+    //console.log(contenidoList)
     let resultado : HorarioMateria[] = contenidoList.map(row => ({
       sigla: row[1],
       materia: row[3],
@@ -208,6 +215,6 @@ export class OfertaSiaanService {
     });
     this.materias  = Object.values(this.ofertaAcademicaSiaan);
     return this.ofertaAcademicaSiaan
-    console.log(this.ofertaAcademicaSiaan)
+    //console.log(this.ofertaAcademicaSiaan)
   }
 }

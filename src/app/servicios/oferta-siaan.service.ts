@@ -145,6 +145,7 @@ export class OfertaSiaanService {
     //profesor =  docente.substring(0, docente.length - 2)
   }
   filterData(response: any, conAula: boolean){
+
     const jsonData = response as any;
 
     const contenidoList: any[] = [];
@@ -155,31 +156,10 @@ export class OfertaSiaanService {
       let profesor = { profesor: ""};
       for (let j = 0; j < column.length; j++) {
         const cell = column[j];
+        console.log(cell)
         let contenido = cell.contenidoCelda[0].contenido;
-
         if (cell.nombreColumna === "Horarios") {
           contenido = this.filterHorarios(cell, profesor, conAula)
-          /*const horarios = cell.contenidoCelda[0].contenido.datos;
-          let horariosString = "";
-          for (let k = 0; k < horarios.length; k++) {
-            const horario = horarios[k];
-            let dia = "";
-            let horas = "";
-            for (let l = 0; l < horario.length; l++) {
-              const horarioCell = horario[l];
-              if (horarioCell.nombreColumna === "Día") {
-                dia = horarioCell.contenidoCelda[0].contenido;
-              } else if (horarioCell.nombreColumna === "Horas") {
-                horas = horarioCell.contenidoCelda[0].contenido;
-              }
-              else if (horarioCell.nombreColumna === "Docente") {
-                profesor = horarioCell.contenidoCelda[0].contenido;
-              }
-            }
-            horariosString += dia + ", " + horas + ", ";
-          }
-          contenido = horariosString.substring(0, horariosString.length - 2);*/
-          //profesor =  docente.substring(0, docente.length - 2)
         }
 
         contenidoColumn.push(contenido);
@@ -188,7 +168,7 @@ export class OfertaSiaanService {
       contenidoList.push(contenidoColumn);
     }
     //console.log(contenidoList[1])
-    //console.log(contenidoList)
+    console.log(contenidoList)
     let resultado : HorarioMateria[] = contenidoList.map(row => ({
       sigla: row[1],
       materia: row[3],

@@ -6,7 +6,7 @@
 
   <ng-template #contentReady>
     <div class="buttons-container">
-      <mat-slide-toggle [checked]="soloConCupoHabilitado">Mostrar solo CON cupo</mat-slide-toggle>
+      <mat-slide-toggle  [checked]="soloConCupoHabilitado" (toggleChange)="filtrarOpciones()">Mostrar solo CON cupo</mat-slide-toggle>
       <button mat-raised-button color="primary" *ngIf="carrera && opciones.length !==0" (click)="generatePDF()">Imprimir</button>
       <!--<button (click)="generatePDF()">Imprimir</button>-->
       <mat-slide-toggle [checked]="mostrarAulasHabilitado" (toggleChange)="OcultaroMostrarAulas()">Mostrar Aulas</mat-slide-toggle>
@@ -14,7 +14,7 @@
 
     <div id="horarioContent" #horarioContent>
       <h1>Opciones de Horario para {{carrera}}</h1>
-      <div *ngFor="let opcion of opciones; let i = index"  class="opcion">
+      <div *ngFor="let opcion of opcionesFiltradas; let i = index"  class="opcion">
         <p class="opcion-title">Opcion {{opcion.opcion}}</p>
         <div class="materias-container">
           <table [attr.id]="'table-' + i" mat-table [dataSource]="opcion.horario" class="mat-elevation-z8 materias-table">

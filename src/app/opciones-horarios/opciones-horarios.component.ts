@@ -192,12 +192,20 @@ export class OpcionesHorariosComponent {
       }
           //}
   }
-
+  openSnackBar() {
+    this._snackBar.open('Por favor, seleccione otra carrera y nuevamente cambie a esta para actualizar correctamente los cupos', 'Aceptar', {
+      horizontalPosition: "center",
+      verticalPosition: "top",
+    });
+  }
   getDatosSiaan(){
     this.ofertaSiaanService.getDatosSiaan(this.carrera.nombre).subscribe(
       result => {
         // Handle the result here
         this.paralelos = result
+        if (this.paralelos.length == 0){
+          this.openSnackBar()
+        }
         console.log(result);
         this.agruparCursos()
         // Call another function or do something else with the result

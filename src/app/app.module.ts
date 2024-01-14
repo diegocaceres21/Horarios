@@ -11,6 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card'; // Import MatListModule
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
@@ -58,6 +59,8 @@ import {SelectorCarreraComponent} from "./componentes/selector-carrera/selector-
     AppRoutingModule,
     HttpClientModule,
     MatSlideToggleModule,
+
+    MatCheckboxModule,
     MatDialogModule,
     MatSidenavModule,
     MatCardModule,

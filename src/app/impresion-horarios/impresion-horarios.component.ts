@@ -38,6 +38,7 @@ export class ImpresionHorariosComponent {
   mostrarAulasHabilitado: boolean = false;
   soloConCupoHabilitado: boolean = false;
   carrera: string = "";
+  segundoAnio = false;
   paralelos :HorarioMateria[] = []
     ofertaAcademicaSiaan: { [clave: string]: Materia } = {};
   opciones: Horario[] = []
@@ -59,10 +60,14 @@ export class ImpresionHorariosComponent {
               private injector: Injector,@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<ImpresionHorariosComponent>,private ofertaService: OfertaSiaanService, public loaderService: LoaderService, private siaanService: SiaanServiceService,  private horariosService: HorariosService)
   {
     this.carrera = data.carrera;
+    if(data.segundoAnio){
+      this.segundoAnio = true;
+    }
     if (data.horario){
       this.opciones.push({opcion: 1,carrera: data.carrera, horario: data.horario})
+      console.log(data.segundoAnio);
       if (data.carrera == "MEDICINA"){
-        this.cambiarHorarioMedicina(0)
+          this.cambiarHorarioMedicina(0)
       }
       else{
         this.cambiarHorarioNormal(0)
@@ -278,13 +283,17 @@ export class ImpresionHorariosComponent {
     this.userScheduleData = []
     for(let i = 0; i < this.opcionesFiltradas.length; i++){
       if(this.carrera == "MEDICINA"){
-        this.cambiarHorarioMedicina(i)
+        if(this.segundoAnio){
+          this.cambiarHorarioNormal(i)
+        }
+        else {
+          this.cambiarHorarioMedicina(i)
+        }
       }
       else{
         this.cambiarHorarioNormal(i)
       }
       this.opcionesFiltradas[i].horario.map(paralelo => this.fijarHorario(paralelo, i))
-
     }
   }
   separarHorario(horario: string){

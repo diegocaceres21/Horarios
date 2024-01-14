@@ -27,7 +27,7 @@ export class HorarioComponent implements OnInit{
     '14:15 - 15:00', '15:00 - 15:45', '16:00 - 16:45', '16:45 - 17:30', '17:45 - 18:30',
     '18:30 - 19:15', '19:30 - 20:15', '20:15 - 21:00'
   ];
-
+  segundoAnioChecked: boolean = false;
   ofertaAcademicaSiaan: { [clave: string]: Materia } = {};
   carrerasPorDepartamento : any[] =  [
     {departamento: "MEDICINA", carreras: [
@@ -88,11 +88,12 @@ export class HorarioComponent implements OnInit{
   errorAgregar = false;
   constructor(private _snackBar: MatSnackBar,private siaanService: SiaanServiceService,public dialog: MatDialog, public loaderService: LoaderService){
     this.inicializarFalsoEstilo()
+    //this.carrera.nombre = ""
   }
 
   openDialogPrint(): void {
     const dialogRef = this.dialog.open(ImpresionHorariosComponent, {
-      data: {carrera: this.carrera.nombre, horario: this.horarioSeleccionado},
+      data: {carrera: this.carrera.nombre, horario: this.horarioSeleccionado, segundoAnio: this.segundoAnioChecked},
       height: '98%',
       width: '55%',
     });
@@ -138,7 +139,15 @@ export class HorarioComponent implements OnInit{
     console.log(this.ofertaAcademicaSiaan)
   }
 
-
+  changeToSecondYear(){
+    this.segundoAnioChecked = !this.segundoAnioChecked
+    if(this.segundoAnioChecked){
+      this.cambiarHorarioNormal()
+    }
+    else{
+      this.cambiarHorarioMedicina()
+    }
+  }
   separarHorario(horario: string){
     let res =horario.split(",")
     const trimmedStrings: string[] = res.map(str => str.trimStart());
@@ -300,6 +309,12 @@ export class HorarioComponent implements OnInit{
     this.inicializarFalsoEstilo()
   }
 
+  isMedicina() : boolean{
+    if(this.carrera){
+      return this.carrera.nombre == "MEDICINA"
+    }
+    return false;
+  }
   fijarHorario(paral:HorarioMateria, isClicked: boolean): void {
     //if (this.isHovered) {
       this.materiaTieneChoque(paral)//eliminar
@@ -412,7 +427,6 @@ export class HorarioComponent implements OnInit{
         for (let j = 0; j < column.length; j++) {
           const cell = column[j];
           let contenido = cell.contenidoCelda[0].contenido;
-
           if (cell.nombreColumna === "Horarios") {
             const horarios = cell.contenidoCelda[0].contenido.datos;
             let horariosString = "";

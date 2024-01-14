@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "baseHref": "/horarios/",
             "outputPath": "dist/horarios",
             "index": "src/index.html",
             "main": "src/main.ts",

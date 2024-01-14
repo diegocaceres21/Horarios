@@ -149,34 +149,57 @@ export class OfertaSiaanService {
     const jsonData = response as any;
 
     const contenidoList: any[] = [];
+    //let contenidoColumn: any[] = [];
 
     for (let i = 0; i < jsonData.datos.length; i++) {
       const column = jsonData.datos[i];
-      const contenidoColumn: any[] = [];
+      //let contenidoColumn: HorarioMateria[] = [];
+      //contenidoColumn.push([])
+      let contenidoColumn : any ={};
+
       let profesor = { profesor: ""};
       for (let j = 0; j < column.length; j++) {
         const cell = column[j];
-        console.log(cell)
-        let contenido = cell.contenidoCelda[0].contenido;
+        //console.log(cell)
+        if(cell.nombreColumna === "Sigla"){
+          //console.log(cell.contenidoCelda[0].contenido)
+          contenidoColumn.sigla = cell.contenidoCelda[0].contenido;
+        }
+        else if(cell.nombreColumna === "P"){
+          contenidoColumn.paralelo = cell.contenidoCelda[0].contenido;
+        }
+        else if(cell.nombreColumna === "Asignatura"){
+          contenidoColumn.materia = cell.contenidoCelda[0].contenido;
+        }
+        else if(cell.nombreColumna === "Cupo"){
+          contenidoColumn.cupos = cell.contenidoCelda[0].contenido;
+        }
+        else if(cell.nombreColumna === "Inscritos"){
+          contenidoColumn.inscritos = cell.contenidoCelda[0].contenido;
+        }
+        //let contenido = cell.contenidoCelda[0].contenido;
         if (cell.nombreColumna === "Horarios") {
-          contenido = this.filterHorarios(cell, profesor, conAula)
+          contenidoColumn.horario = this.filterHorarios(cell, profesor, conAula)
+          //contenido = this.filterHorarios(cell, profesor, conAula)
         }
 
-        contenidoColumn.push(contenido);
+        //contenidoColumn.push(contenido);
       }
-      contenidoColumn.push(profesor.profesor);
+      //contenidoColumn.push(profesor.profesor);
+      contenidoColumn.docente = profesor.profesor
       contenidoList.push(contenidoColumn);
     }
     //console.log(contenidoList[1])
     console.log(contenidoList)
     let resultado : HorarioMateria[] = contenidoList.map(row => ({
-      sigla: row[1],
-      materia: row[3],
-      paralelo: row[2],
-      disponibles: row[5] - row[6],
-      horario: row[8],
-      docente: row[9]
+      sigla: row.sigla,
+      materia: row.materia,
+      paralelo: row.paralelo,
+      disponibles: row.cupos - row.inscritos,
+      horario: row.horario,
+      docente: row.docente
     }));
+    console.log(resultado)
     return resultado;
     //return contenidoList;
   }

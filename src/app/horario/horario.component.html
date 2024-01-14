@@ -1,19 +1,13 @@
 <mat-toolbar class="tool-options">
   <app-selector-carrera name="carrera" [(ngModel)]="carrera" (ngModelChange)="cambiarHorarioCarrera($event)"></app-selector-carrera>
-  <!--<mat-form-field appearance="outline" class="carrera">
-    <mat-label>Carrera</mat-label>
-    <mat-select [(ngModel)]="carrera" (ngModelChange)="cambiarHorarioCarrera($event)">
-      <mat-optgroup *ngFor="let group of carrerasPorDepartamento" [label]="group.departamento">
-        <mat-option *ngFor="let carrera of group.carreras" [value]="carrera.nombre">
-          {{carrera.nombre}}
-        </mat-option>
-      </mat-optgroup>
-    </mat-select>
-  </mat-form-field>-->
+  <mat-slide-toggle [checked]="segundoAnioChecked" (toggleChange)="changeToSecondYear()" style="margin-left: 5px" *ngIf="isMedicina()">¿Segundo año?</mat-slide-toggle>
+
   <button (click)="guardarHorario()" [disabled]="horarioSeleccionado.length === 0" class="update hvr-float" mat-fab extended color="primary">
     <mat-icon>update </mat-icon>
     Guardar Horario
   </button>
+
+
   <button class="print" mat-mini-fab color="primary" *ngIf="horarioSeleccionado.length >0" (click)="openDialogPrint()"><mat-icon>print</mat-icon></button>
 </mat-toolbar>
 

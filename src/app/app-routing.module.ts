@@ -9,9 +9,10 @@ import {LoginGuard} from "./guards/login/login.guard";
 const routes: Routes = [
   //{ path: 'horarios', children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: 'horarios/crearHorario', component: HorarioComponent, canActivate: [PaginasGuard] },
-      { path: 'horarios/opciones', component: OpcionesHorariosComponent, canActivate: [PaginasGuard] },
-      { path: 'horarios/login', component: LoginComponent, canActivate: [LoginGuard] }
+      { path: 'crearHorario', component: HorarioComponent, canActivate: [PaginasGuard] },
+      { path: 'editarHorario/:_id', component: HorarioComponent, canActivate: [PaginasGuard] },
+      { path: 'opciones', component: OpcionesHorariosComponent, canActivate: [PaginasGuard] },
+      { path: 'login', component: LoginComponent, canActivate: [LoginGuard] }
     //]}
 ];
 

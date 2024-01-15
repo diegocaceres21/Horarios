@@ -49,11 +49,8 @@ export class NuevaMateriaComponent implements OnInit{
         }
         console.log(result);
         this.agruparCursos()
-        // Call another function or do something else with the result
       },
       error => {
-        // Handle error
-
         console.error(error);
       }
     )
@@ -79,16 +76,9 @@ export class NuevaMateriaComponent implements OnInit{
       this.ofertaAcademicaSiaan[clave].paralelos!.push(curso);
     });
     this.materias  = Object.values(this.ofertaAcademicaSiaan);
-    console.log(this.materias)
+    //console.log(this.materias)
   }
-  getMaterias(){
-    this.planesServicio.getDatos().subscribe(
-      (data) => {this.materias = data.materias
-       /*this.initFiltroMat();/*/},//esto cambiar cuando tenga el back
-      error => console.log(error),
-      () => console.log(this.materias)
-    )
-  }
+
 
   private _filterObjects(value: string | Materia): Materia[] {
     const filterValue = typeof value === 'string' ? value.toLowerCase() : '';

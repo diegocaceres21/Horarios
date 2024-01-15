@@ -1,10 +1,14 @@
 <mat-toolbar class="tool-options">
-  <app-selector-carrera name="carrera" [(ngModel)]="carrera" (ngModelChange)="cambiarHorarioCarrera($event)"></app-selector-carrera>
+  <app-selector-carrera *ngIf="!_id" name="carrera" [(ngModel)]="carrera" (ngModelChange)="cambiarHorarioCarrera($event)"></app-selector-carrera>
   <mat-slide-toggle [checked]="segundoAnioChecked" (toggleChange)="changeToSecondYear()" style="margin-left: 5px" *ngIf="isMedicina()">¿Segundo año?</mat-slide-toggle>
 
-  <button (click)="guardarHorario()" [disabled]="horarioSeleccionado.length === 0" class="update hvr-float" mat-fab extended color="primary">
+  <button *ngIf="!_id" (click)="guardarHorario()" [disabled]="horarioSeleccionado.length === 0" class="update hvr-float" mat-fab extended color="primary">
     <mat-icon>update </mat-icon>
     Guardar Horario
+  </button>
+  <button *ngIf="_id" (click)="updateHorario()" [disabled]="horarioSeleccionado.length === 0" class="update hvr-float" mat-fab extended color="primary">
+    <mat-icon>update </mat-icon>
+    Actualizar Horario
   </button>
 
 
@@ -26,15 +30,6 @@
                 <mat-icon>delete</mat-icon>
                 <span>Eliminar</span>
               </button>
-              <!--<button mat-icon-button [appRightClickToDelete]="eliminarMateria" [item]="mat" aria-label="Example icon-button with a menu">
-                <mat-icon>more_vert</mat-icon>
-              </button>-->
-               <!--<mat-menu #menu="matMenu" yPosition="above">
-                <button (click)="eliminarMateria(mat)" mat-menu-item>
-                  <mat-icon>delete</mat-icon>
-                  <span>Eliminar</span>
-                </button>
-              </mat-menu>-->
             </mat-panel-description>
           </mat-expansion-panel-header>
           <div *ngIf="mat.paralelos">

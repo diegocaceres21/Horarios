@@ -15,7 +15,7 @@ export class PaginasGuard implements CanActivate {
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean{
     if(!this.tokenService.isLogged() || this.tokenService.isExpired()){
-        this.router.navigate(['/horarios/login']);
+        this.router.navigate(['login']);
         return false;
     }
     return true;

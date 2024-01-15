@@ -34,7 +34,21 @@
   padding-top: 1%;
 }
 .print{
+  order: -1;
+  margin-right: auto;
+}
+.buttons-container{
   margin-left: 20px;
+  margin-right: 25px;
+  display: flex;
+  justify-content: flex-end;
+  //align-items: center;
+  flex-direction: row;
+  width: 70%;
+}
+.extra-buttons{
+  margin-left: 20px;
+  //margin-left:auto;
 }
 .opcion-title{
   width: 300px;

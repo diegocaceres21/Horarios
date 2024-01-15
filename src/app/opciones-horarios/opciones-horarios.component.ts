@@ -5,13 +5,19 @@ import { MatDialog } from '@angular/material/dialog';
 import { NuevaMateriaComponent } from '../modals/nueva-materia/nueva-materia.component';
 import { HorarioMateria } from '../interfaces/horario-materia';
 import { LoaderService } from '../servicios/loader.service';
-import {forkJoin, Observable} from 'rxjs';
+import {catchError, forkJoin, Observable, throwError} from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {Horario} from "../interfaces/horario";
 import {HorariosService} from "../servicios/horarios.service";
 
 import {ImpresionHorariosComponent} from "../impresion-horarios/impresion-horarios.component";
 import {OfertaSiaanService} from "../servicios/oferta-siaan.service";
+import {Router} from "@angular/router";
+import {NuevoHorarioConfirmarComponent} from "../modals/nuevo-horario-confirmar/nuevo-horario-confirmar.component";
+import {ConfirmarComponent} from "../modals/confirmar/confirmar.component";
+import {HttpErrorResponse} from "@angular/common/http";
+import Swal from "sweetalert2";
+import {CarreraService} from "../servicios/carrera.service";
 
 
 @Component({
@@ -55,10 +61,10 @@ export class OpcionesHorariosComponent {
   opcion?: number;
   materias: Materia[] = []
   opciones: number[] = [];
-  horario!: Horario;
+  horario?: Horario;
   displayedColumns: string[] = ['sigla', 'materia', 'paralelo', 'cupos', 'horarios'];
 
-  constructor(private ofertaSiaanService: OfertaSiaanService,private _snackBar: MatSnackBar, private horariosService: HorariosService, private siaanService: SiaanServiceService, public dialog: MatDialog, public loaderService: LoaderService) {
+  constructor(private carreraService: CarreraService,private router: Router, private ofertaSiaanService: OfertaSiaanService,private _snackBar: MatSnackBar, private horariosService: HorariosService, private siaanService: SiaanServiceService, public dialog: MatDialog, public loaderService: LoaderService) {
 
   }
 
@@ -197,6 +203,61 @@ export class OpcionesHorariosComponent {
       horizontalPosition: "center",
       verticalPosition: "top",
     });
+  }
+
+  navigateToEditar() {
+    this.setValueCarrera()
+    this.router.navigate(['editarHorario', this.horario!._id]);
+  }
+
+  setValueCarrera() {
+    this.carreraService.carrera = this.carrera;
+  }
+  deleteHorario(){
+    const dialogRef = this.dialog.open(ConfirmarComponent, {
+      data: {mensaje: "¿Desea eliminar esta opción de horario?"},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.deleteOpcion()
+        this.resetOpciones()
+        //this.materias = this.materias.filter(item => item.sigla !== materia.sigla);
+        //this.borrarHorario(materia.paralelos![0])
+      }
+    });
+  }
+
+  resetOpciones() {
+    this.opciones = this.opciones.filter(o => o !== this.horario!.opcion)
+    this.horario = undefined
+  }
+
+  deleteOpcion(){
+    this.horariosService
+      .deleteHorario(this.horario!._id!)
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          // Handle the error here
+          console.error('An error occurred:', error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Ha ocurrido un error',
+            showConfirmButton: false,
+            timer: 3000
+          })
+          return throwError('Something went wrong; please try again later.'); // Optional: Rethrow the error or return a custom error message
+        })
+      )
+      .subscribe(data =>{
+          Swal.fire({
+            icon: 'success',
+            title: 'Se ha eliminado el horario correctamente',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
+      );
   }
   getDatosSiaan(){
     this.ofertaSiaanService.getDatosSiaan(this.carrera.nombre).subscribe(

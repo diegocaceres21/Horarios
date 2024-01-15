@@ -5,6 +5,7 @@ import {Observable, tap} from "rxjs";
 import {RefreshService} from "./refresh.service";
 import {AuthService} from "./auth.service";
 import {CookieService} from "ngx-cookie-service";
+import {HorarioMateria} from "../interfaces/horario-materia";
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +18,20 @@ export class HorariosService {
     return this.httpClient.get<Horario[]>(this.url + "?carrera=" + carrera, {withCredentials: true})
   }
 
+  deleteHorario(_id: string){
+    return this.httpClient.delete(this.url + "/" + _id, {withCredentials: true})
+  }
   getOpciones(carrera: string){
     return this.httpClient.get<number[]>(this.url + "/opciones?carrera=" + carrera, {withCredentials: true})
   }
 
+  updateHorario(_id: string, horario: HorarioMateria[]){
+    const updatePayload = { horario: horario };
+    return this.httpClient.put<Horario>(this.url + "/" + _id, updatePayload, {withCredentials: true})
+  }
+  getHorarioById(_id:string){
+    return this.httpClient.get<Horario>(this.url + "/" + _id, {withCredentials: true})
+  }
   getOpcionHorario(carrera: string, opcion: number){
     return this.httpClient.get<Horario>(this.url + "/opciones/" + opcion +"?carrera=" + carrera, {withCredentials: true})
   }

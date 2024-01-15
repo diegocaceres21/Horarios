@@ -13,8 +13,12 @@
         </mat-option>
     </mat-select>
   </mat-form-field>
-  <button class="print" mat-mini-fab color="primary" *ngIf="carrera && opciones.length !==0" (click)="openDialog()"><mat-icon>print</mat-icon></button>
-  </mat-toolbar>
+  <div class="buttons-container">
+    <button class="print" mat-mini-fab color="primary" *ngIf="carrera && opciones.length !==0" (click)="openDialog()"><mat-icon>print</mat-icon></button>
+    <button class="extra-buttons" mat-raised-button color="primary" *ngIf="carrera && opcion && carrera.nombre!='MEDICINA'" (click)="navigateToEditar()">Editar</button>
+    <button class="extra-buttons" mat-raised-button color="warn" *ngIf="carrera && opcion" (click)="deleteHorario()">Eliminar</button>
+  </div>
+</mat-toolbar>
 
   <div *ngIf="loaderService.isLoading | async; else contentReady">
     <mat-spinner></mat-spinner>
@@ -23,7 +27,7 @@
     <div *ngIf="carrera && opcion" class="container-paralelos">
       <div class="inside-flex">
         <div  class="materias-container">
-          <table  mat-table [dataSource]="horario.horario" class="mat-elevation-z8">
+          <table  mat-table [dataSource]="horario!.horario" class="mat-elevation-z8">
             <!-- Position Column -->
             <ng-container matColumnDef="sigla">
               <th mat-header-cell *matHeaderCellDef>Sigla</th>
@@ -92,17 +96,4 @@
         </div>
     </div>
   </ng-template>
-  <!--<div class="pagination">
-    <a href="#">&laquo;</a>
-    <a href="#">1</a>
-    <a href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">5</a>
-    <a href="#">6</a>
-    <a href="#">&raquo;</a>
-  </div>-->
-  <!--<mat-paginator [length]="4"
-              [pageSize]="1"
-              aria-label="Select page">
-</mat-paginator>-->
+

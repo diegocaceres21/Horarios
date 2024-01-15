@@ -12,17 +12,17 @@ export class AppComponent {
     {
       displayName: 'Nuevo Horario',
       iconName: 'edit_calendar',
-      route: 'horarios/crearHorario'
+      route: 'crearHorario'
     },
     {
       displayName: 'Horarios Definidos',
       iconName: 'list_alt',
-      route: 'horarios/opciones',
+      route: 'opciones',
     },
     {
       displayName: 'Planes de Estudio',
       iconName: 'summarize',
-      route: 'horarios/cocina',
+      route: 'cocina',
     }
   ];
   mobileQuery: MediaQueryList;

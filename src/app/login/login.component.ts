@@ -27,7 +27,7 @@ export class LoginComponent {
     ).subscribe(
       (response: any) => {
         this.tokenService.setToken()
-        this.router.navigate(['/horarios/opciones']);
+        this.router.navigate(['opciones']);
       },
       (error) => {
         this.loginValid = false   // Handle login error

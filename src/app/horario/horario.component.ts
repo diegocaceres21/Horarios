@@ -89,7 +89,7 @@ export class HorarioComponent implements OnInit{
   materias: Materia[] = []
   _id: string | null ='';
   paralelos :HorarioMateria[] = []
-  displayedColumns: string[] = ['sigla', 'materia', 'paralelo', "cupos", "horarios", "button"];
+  displayedColumns: string[] = ['sigla', 'materia', 'paralelo', "cupos", "horarios", "button", "docente"];
   //dataSource = ELEMENT_DATA;
   clickedRows = new Set<HorarioMateria>();
   horarioSeleccionado :HorarioMateria[] = []
@@ -107,6 +107,11 @@ export class HorarioComponent implements OnInit{
     });
   }
 
+  showColumn = true;
+
+  toggleColumn(): void {
+    this.showColumn = !this.showColumn;
+  }
   updateHorario(){
     const dialogRef = this.dialog.open(ConfirmarComponent, {
       data: {mensaje: "¿Desea actualizar este horario con la configuración actual?"},

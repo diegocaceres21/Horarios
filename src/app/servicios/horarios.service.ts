@@ -13,7 +13,7 @@ import {HorarioMateria} from "../interfaces/horario-materia";
 export class HorariosService {
 
   constructor( private cookieService: CookieService, private httpClient: HttpClient, private refreshService: RefreshService, private authService: AuthService) { }
-  url = "http://localhost:3000/api/horarios"
+  url = "http://localhost:3000/horariosbackend/horarios"
   getHorarios(carrera: string){
     return this.httpClient.get<Horario[]>(this.url + "?carrera=" + carrera, {withCredentials: true})
   }

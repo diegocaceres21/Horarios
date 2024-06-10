@@ -12,7 +12,7 @@ import {HorariosService} from "../servicios/horarios.service";
 
 import {ImpresionHorariosComponent} from "../impresion-horarios/impresion-horarios.component";
 import {OfertaSiaanService} from "../servicios/oferta-siaan.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {NuevoHorarioConfirmarComponent} from "../modals/nuevo-horario-confirmar/nuevo-horario-confirmar.component";
 import {ConfirmarComponent} from "../modals/confirmar/confirmar.component";
 import {HttpErrorResponse} from "@angular/common/http";
@@ -62,13 +62,37 @@ export class OpcionesHorariosComponent {
   materias: Materia[] = []
   opciones: number[] = [];
   horario?: Horario;
-  displayedColumns: string[] = ['sigla', 'materia', 'paralelo', 'cupos', 'horarios'];
+  displayedColumns: string[] = ['sigla', 'materia', 'docente', 'paralelo', 'cupos', 'horarios'];
 
-  constructor(private carreraService: CarreraService,private router: Router, private ofertaSiaanService: OfertaSiaanService,private _snackBar: MatSnackBar, private horariosService: HorariosService, private siaanService: SiaanServiceService, public dialog: MatDialog, public loaderService: LoaderService) {
+  constructor(private route: ActivatedRoute,private carreraService: CarreraService,private router: Router, private ofertaSiaanService: OfertaSiaanService,private _snackBar: MatSnackBar, private horariosService: HorariosService, private siaanService: SiaanServiceService, public dialog: MatDialog, public loaderService: LoaderService) {
+    //Ahorita el problema esta aca
+    this.route.queryParams.subscribe(params =>
+    {
+      let carrera_parametro = {
+        'nombre': params['carrera']
+      }
+      console.log(carrera_parametro)
+      if(carrera_parametro.nombre){
+        this.carrera = carrera_parametro;
+      }
 
+      this.opcion = parseInt(params['opcion']!);
+      console.log(this.opcion)
+    });
+    if (this.carrera) {
+      console.log("Dentro")
+      //this.getOptions()
+      /*if(this.opcion){
+        this.getHorario()
+      }*/
+    }
   }
 
-
+  getDocente(paraleloDeseado: HorarioMateria) : string{
+    const docente = this.ofertaAcademicaSiaan[paraleloDeseado.sigla]?.paralelos!.find((paralelo) => paralelo.paralelo === paraleloDeseado.paralelo)?.docente ?? "";
+    console.log(docente)
+    return docente
+  }
   getCupos(paraleloDeseado: HorarioMateria) : number{
     const cupos = this.ofertaAcademicaSiaan[paraleloDeseado.sigla]?.paralelos!.find((paralelo) => paralelo.paralelo === paraleloDeseado.paralelo)?.disponibles ?? -1;
     console.log(cupos)
@@ -121,9 +145,12 @@ export class OpcionesHorariosComponent {
             ['', '', '', '', '', '']
         ];
     }
-  getOptions(value: any) {
+  getOptions() {
+      //this.removeOpcionFromUrl()
+      console.log(this.carrera)
       this.getDatosSiaan()
-      if(value.nombre == "MEDICINA"){
+      this.appendCarreraToUrl()
+      if(this.carrera.nombre == "MEDICINA"){
           this.cambiarHorarioMedicina()
       }
       else{
@@ -131,7 +158,7 @@ export class OpcionesHorariosComponent {
       }
 
     this.opcion = undefined;
-    this.horariosService.getOpciones(value.nombre).subscribe(
+    this.horariosService.getOpciones(this.carrera.nombre).subscribe(
       (data: number[]) => {
         // Save the token in your app's cookies for later use
         this.opciones = data;
@@ -143,14 +170,38 @@ export class OpcionesHorariosComponent {
     )
   }
 
-  getHorario(value: any) {
+  appendOpcionToUrl() {
+    relativeTo: this.route,
+    this.router.navigate([], {
+      queryParams: { opcion: this.opcion! },
+      queryParamsHandling: 'merge'
+    });
+  }
+  appendCarreraToUrl() {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams:
+        { carrera: this.carrera.nombre,
+          opcion: null},
+      queryParamsHandling: 'merge'
+    });
+  }
+  removeOpcionFromUrl() {
+    this.router.navigate([], {
+      queryParams: {
+        'opcion': null,
+      },
+      queryParamsHandling: 'merge'
+    })
+  }
+
+  getHorario() {
     this.borrarHorario()
     this.horariosService.getOpcionHorario(this.carrera.nombre, this.opcion!).subscribe(
       (data: Horario) => {
-        // Save the token in your app's cookies for later use
+        this.appendOpcionToUrl();
         this.horario = data;
         this.horario.horario.map(paralelo => this.fijarHorario(paralelo))
-        // Now you can use the 'appToken' cookie for making authenticated requests
       },
       (error) => {
         // Handle login error

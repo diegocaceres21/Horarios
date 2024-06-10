@@ -1,12 +1,12 @@
 <mat-toolbar class="tool-options">
 
-  <app-selector-carrera name="carrera" [(ngModel)]="carrera" (ngModelChange)="getOptions($event)"></app-selector-carrera>
+  <app-selector-carrera name="carrera" [(ngModel)]="carrera" (ngModelChange)="getOptions()"></app-selector-carrera>
   <div *ngIf="carrera && opciones.length ===0">
     No existe ningun horario guardado para esta carrera
   </div>
   <mat-form-field *ngIf="carrera && opciones.length !==0" appearance="outline" class="opcion">
     <mat-label>Opción</mat-label>
-    <mat-select [(ngModel)]="opcion" (ngModelChange)="getHorario($event)"> <!--[formControl]="carrera"-->
+    <mat-select [(ngModel)]="opcion" (ngModelChange)="getHorario()"> <!--[formControl]="carrera"-->
       <!--<mat-option>-- None --</mat-option>-->
         <mat-option *ngFor="let opt of opciones" [value]="opt">
           {{opt}}
@@ -37,6 +37,22 @@
             <ng-container  matColumnDef="materia">
               <th mat-header-cell *matHeaderCellDef>Nombre</th>
               <td mat-cell *matCellDef="let paralelo">{{paralelo.materia}}</td>
+            </ng-container>
+            <ng-container matColumnDef="docente">
+              <th mat-header-cell *matHeaderCellDef>Docente</th>
+              <td mat-cell *matCellDef="let paralelo">
+                <ng-container *ngIf="getDocente(paralelo) as docente; else noDocente">
+                  <div>
+                    {{ docente }}
+                  </div>
+                </ng-container>
+                <ng-template #noDocente>
+                  <!-- Your content when cupos is falsy (0) -->
+                  <div >
+                    <!-- Your other content when cupos is 0 -->
+                  </div>
+                </ng-template>
+              </td>
             </ng-container>
             <ng-container  matColumnDef="paralelo">
               <th mat-header-cell *matHeaderCellDef>Paralelo</th>

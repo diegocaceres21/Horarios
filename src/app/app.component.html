@@ -5,21 +5,11 @@
     <div class="container">
       <mat-toolbar color="primary" class="example-toolbar" id="myTopnav">
         <button mat-icon-button (click)   ="snav.toggle()"><mat-icon>menu</mat-icon></button>
-        <h1 class="example-app-name">{{header}}</h1> 
-        
+        <h1 class="example-app-name">{{header}}</h1>
+
       </mat-toolbar>
     </div>
   </div>
-<!--<mat-toolbar color="primary" class="example-toolbar">
-  <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <h1 class="example-app-name">{{header}}</h1> 
-    <div class="topnav-right">
-      <a class="active1">Reserva</a>
-      <a class="active1"><span class="material-symbols-outlined">
-        add
-        </span></a>
-    </div>
-</mat-toolbar>-->
 
 <mat-sidenav-container class="example-sidenav-container"
                        [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
@@ -33,7 +23,7 @@
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   <!-- Cabeceras del submenu -->
-                  <div fxLayout="row" fxLayoutAlign="space-between center" > 
+                  <div fxLayout="row" fxLayoutAlign="space-between center" >
                     <mat-icon>{{item.iconName}}</mat-icon>
                     {{item.displayName}}
                   </div>
@@ -42,7 +32,7 @@
               <span *ngFor="let child of item.children" >
                 <mat-list-item (click)="changeTitle(child.displayName)" routerLink="[child.route]">
                   <!-- Entradas de cada submenú  -->
-                  <div fxLayout="row" fxLayoutAlign="space-between center" > 
+                  <div fxLayout="row" fxLayoutAlign="space-between center" >
                     <mat-icon>{{child.iconName}}</mat-icon>
                     {{child.displayName}}
                   </div>
@@ -52,7 +42,7 @@
           </mat-accordion>
         </span>
         <span *ngIf="!item.children || item.children.length === 0">
-          <mat-list-item (click)="select(i)" 
+          <mat-list-item (click)="select(i)"
           [ngClass]="{'active': selectedIndex == i, 'list-group-item': true}" (click)="changeTitle(item.displayName)" routerLink="{{[item.route]}}">
             <!-- Entradas principales -->
             <div fxLayout="row" fxLayoutAlign="space-between center">
@@ -64,7 +54,7 @@
       </span>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>   
+  <mat-sidenav-content>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

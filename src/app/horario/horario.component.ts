@@ -89,7 +89,7 @@ export class HorarioComponent implements OnInit{
   materias: Materia[] = []
   _id: string | null ='';
   paralelos :HorarioMateria[] = []
-  displayedColumns: string[] = ['sigla', 'materia', 'paralelo', "cupos", "horarios", "button", "docente"];
+  displayedColumns: string[] = ['sigla', 'materia', "docente", 'paralelo', "cupos", "horarios", "button"];
   //dataSource = ELEMENT_DATA;
   clickedRows = new Set<HorarioMateria>();
   horarioSeleccionado :HorarioMateria[] = []

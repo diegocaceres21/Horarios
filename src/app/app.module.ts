@@ -38,6 +38,8 @@ import { LoginComponent } from './login/login.component';
 import { ConfirmarComponent } from './modals/confirmar/confirmar.component';
 import { ImpresionHorariosComponent } from './impresion-horarios/impresion-horarios.component';
 import {SelectorCarreraComponent} from "./componentes/selector-carrera/selector-carrera.component";
+import { CuposComponent } from './cupos/cupos.component';
+import { ReportesComponent } from './reportes/reportes.component';
 //import { SelectorCarreraComponent } from './componentes/selector-carrera/selector-carrera.component';
 
 
@@ -52,7 +54,9 @@ import {SelectorCarreraComponent} from "./componentes/selector-carrera/selector-
     LoginComponent,
     ConfirmarComponent,
     ImpresionHorariosComponent,
-    SelectorCarreraComponent
+    SelectorCarreraComponent,
+    CuposComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,

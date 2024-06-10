@@ -23,11 +23,21 @@ export class AppComponent {
       displayName: 'Planes de Estudio',
       iconName: 'summarize',
       route: 'cocina',
+    },
+    {
+      displayName: 'Cupos Materias',
+      iconName: 'query_stats',
+      route: 'cupos',
+    },
+    {
+      displayName: 'Reporte Power BI',
+      iconName: 'analytics',
+      route: 'reportes',
     }
   ];
   mobileQuery: MediaQueryList;
   selectedIndex: number =-1;
-  title = 'La-Jatata';
+  title = 'UCB';
   message:any = null;
   private _mobileQueryListener: () => void;
 

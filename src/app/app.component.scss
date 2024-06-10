@@ -61,9 +61,12 @@
       }
 
       mat-list-item.active {
-      background-color: #04AA6D;
-      color: white;
-    }
+      background-color: #041a8d;
+        div{
+          color: white;
+          font-weight: bolder;
+        }
+      }
     span.active1 {
       background-color: #08fe8fbe;
       color: white;

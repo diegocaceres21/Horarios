@@ -7,6 +7,10 @@
     left: 0;
     right: 0;
   }
+.item-container{
+  display: flex;
+  align-items: center; /* Centers items vertically */
+}
   .example-toolbar {
     background-color: #030f50;
     overflow: hidden;

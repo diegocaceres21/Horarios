@@ -23,9 +23,9 @@
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   <!-- Cabeceras del submenu -->
-                  <div fxLayout="row" fxLayoutAlign="space-between center" >
+                  <div class="item-container">
                     <mat-icon>{{item.iconName}}</mat-icon>
-                    {{item.displayName}}
+                    <div>{{item.displayName}}</div>
                   </div>
                 </mat-panel-title>
               </mat-expansion-panel-header>
@@ -45,9 +45,9 @@
           <mat-list-item (click)="select(i)"
           [ngClass]="{'active': selectedIndex == i, 'list-group-item': true}" (click)="changeTitle(item.displayName)" routerLink="{{[item.route]}}">
             <!-- Entradas principales -->
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-              <mat-icon>{{item.iconName}}</mat-icon>
-              {{item.displayName}}
+            <div class="item-container">
+                  <mat-icon>{{item.iconName}}</mat-icon>
+                  <div style="margin-left: 5px">{{item.displayName}}</div>
             </div>
           </mat-list-item>
         </span>

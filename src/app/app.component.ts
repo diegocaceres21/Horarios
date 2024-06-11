@@ -33,6 +33,12 @@ export class AppComponent {
       displayName: 'Reporte Power BI',
       iconName: 'analytics',
       route: 'reportes',
+    },
+    {
+      displayName: 'Configuración',
+      iconName: 'settings',
+      route: 'settings',
+      disabled: true
     }
   ];
   mobileQuery: MediaQueryList;

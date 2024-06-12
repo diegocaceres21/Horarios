@@ -40,6 +40,8 @@ import { ImpresionHorariosComponent } from './impresion-horarios/impresion-horar
 import {SelectorCarreraComponent} from "./componentes/selector-carrera/selector-carrera.component";
 import { CuposComponent } from './cupos/cupos.component';
 import { ReportesComponent } from './reportes/reportes.component';
+import {MatSortModule} from "@angular/material/sort";
+
 //import { SelectorCarreraComponent } from './componentes/selector-carrera/selector-carrera.component';
 
 
@@ -63,7 +65,7 @@ import { ReportesComponent } from './reportes/reportes.component';
     AppRoutingModule,
     HttpClientModule,
     MatSlideToggleModule,
-
+    MatSortModule,
     MatCheckboxModule,
     MatDialogModule,
     MatSidenavModule,

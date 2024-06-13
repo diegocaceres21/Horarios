@@ -17,7 +17,9 @@ export class HorariosService {
   getHorarios(carrera: string){
     return this.httpClient.get<Horario[]>(this.url + "?carrera=" + carrera, {withCredentials: true})
   }
-
+  getAllHorarios(){
+    return this.httpClient.get<Horario[]>(this.url + "/all", {withCredentials: true})
+  }
   deleteHorario(_id: string){
     return this.httpClient.delete(this.url + "/" + _id, {withCredentials: true})
   }

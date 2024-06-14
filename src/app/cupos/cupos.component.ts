@@ -33,6 +33,7 @@ export class CuposComponent implements AfterViewInit{
   columnsToDisplayWithExpand = [...this.displayedColumns, 'expand'];
   expandedElement!: HorarioMateria | null;
   paralelos :HorarioMateria[] = []
+  tieneOpciones : boolean = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -49,6 +50,9 @@ export class CuposComponent implements AfterViewInit{
     this.ofertaSiaanService.getDatosSiaan(this.carrera).subscribe(
       result => {
         this.paralelos = result
+        this.paralelos.map(paralelo =>{
+          this.obtenerOpciones(paralelo)
+        })
         this.dataSource = new MatTableDataSource(this.paralelos);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -75,16 +79,17 @@ export class CuposComponent implements AfterViewInit{
     )
   }
 
-  obtenerOpciones(sigla: string, paralelo: string){
+  obtenerOpciones(paralelo: HorarioMateria){
     let opcionesConMateria : Horario[] = []
     this.opciones.map(horario =>{
       horario.horario.map(opcion =>{
-        if(opcion.sigla == sigla && opcion.paralelo == paralelo){
+        if(opcion.sigla == paralelo.sigla && opcion.paralelo == paralelo.paralelo){
           opcionesConMateria.push(horario)
         }
       })
     })
-    return opcionesConMateria
+    paralelo.opciones = opcionesConMateria
+    //return opcionesConMateria
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -93,6 +98,12 @@ export class CuposComponent implements AfterViewInit{
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  filtrarMateriasConOpciones(){
+    this.dataSource.filterPredicate = function(data, filter: string): boolean {
+      return data.opciones?.length! >= 1;
+    };
   }
   ObtenerTodasLasOpciones(){
     this.horariosService.getAllHorarios().subscribe(

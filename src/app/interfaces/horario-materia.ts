@@ -1,3 +1,5 @@
+import {Horario} from "./horario";
+
 export interface HorarioMateria {
     sigla: string;
     materia: string;
@@ -8,4 +10,5 @@ export interface HorarioMateria {
     disponibles?: number;
     horario: string;
     selected?: boolean;
+    opciones?:Horario[];
 }

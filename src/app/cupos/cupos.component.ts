@@ -101,9 +101,13 @@ export class CuposComponent implements AfterViewInit{
   }
 
   filtrarMateriasConOpciones(){
+    console.log("Holaa")
     this.dataSource.filterPredicate = function(data, filter: string): boolean {
       return data.opciones?.length! >= 1;
     };
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
   ObtenerTodasLasOpciones(){
     this.horariosService.getAllHorarios().subscribe(

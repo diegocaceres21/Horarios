@@ -8,7 +8,7 @@ import { catchError, throwError } from 'rxjs';
 export class SiaanServiceService {
   token: string = ""
   uniquecode = "F3EJkUVwiOCjIIp"
-  idPeriodoAcademico = "8RzubTahb3U78UzxLRQHUQ=="
+  idPeriodoAcademico = "zYDmWvkm28DPTATEijmGZw=="
   idCarrera = ""
 
   constructor(private httpClient: HttpClient) { }

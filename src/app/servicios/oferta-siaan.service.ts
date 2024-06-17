@@ -52,14 +52,14 @@ export class OfertaSiaanService {
 
     if (carrera === 'MEDICINA') {
       requests = [
-        this.siaanService.getDatos("dXco5R3mrnsfT189GptIEg==", "dz1tK1XOR8MjlSoqwp2RUw=="),
-        this.siaanService.getDatos("dXco5R3mrnsfT189GptIEg==", "8RzubTahb3U78UzxLRQHUQ=="),
-        this.siaanService.getDatos("ar5fLGPWaFBY769VhXhTWg==", "8RzubTahb3U78UzxLRQHUQ=="),
-        this.siaanService.getDatos("yEnQVCqv9j5/kHAsOhZ6AQ==", "8RzubTahb3U78UzxLRQHUQ=="),
+        //this.siaanService.getDatos("dXco5R3mrnsfT189GptIEg==", "dz1tK1XOR8MjlSoqwp2RUw=="), REQUEST DEL PERIODO ANUAL
+        this.siaanService.getDatos("dXco5R3mrnsfT189GptIEg==", "zYDmWvkm28DPTATEijmGZw=="),
+        this.siaanService.getDatos("ar5fLGPWaFBY769VhXhTWg==", "zYDmWvkm28DPTATEijmGZw=="),
+        this.siaanService.getDatos("yEnQVCqv9j5/kHAsOhZ6AQ==", "zYDmWvkm28DPTATEijmGZw=="),
       ];
     } else {
       const payloads: string[] = this.carrerasPorDepartamento.flatMap(x => x.carreras.map((c: { codigo: any; }) => c.codigo));
-      const idPeriodo = "8RzubTahb3U78UzxLRQHUQ==";
+      const idPeriodo = "zYDmWvkm28DPTATEijmGZw==";
       requests = payloads.map(payload => this.siaanService.getDatos(payload, idPeriodo));
     }
 

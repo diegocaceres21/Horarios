@@ -165,14 +165,14 @@ export class HorarioComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params =>
+    /*this.route.paramMap.subscribe(params =>
     {
       this._id = params.get('_id');
     });
     if (this._id) {
       this.getValueCarrera()
       this.getHorario()
-    }
+    }*/
   }
 
   getValueCarrera(){

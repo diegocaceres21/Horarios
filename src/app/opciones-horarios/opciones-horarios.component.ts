@@ -66,7 +66,7 @@ export class OpcionesHorariosComponent {
 
   constructor(private route: ActivatedRoute,private carreraService: CarreraService,private router: Router, private ofertaSiaanService: OfertaSiaanService,private _snackBar: MatSnackBar, private horariosService: HorariosService, private siaanService: SiaanServiceService, public dialog: MatDialog, public loaderService: LoaderService) {
     //Ahorita el problema esta aca
-    this.route.queryParams.subscribe(params =>
+    /*this.route.queryParams.subscribe(params =>
     {
       let carrera_parametro = {
         'nombre': params['carrera']
@@ -81,11 +81,8 @@ export class OpcionesHorariosComponent {
     });
     if (this.carrera) {
       console.log("Dentro")
-      //this.getOptions()
-      /*if(this.opcion){
-        this.getHorario()
-      }*/
-    }
+      
+    }*/
   }
 
   getDocente(paraleloDeseado: HorarioMateria) : string{

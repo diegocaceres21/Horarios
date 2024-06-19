@@ -9,7 +9,7 @@
         <mat-label>Filtro</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Sigla, Materia, Docente, etc"  #input>
       </mat-form-field>
-      <mat-checkbox [checked]="tieneOpciones" (change)="filtrarMateriasConOpciones()" labelPosition="before">Solo mostrar paralelos <br> con opciones de horario</mat-checkbox>
+      <mat-checkbox [(ngModel)]="tieneOpciones" (change)="filtrarMateriasConOpciones()" labelPosition="before">Solo mostrar paralelos <br> con opciones de horario</mat-checkbox>
     </div>
   </div>
 </div>

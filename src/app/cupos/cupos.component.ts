@@ -6,7 +6,7 @@ import {LoaderService} from "../servicios/loader.service";
 import {MatSort} from "@angular/material/sort";
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
-import {startWith, switchMap} from "rxjs";
+import {filter, startWith, switchMap} from "rxjs";
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {backgroundColor} from "html2canvas/dist/types/css/property-descriptors/background-color";
 import {HorariosService} from "../servicios/horarios.service";
@@ -34,12 +34,14 @@ export class CuposComponent implements AfterViewInit{
   expandedElement!: HorarioMateria | null;
   paralelos :HorarioMateria[] = []
   tieneOpciones : boolean = false;
+  defaultFilterPredicate?: (data: any, filter: string) => boolean;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   constructor(private ofertaSiaanService: OfertaSiaanService, private horariosService: HorariosService, public loaderService: LoaderService) {
     //this.getParalelosMaterias()
     this.ObtenerTodasLasOpciones()
+
   }
 
   ngAfterViewInit() {
@@ -70,8 +72,7 @@ export class CuposComponent implements AfterViewInit{
               return item[property];
           }
         };
-        //this.agruparCursos()
-        //console.log(this.opciones)
+        this.defaultFilterPredicate = this.dataSource.filterPredicate;
       },
       error => {
         console.error(error);
@@ -91,8 +92,16 @@ export class CuposComponent implements AfterViewInit{
     paralelo.opciones = opcionesConMateria
     //return opcionesConMateria
   }
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
+  applyFilter(event?: Event) {
+    console.log(event)
+    let filterValue;
+    if(event){
+      filterValue = (event.target as HTMLInputElement).value;
+      this.dataSource.filterPredicate = this.defaultFilterPredicate!;
+    }
+    else{
+      filterValue = ""
+    }
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
@@ -101,12 +110,21 @@ export class CuposComponent implements AfterViewInit{
   }
 
   filtrarMateriasConOpciones(){
-    console.log("Holaa")
-    this.dataSource.filterPredicate = function(data, filter: string): boolean {
-      return data.opciones?.length! >= 1;
-    };
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+    if(this.tieneOpciones){
+      this.dataSource.filterPredicate = function(data, filter: string): boolean {
+        return data.opciones! && data.opciones.length >= 1;
+      };
+
+      // Trigger the filter to apply the new predicate
+      this.dataSource.filter = 'apply'; // Set to any non-empty string
+
+      if (this.dataSource.paginator) {
+        this.dataSource.paginator.firstPage();
+      }
+    }
+    else{
+      console.log("Hola")
+      this.applyFilter()
     }
   }
   ObtenerTodasLasOpciones(){

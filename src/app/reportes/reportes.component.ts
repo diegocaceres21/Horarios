@@ -11,13 +11,20 @@ export class ReportesComponent implements OnInit{
 
   reportes: Reporte[] = []
   reporteSeleccionado?: Reporte;
+  urlReporteActual?: string;
 
   constructor(private reportesService: ReportesService) {
+
   }
   ngOnInit() {
     this.getReportes()
   }
 
+  mostrarReporte(){
+
+    this.urlReporteActual = this.reporteSeleccionado?.url
+    console.log(this.urlReporteActual)
+  }
   getReportes(){
     this.reportesService.getReportes().subscribe(
       datos =>{

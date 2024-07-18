@@ -6,6 +6,7 @@ import {RefreshService} from "./refresh.service";
 import {AuthService} from "./auth.service";
 import {CookieService} from "ngx-cookie-service";
 import {HorarioMateria} from "../interfaces/horario-materia";
+import {CarreraOpciones} from "../interfaces/carrera-opciones";
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,10 @@ export class HorariosService {
   }
   getOpcionHorario(carrera: string, opcion: number){
     return this.httpClient.get<Horario>(this.url + "/opciones/" + opcion +"?carrera=" + carrera, {withCredentials: true})
+  }
+
+  getHorariosAgrupadosPorCarrera(){
+    return this.httpClient.get<CarreraOpciones[]>(this.url + "/grupo/carrera", {withCredentials: true})
   }
   crearHorario (horario: Horario) : Observable<Horario>{
     /*this.authService.login("test7@gmail.com", "test").subscribe(

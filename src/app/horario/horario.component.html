@@ -76,7 +76,7 @@
               </ng-container>
               <ng-container matColumnDef="button">
                 <th mat-header-cell *matHeaderCellDef></th>
-                <td mat-cell [ngStyle] = "{'backgroundColor': materiaTieneChoque(paralelo) ? 'pink' : paralelo.disponibles ==0 ? '#FBA744' : 'white'}" *matCellDef="let paralelo">
+                <td mat-cell [ngStyle] = "{'backgroundColor': materiaTieneChoque(paralelo) ? 'pink' : paralelo.disponibles == 0 ? '#FBA744' : 'white'}" *matCellDef="let paralelo">
                   <button [disabled]="materiaEstaAgregadaAlHorario(paralelo) || materiaTieneChoque(paralelo)"  *ngIf="!paralelo.selected" (click)="fijarHorario(paralelo,true)" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
                   <mat-icon>add</mat-icon>
                   </button>

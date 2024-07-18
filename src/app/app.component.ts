@@ -27,12 +27,23 @@ export class AppComponent {
     {
       displayName: 'Cupos Materias',
       iconName: 'query_stats',
-      route: 'cupos',
+      route: 'cupos-materias',
+    },
+    {
+      displayName: 'Cupos Opciones',
+      iconName: 'query_stats',
+      route: 'cupos-opciones',
     },
     {
       displayName: 'Reporte Power BI',
       iconName: 'analytics',
       route: 'reportes',
+    },
+    {
+      displayName: 'Revisar pagos',
+      iconName: 'payments',
+      route: 'settings',
+      disabled: true
     },
     {
       displayName: 'Configuración',

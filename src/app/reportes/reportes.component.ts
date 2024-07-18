@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Reporte} from "../interfaces/reporte";
 import {ReportesService} from "../servicios/reportes.service";
-
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-reportes',
   templateUrl: './reportes.component.html',
@@ -12,8 +12,9 @@ export class ReportesComponent implements OnInit{
   reportes: Reporte[] = []
   reporteSeleccionado?: Reporte;
   urlReporteActual?: string;
+  sanitizedUrl!: SafeResourceUrl;
 
-  constructor(private reportesService: ReportesService) {
+  constructor(private reportesService: ReportesService, private sanitizer: DomSanitizer) {
 
   }
   ngOnInit() {
@@ -22,8 +23,9 @@ export class ReportesComponent implements OnInit{
 
   mostrarReporte(){
 
-    this.urlReporteActual = this.reporteSeleccionado?.url
-    console.log(this.urlReporteActual)
+    if (this.reporteSeleccionado && this.reporteSeleccionado.url) {
+      this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.reporteSeleccionado.url);
+    }
   }
   getReportes(){
     this.reportesService.getReportes().subscribe(

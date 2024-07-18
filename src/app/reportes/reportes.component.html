@@ -1,16 +1,15 @@
 <mat-toolbar class="tool-options">
   <mat-form-field *ngIf="reportes.length > 0" appearance="outline" class="opcion">
     <mat-label>Seleccione un Reporte</mat-label>
-    <mat-select [(ngModel)]="reporteSeleccionado"> <!--[formControl]="carrera"-->
+    <mat-select [(ngModel)]="reporteSeleccionado" (ngModelChange)="mostrarReporte()"> <!--[formControl]="carrera"-->
       <mat-option *ngFor="let reporte of reportes" [value]="reporte">
         {{reporte.nombre}}
       </mat-option>
     </mat-select>
   </mat-form-field>
-
- <!-- <button [disabled]="!reporteSeleccionado" class="update hvr-float" mat-fab extended color="primary">
-    <mat-icon>update </mat-icon>
-    Guardar Horario
-  </button>-->
 </mat-toolbar>
-<iframe *ngIf="reporteSeleccionado" title="Cato Day 2023" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiN2Y4ZjQ1MjYtYTQ2Yi00YWQzLWI0NzYtMjFkODUwNmQzM2M3IiwidCI6ImNjMjg2MzNmLTEyYjgtNDZjYi1iYzE1LTk1MWRhZTIzOWI0ZCIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
+
+<div *ngIf="reporteSeleccionado" class="frame-container">
+  <iframe [src]="sanitizedUrl"  width="600" height="373.5" frameborder="0" allowFullScreen="true"></iframe>
+</div>
+<!--<iframe *ngIf="reporteSeleccionado" title="Cato Day 2023" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiZmZmMDk4OWMtMjg0YS00MDVmLWJmYjItNWIyOTUxNTg0YWMwIiwidCI6ImNjMjg2MzNmLTEyYjgtNDZjYi1iYzE1LTk1MWRhZTIzOWI0ZCIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>-->

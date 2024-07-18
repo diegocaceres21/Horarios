@@ -165,14 +165,14 @@ export class HorarioComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    /*this.route.paramMap.subscribe(params =>
+    this.route.paramMap.subscribe(params =>
     {
       this._id = params.get('_id');
     });
     if (this._id) {
       this.getValueCarrera()
       this.getHorario()
-    }*/
+    }
   }
 
   getValueCarrera(){
@@ -184,6 +184,7 @@ export class HorarioComponent implements OnInit{
       result => {
         // Handle the result here
         this.paralelos = result
+
         /*if (this.paralelos.length == 0){
           this.openSnackBar()
         }*/
@@ -212,19 +213,20 @@ export class HorarioComponent implements OnInit{
 
     this.paralelos.forEach(curso => {
       const clave = curso.sigla!;
-      if (!this.ofertaAcademicaSiaan[clave]) {
-        this.ofertaAcademicaSiaan[clave] = {
+      if (!this.ofertaAcademicaSiaan[clave.trimEnd()]) {
+        this.ofertaAcademicaSiaan[clave.trimEnd()] = {
           sigla: curso.sigla!,
           asignatura: curso.materia!,
           paralelos: []
         };
       }
-      this.ofertaAcademicaSiaan[clave].paralelos!.push(curso);
+      this.ofertaAcademicaSiaan[clave.trimEnd()].paralelos!.push(curso);
     });
     this.showMateriasAndParalelos()
   }
 
   showMateriasAndParalelos(){
+    console.log(this.ofertaAcademicaSiaan)
     this.horarioSeleccionado.map(materia => {
       this.materias.push(this.ofertaAcademicaSiaan[materia.sigla])
       //this.materias[-1].paralelos.find(paralelo => paralelo)
@@ -331,7 +333,12 @@ export class HorarioComponent implements OnInit{
   materiaExisteEnHorario(sigla : string) : boolean {
     if(this.carrera.nombre != "MEDICINA")
     {
-      return this.horarioSeleccionado.some(item => item.sigla === sigla);
+     //
+      //return this.horarioSeleccionado.some(item => item.sigla === sigla);
+      return this.horarioSeleccionado.some(item =>{
+        console.log(item.sigla + " o " + sigla)
+        return item.sigla.trim() === sigla.trim()
+      } );
     }
     else{
       return false

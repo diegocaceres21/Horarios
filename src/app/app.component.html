@@ -13,28 +13,28 @@
 
 <mat-sidenav-container class="example-sidenav-container"
                        [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-  <mat-sidenav #snav (click)="snav.toggle()" [mode]="mobileQuery.matches ? 'over' : 'side'"
-               [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+  <mat-sidenav #snav  [mode]="mobileQuery.matches ? 'over' : 'side'"
+               [fixedInViewport]="mobileQuery.matches" fixedTopGap="56"> <!--(click)="snav.toggle()" -->
     <mat-nav-list>
       <span *ngFor="let item of menu;let i=index">
         <span *ngIf="item.children && item.children.length > 0">
           <mat-accordion>
             <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  <!-- Cabeceras del submenu -->
+              <mat-expansion-panel-header style="box-shadow: none; border-radius: 0px">
+                <mat-panel-title  >
                   <div class="item-container">
-                    <mat-icon>{{item.iconName}}</mat-icon>
-                    <div>{{item.displayName}}</div>
+                     <mat-icon>{{item.iconName}}</mat-icon>
+                  <div style="margin-left: 5px; font-size: 15px" >{{item.displayName}}</div>
                   </div>
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <span *ngFor="let child of item.children" >
-                <mat-list-item (click)="changeTitle(child.displayName)" routerLink="[child.route]">
+                <mat-list-item (click)="select(i)"
+                               [ngClass]="{'active': selectedIndex == i, 'list-group-item': true}" (click)="changeTitle(child.displayName)" routerLink="{{[child.route]}}">
                   <!-- Entradas de cada submenú  -->
-                  <div fxLayout="row" fxLayoutAlign="space-between center" >
+                  <div class="item-container" (click)="snav.toggle()">
                     <mat-icon>{{child.iconName}}</mat-icon>
-                    {{child.displayName}}
+                    <div style="margin-left: 5px">{{child.displayName}}</div>
                   </div>
                 </mat-list-item>
               </span>
@@ -42,10 +42,11 @@
           </mat-accordion>
         </span>
         <span *ngIf="!item.children || item.children.length === 0">
+
           <mat-list-item (click)="select(i)"
           [ngClass]="{'active': selectedIndex == i, 'list-group-item': true}" (click)="changeTitle(item.displayName)" routerLink="{{[item.route]}}">
-            <!-- Entradas principales -->
-            <div class="item-container">
+
+            <div class="item-container" (click)="snav.toggle()">
                   <mat-icon>{{item.iconName}}</mat-icon>
                   <div style="margin-left: 5px">{{item.displayName}}</div>
             </div>

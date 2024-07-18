@@ -41,6 +41,7 @@ import {SelectorCarreraComponent} from "./componentes/selector-carrera/selector-
 import { CuposComponent } from './cupos/cupos.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import {MatSortModule} from "@angular/material/sort";
+import { CuposOpcionesComponent } from './cupos-opciones/cupos-opciones.component';
 
 //import { SelectorCarreraComponent } from './componentes/selector-carrera/selector-carrera.component';
 
@@ -58,7 +59,8 @@ import {MatSortModule} from "@angular/material/sort";
     ImpresionHorariosComponent,
     SelectorCarreraComponent,
     CuposComponent,
-    ReportesComponent
+    ReportesComponent,
+    CuposOpcionesComponent
   ],
   imports: [
     BrowserModule,

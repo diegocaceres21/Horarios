@@ -1,0 +1,37 @@
+<mat-toolbar class="tool-options">
+  <app-selector-carrera name="carrera" [(ngModel)]="carrera" (ngModelChange)="filtrarPorCarrera()"></app-selector-carrera>
+</mat-toolbar>
+
+<div class="spinner" *ngIf="loaderService.isLoading | async">
+  <mat-spinner></mat-spinner>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Cabecera de la tabla -->
+  <ng-container matColumnDef="carrera">
+    <th mat-header-cell *matHeaderCellDef>Carrera</th>
+    <td mat-cell *matCellDef="let carrera; let i = index" [attr.rowspan]="carrera.opciones.length">
+      {{ carrera.carrera }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="opcion">
+    <th mat-header-cell *matHeaderCellDef>Opción</th>
+    <td mat-cell *matCellDef="let carrera; let i = index">
+      {{ carrera.opciones[i].opcion }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="horarios">
+    <th mat-header-cell *matHeaderCellDef>Horarios</th>
+    <td mat-cell *matCellDef="let carrera; let i = index">
+      <ul>
+        <li *ngFor="let horario of carrera.opciones[i].horario">
+          {{ horario.materia }} - {{ horario.horario }}
+        </li>
+      </ul>
+    </td>
+  </ng-container>
+
+  <!-- Definir las columnas -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

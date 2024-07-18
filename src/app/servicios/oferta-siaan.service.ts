@@ -36,6 +36,7 @@ export class OfertaSiaanService {
         {nombre: 'ANTROPOLOGÍA', codigo:"tI9hh22QP0e7/9GjXhwhdg=="},
         {nombre: 'COMUNICACIÓN SOCIAL', codigo:'kX7kgYhRC1LUbnTDX5%252bVmw=='},
         {nombre: 'DERECHO',codigo:'f7hqNZVQNTi2REB9l/B5/g=='},
+        {nombre: "DISEÑO DIGITAL MULTIMEDIA", codigo: "p1xnfHUjJPg42c8L5jyJZQ=="},
         {nombre: 'FILOSOFÍA Y LETRAS',codigo: 'AtldXj3SYazbYB94pwlWOQ=='},
         {nombre: 'PSICOLOGÍA',codigo: 'Nzp7sfyERT6IMiBxtHWpNw=='}
       ]},
@@ -190,7 +191,7 @@ export class OfertaSiaanService {
       contenidoList.push(contenidoColumn);
     }
     //console.log(contenidoList[1])
-    console.log(contenidoList)
+    //console.log(contenidoList)
     let resultado : HorarioMateria[] = contenidoList.map(row => ({
       sigla: row.sigla,
       materia: row.materia,
@@ -199,7 +200,7 @@ export class OfertaSiaanService {
       horario: row.horario,
       docente: row.docente
     }));
-    console.log(resultado)
+    //console.log(resultado)
     return resultado;
     //return contenidoList;
   }

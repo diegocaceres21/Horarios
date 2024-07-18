@@ -11,6 +11,8 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import {backgroundColor} from "html2canvas/dist/types/css/property-descriptors/background-color";
 import {HorariosService} from "../servicios/horarios.service";
 import {Horario} from "../interfaces/horario";
+import {CarreraService} from "../servicios/carrera.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -38,7 +40,7 @@ export class CuposComponent implements AfterViewInit{
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(private ofertaSiaanService: OfertaSiaanService, private horariosService: HorariosService, public loaderService: LoaderService) {
+  constructor(private carreraService: CarreraService,private router: Router,private ofertaSiaanService: OfertaSiaanService, private horariosService: HorariosService, public loaderService: LoaderService) {
     //this.getParalelosMaterias()
     this.ObtenerTodasLasOpciones()
 
@@ -109,6 +111,16 @@ export class CuposComponent implements AfterViewInit{
     }
   }
 
+  irAPaginaEditar(_id: string){
+    this.setValueCarrera()
+    const baseHref = document.getElementsByTagName('base')[0].href;
+    const url = this.router.serializeUrl(this.router.createUrlTree(['editarHorario', _id]));
+    window.open(`${baseHref}${url}`, '_blank');
+  }
+
+  setValueCarrera() {
+    this.carreraService.carrera = this.carrera;
+  }
   filtrarMateriasConOpciones(){
     if(this.tieneOpciones){
       this.dataSource.filterPredicate = function(data, filter: string): boolean {

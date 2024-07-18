@@ -60,7 +60,7 @@
         <div  > <!--*ngIf="obtenerOpciones(paralelo) as options" -->
           <div *ngFor="let opcion of paralelo.opciones" class="example-element-detail"
             [@detailExpand]="paralelo == expandedElement ? 'expanded' : 'collapsed'">
-            <button mat-stroked-button color="primary" class="opcion-button">
+            <button (click)="irAPaginaEditar(opcion._id)" mat-stroked-button color="primary" class="opcion-button">
               CARRERA: {{opcion.carrera}} OPCIÓN: {{opcion.opcion}}
             </button>
           </div>

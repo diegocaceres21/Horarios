@@ -6,6 +6,9 @@ import {CarreraOpciones} from "../interfaces/carrera-opciones";
 import {OfertaSiaanService} from "../servicios/oferta-siaan.service";
 import {HorariosService} from "../servicios/horarios.service";
 import {LoaderService} from "../servicios/loader.service";
+import {CarreraService} from "../servicios/carrera.service";
+import {Router} from "@angular/router";
+import {Materia} from "../interfaces/materia";
 
 @Component({
   selector: 'app-cupos-opciones',
@@ -14,26 +17,35 @@ import {LoaderService} from "../servicios/loader.service";
 })
 export class CuposOpcionesComponent {
 
-  dataSource!: MatTableDataSource<CarreraOpciones>;
-  carrera: string = ""
+  dataSource!: MatTableDataSource<Horario>;
+  carrera: any
   carreraOpciones: CarreraOpciones[] = []
-  displayedColumns: string[] = ['carrera', 'opcion'];
+  displayedColumns: string[] = ['carrera', 'opcion', 'cupos',"materia", 'editar'];
+  columnsToDisplayWithExpand = [...this.displayedColumns, 'expand'];
   paralelos :HorarioMateria[] = []
-  constructor(public loaderService: LoaderService,private horariosService: HorariosService ,private ofertaSiaanService: OfertaSiaanService) {
-    this.getOpcionesAgrupadasPorCarrera()
-  }
+  opciones: Horario[] = []
+  expandedElement!: Horario | null;
 
-  getOpcionesAgrupadasPorCarrera(){
-    this.horariosService.getHorariosAgrupadosPorCarrera().subscribe(
+  constructor(private carreraService: CarreraService,private router: Router,public loaderService: LoaderService,private horariosService: HorariosService ,private ofertaSiaanService: OfertaSiaanService) {
+    this.getHorariosOrdenadosPorCarrera()
+  }
+  getHorariosOrdenadosPorCarrera(){
+    this.horariosService.getAllHorarios().subscribe(
       result =>{
-        this.carreraOpciones = result;
-        this.dataSource = new MatTableDataSource(result);
-        console.log(this.dataSource)
+        this.opciones = result
+        this.getParalelosMaterias()
+
       },
       error => {
-        console.error(error);
+        console.error(error)
       }
     )
+  }
+  obtenerMenorCantidadDeCupos(horario: HorarioMateria[]){
+    return horario.reduce((min, current) =>
+      (current.disponibles ?? Infinity) < (min.disponibles ?? Infinity) ? current : min
+    );
+    //return horarioMinimo.disponibles
   }
   getParalelosMaterias(){
     this.ofertaSiaanService.getDatosSiaan(this.carrera).subscribe(
@@ -43,6 +55,7 @@ export class CuposOpcionesComponent {
           this.obtenerCuposMaterias()
         })
 
+
       },
       error => {
         console.error(error);
@@ -51,14 +64,40 @@ export class CuposOpcionesComponent {
   }
 
   obtenerCuposMaterias(){
-
+    this.opciones.map(opcion =>{
+      opcion.horario.map(horario =>{
+        horario.disponibles = this.getCupos(horario)
+      })
+    })
+    this.dataSource = new MatTableDataSource(this.opciones);
   }
-  filtrarPorCarrera(){
+  getCupos(paraleloDeseado: HorarioMateria) : number{
+    const cupos = this.paralelos.find((paralelo) => paralelo.sigla == paraleloDeseado.sigla && paralelo.paralelo == paraleloDeseado.paralelo)?.disponibles ?? -1;
 
+    return cupos
+  }
+
+  filtrarPorCarrera(){
+    console.log(this.carrera)
+    if(this.carrera){
+      this.dataSource.filter = this.carrera.nombre.trim().toLowerCase();
+    }
+    else{
+      this.dataSource.filter = "".toLowerCase();
+    }
   }
   getRowSpan(element: any, index: number) {
     const carrera = this.carreraOpciones.find(c => c.carrera === element.carrera);
     return carrera ? carrera.opciones?.length : 1;
+  }
+  irAPaginaDeEditarOpcion(_id: string){
+    this.setValueCarrera()
+    const baseHref = document.getElementsByTagName('base')[0].href;
+    const url = this.router.serializeUrl(this.router.createUrlTree(['editarHorario', _id]));
+    window.open(`${baseHref}${url}`, '_blank');
+  }
+  setValueCarrera() {
+    this.carreraService.carrera = this.carrera;
   }
 
   protected readonly parseInt = parseInt;

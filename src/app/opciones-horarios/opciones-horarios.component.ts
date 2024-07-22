@@ -81,7 +81,7 @@ export class OpcionesHorariosComponent {
     });
     if (this.carrera) {
       console.log("Dentro")
-      
+
     }*/
   }
 
@@ -157,9 +157,7 @@ export class OpcionesHorariosComponent {
     this.opcion = undefined;
     this.horariosService.getOpciones(this.carrera.nombre).subscribe(
       (data: number[]) => {
-        // Save the token in your app's cookies for later use
         this.opciones = data;
-        // Now you can use the 'appToken' cookie for making authenticated requests
       },
       (error) => {
         // Handle login error
@@ -326,7 +324,6 @@ export class OpcionesHorariosComponent {
     )
   }
     agruparCursos() {
-
         this.paralelos.forEach(curso => {
             const clave = curso.sigla!;
             if (!this.ofertaAcademicaSiaan[clave]) {

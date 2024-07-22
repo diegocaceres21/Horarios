@@ -42,6 +42,7 @@ import { CuposComponent } from './cupos/cupos.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import {MatSortModule} from "@angular/material/sort";
 import { CuposOpcionesComponent } from './cupos-opciones/cupos-opciones.component';
+import { TablaParalelosComponent } from './componentes/tabla-paralelos/tabla-paralelos.component';
 
 //import { SelectorCarreraComponent } from './componentes/selector-carrera/selector-carrera.component';
 
@@ -60,7 +61,8 @@ import { CuposOpcionesComponent } from './cupos-opciones/cupos-opciones.componen
     SelectorCarreraComponent,
     CuposComponent,
     ReportesComponent,
-    CuposOpcionesComponent
+    CuposOpcionesComponent,
+    TablaParalelosComponent
   ],
   imports: [
     BrowserModule,

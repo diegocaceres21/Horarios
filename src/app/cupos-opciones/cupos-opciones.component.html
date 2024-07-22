@@ -1,37 +1,71 @@
 <mat-toolbar class="tool-options">
-  <app-selector-carrera name="carrera" [(ngModel)]="carrera" (ngModelChange)="filtrarPorCarrera()"></app-selector-carrera>
+  <app-selector-carrera [opcionTodosHabilitado]="true" name="carrera" [(ngModel)]="carrera" (ngModelChange)="filtrarPorCarrera()"></app-selector-carrera>
 </mat-toolbar>
 
 <div class="spinner" *ngIf="loaderService.isLoading | async">
   <mat-spinner></mat-spinner>
 </div>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" multiTemplateDataRows>
   <!-- Cabecera de la tabla -->
-  <ng-container matColumnDef="carrera">
+  <ng-container  matColumnDef="carrera">
     <th mat-header-cell *matHeaderCellDef>Carrera</th>
-    <td mat-cell *matCellDef="let carrera; let i = index" [attr.rowspan]="carrera.opciones.length">
-      {{ carrera.carrera }}
-    </td>
+    <td mat-cell *matCellDef="let opcion">{{opcion.carrera}}</td>
   </ng-container>
+
   <ng-container matColumnDef="opcion">
-    <th mat-header-cell *matHeaderCellDef>Opción</th>
-    <td mat-cell *matCellDef="let carrera; let i = index">
-      {{ carrera.opciones[i].opcion }}
+    <th mat-header-cell *matHeaderCellDef>Opcion</th>
+    <td mat-cell *matCellDef="let opcion">OPCIÓN: {{opcion.opcion}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="cupos">
+    <th mat-header-cell *matHeaderCellDef>Cupos</th>
+    <td mat-cell *matCellDef="let opcion">{{obtenerMenorCantidadDeCupos(opcion.horario).disponibles}}</td>
+  </ng-container>
+  <ng-container matColumnDef="materia">
+    <th mat-header-cell *matHeaderCellDef>Materia con menos cupos</th>
+    <td mat-cell *matCellDef="let opcion">{{obtenerMenorCantidadDeCupos(opcion.horario).materia}}</td>
+  </ng-container>
+  <ng-container matColumnDef="editar">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let opcion">
+      <button (click)="irAPaginaDeEditarOpcion(opcion._id)" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+        <mat-icon>edit</mat-icon>
+      </button>
     </td>
   </ng-container>
-  <ng-container matColumnDef="horarios">
-    <th mat-header-cell *matHeaderCellDef>Horarios</th>
-    <td mat-cell *matCellDef="let carrera; let i = index">
-      <ul>
-        <li *ngFor="let horario of carrera.opciones[i].horario">
-          {{ horario.materia }} - {{ horario.horario }}
-        </li>
-      </ul>
+  <ng-container matColumnDef="expand">
+    <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+    <td mat-cell *matCellDef="let opcion">
+      <button mat-icon-button aria-label="expand row" (click)="(expandedElement = expandedElement === opcion ? null : opcion); $event.stopPropagation()">
+        <mat-icon *ngIf="expandedElement !== opcion">keyboard_arrow_down</mat-icon>
+        <mat-icon *ngIf="expandedElement === opcion">keyboard_arrow_up</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let opcion" [attr.colspan]="columnsToDisplayWithExpand.length">
+      <div  > <!--*ngIf="obtenerOpciones(paralelo) as options" -->
+        <div *ngFor="let opcion of opcion.horario" class="example-element-detail"
+             [@detailExpand]="opcion == expandedElement ? 'expanded' : 'collapsed'">
+          <app-tabla-paralelos [_horarios]="opcion.horario"></app-tabla-paralelos>
+        </div>
+      </div>
     </td>
   </ng-container>
 
   <!-- Definir las columnas -->
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand; sticky: true"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="6">No se ha encontrado resultados"</td>
+  </tr>
+  <!--<tr mat-row *matRowDef="let row; columns: displayedColumns;"
+      [ngClass]="{'red-background': obtenerMenorCantidadDeCupos(row.horario)!.disponibles! <= 0}"></tr>-->
 </table>

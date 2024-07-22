@@ -14,7 +14,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 })
 export class SelectorCarreraComponent implements ControlValueAccessor{
   @Input() _carrera = '';
-  //@Output() selectedOptionChange = new EventEmitter<any>();
+  @Input() opcionTodosHabilitado : boolean = false;
 
   writeValue(value: any) {
     if (value !== undefined) {

@@ -1,0 +1,33 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Cabecera de la tabla -->
+  <ng-container matColumnDef="sigla">
+    <th mat-header-cell *matHeaderCellDef>Sigla</th>
+    <td mat-cell *matCellDef="let paralelo">{{paralelo.sigla}}</td>
+  </ng-container>
+  <ng-container matColumnDef="materia">
+    <th mat-header-cell *matHeaderCellDef>Materia</th>
+    <td mat-cell *matCellDef="let paralelo">{{paralelo.materia}}</td>
+  </ng-container>
+  <ng-container matColumnDef="docente">
+    <th mat-header-cell *matHeaderCellDef>Docente</th>
+    <td mat-cell *matCellDef="let paralelo">{{paralelo.docente}}</td>
+  </ng-container>
+  <ng-container matColumnDef="paralelo">
+    <th mat-header-cell *matHeaderCellDef>paralelo</th>
+    <td mat-cell *matCellDef="let paralelo">{{paralelo.paralelo}}</td>
+  </ng-container>
+  <ng-container matColumnDef="horario">
+    <th mat-header-cell *matHeaderCellDef>Horario</th>
+    <td mat-cell *matCellDef="let paralelo">{{paralelo.horario}}</td>
+  </ng-container>
+  <ng-container matColumnDef="cupos">
+    <th mat-header-cell *matHeaderCellDef>Cupos</th>
+    <td mat-cell *matCellDef="let paralelo">{{paralelo.disponibles}}</td>
+  </ng-container>
+
+
+  <!-- Definir las columnas -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+      [ngClass]="{'red-background': row.paralelo.disponibles <= 0}"></tr>
+</table>

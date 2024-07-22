@@ -18,30 +18,38 @@ import {Horario} from "../../interfaces/horario";
   styleUrls: ['./tabla-paralelos.component.scss']
 })
 export class TablaParalelosComponent implements ControlValueAccessor{
-  @Input() _horarios! :HorarioMateria[];
+  @Input() set paralelos(val: HorarioMateria[]) {
+    this._paralelos = val;
+    this.dataSource.data = this._paralelos;
+  }
+  
+  @Input() set horarios(val: HorarioMateria[]) {
+    this._horarios = val;
+    this.dataSource.data = this._horarios;
+    this.propagateChange(this._horarios);
+  }
+
+  _paralelos: HorarioMateria[] = [];
+  _horarios: HorarioMateria[] = [];
 
   displayedColumns: string[] = ['sigla', 'materia', "docente", 'paralelo', "cupos", "horario"];
-  dataSource!: MatTableDataSource<HorarioMateria>;
+  dataSource = new MatTableDataSource<HorarioMateria>();
+
+  ngOnInit() {
+    this.dataSource.data = this._paralelos;
+  }
+
   writeValue(value: any) {
     if (value !== undefined) {
       this.horarios = value;
-      this.dataSource = new MatTableDataSource(this.horarios);
     }
   }
+
   propagateChange = (_: any) => {};
 
-  registerOnChange(fn) {
+  registerOnChange(fn: any) {
     this.propagateChange = fn;
   }
 
   registerOnTouched() {}
-
-  get horarios() {
-    return this._horarios;
-  }
-
-  set horarios(val) {
-    this._horarios = val;
-    this.propagateChange(this._horarios);
-  }
 }

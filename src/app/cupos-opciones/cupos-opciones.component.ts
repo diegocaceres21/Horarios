@@ -9,11 +9,19 @@ import {LoaderService} from "../servicios/loader.service";
 import {CarreraService} from "../servicios/carrera.service";
 import {Router} from "@angular/router";
 import {Materia} from "../interfaces/materia";
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-cupos-opciones',
   templateUrl: './cupos-opciones.component.html',
-  styleUrls: ['./cupos-opciones.component.scss']
+  styleUrls: ['./cupos-opciones.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class CuposOpcionesComponent {
 

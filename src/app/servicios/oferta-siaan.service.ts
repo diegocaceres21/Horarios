@@ -66,18 +66,6 @@ export class OfertaSiaanService {
 
     return this.forkRequestsSiaan(requests, conAula);
   }
-  /*forkRequestsSiaan(requests: Observable<any>[]): Observable<any[]> {
-    return forkJoin(requests).pipe(
-      map(responses => {
-        const paralelos: any[] = [];
-        for (let i = 0; i < responses.length; i++) {
-          paralelos.push(...this.filterData(responses[i]));
-        }
-        //this.agruparCursos();
-        return paralelos;
-      },)
-    );
-  }*/
 
   forkRequestsSiaan(requests: Observable<any>[], conAula: boolean): Observable<any> {
     return new Observable(observer => {
@@ -150,20 +138,15 @@ export class OfertaSiaanService {
     const jsonData = response as any;
 
     const contenidoList: any[] = [];
-    //let contenidoColumn: any[] = [];
 
     for (let i = 0; i < jsonData.datos.length; i++) {
       const column = jsonData.datos[i];
-      //let contenidoColumn: HorarioMateria[] = [];
-      //contenidoColumn.push([])
       let contenidoColumn : any ={};
 
       let profesor = { profesor: ""};
       for (let j = 0; j < column.length; j++) {
         const cell = column[j];
-        //console.log(cell)
         if(cell.nombreColumna === "Sigla"){
-          //console.log(cell.contenidoCelda[0].contenido)
           contenidoColumn.sigla = cell.contenidoCelda[0].contenido;
         }
         else if(cell.nombreColumna === "P"){
@@ -178,31 +161,27 @@ export class OfertaSiaanService {
         else if(cell.nombreColumna === "Inscritos"){
           contenidoColumn.inscritos = cell.contenidoCelda[0].contenido;
         }
-        //let contenido = cell.contenidoCelda[0].contenido;
+        else if(cell.nombreColumna === "U.V.E."){
+          contenidoColumn.uve = cell.contenidoCelda[0].contenido;
+        }
         if (cell.nombreColumna === "Horarios") {
           contenidoColumn.horario = this.filterHorarios(cell, profesor, conAula)
-          //contenido = this.filterHorarios(cell, profesor, conAula)
         }
 
-        //contenidoColumn.push(contenido);
       }
-      //contenidoColumn.push(profesor.profesor);
       contenidoColumn.docente = profesor.profesor
       contenidoList.push(contenidoColumn);
     }
-    //console.log(contenidoList[1])
-    //console.log(contenidoList)
     let resultado : HorarioMateria[] = contenidoList.map(row => ({
       sigla: row.sigla,
       materia: row.materia,
       paralelo: row.paralelo,
       disponibles: row.cupos - row.inscritos,
       horario: row.horario,
-      docente: row.docente
+      docente: row.docente,
+      uve: row.uve
     }));
-    //console.log(resultado)
     return resultado;
-    //return contenidoList;
   }
   agruparCursos() {
 

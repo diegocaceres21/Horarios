@@ -11,4 +11,5 @@ export interface HorarioMateria {
     horario: string;
     selected?: boolean;
     opciones?:Horario[];
+    uve?: number;
 }

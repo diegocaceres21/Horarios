@@ -43,6 +43,8 @@ import { ReportesComponent } from './reportes/reportes.component';
 import {MatSortModule} from "@angular/material/sort";
 import { CuposOpcionesComponent } from './cupos-opciones/cupos-opciones.component';
 import { TablaParalelosComponent } from './componentes/tabla-paralelos/tabla-paralelos.component';
+import { SimuladorPagosComponent } from './simulador-pagos/simulador-pagos.component';
+import { TablaDetallePagosComponent } from './componentes/tabla-detalle-pagos/tabla-detalle-pagos.component';
 
 //import { SelectorCarreraComponent } from './componentes/selector-carrera/selector-carrera.component';
 
@@ -62,7 +64,9 @@ import { TablaParalelosComponent } from './componentes/tabla-paralelos/tabla-par
     CuposComponent,
     ReportesComponent,
     CuposOpcionesComponent,
-    TablaParalelosComponent
+    TablaParalelosComponent,
+    SimuladorPagosComponent,
+    TablaDetallePagosComponent
   ],
   imports: [
     BrowserModule,

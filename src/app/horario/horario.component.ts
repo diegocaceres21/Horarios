@@ -184,11 +184,9 @@ export class HorarioComponent implements OnInit{
       result => {
         // Handle the result here
         this.paralelos = result
-
-        /*if (this.paralelos.length == 0){
-          this.openSnackBar()
-        }*/
-        //console.log(result);
+        this.paralelos.map( paralelo => {
+          paralelo.sigla = paralelo.sigla.trim()
+        })
         this.agruparCursos()
       },
       error => {

@@ -59,6 +59,10 @@ export class CuposOpcionesComponent {
     this.ofertaSiaanService.getDatosSiaan(this.carrera).subscribe(
       result => {
         this.paralelos = result
+        this.paralelos.map( paralelo => {
+          paralelo.sigla = paralelo.sigla.trim()
+        })
+        console.log(this.paralelos)
         this.paralelos.map(paralelo =>{
           this.obtenerCuposMaterias()
         })
@@ -81,7 +85,6 @@ export class CuposOpcionesComponent {
   }
   getCupos(paraleloDeseado: HorarioMateria) : number{
     const cupos = this.paralelos.find((paralelo) => paralelo.sigla == paraleloDeseado.sigla && paralelo.paralelo == paraleloDeseado.paralelo)?.disponibles ?? -1;
-
     return cupos
   }
 

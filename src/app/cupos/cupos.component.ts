@@ -55,6 +55,7 @@ export class CuposComponent implements AfterViewInit{
       result => {
         this.paralelos = result
         this.paralelos.map(paralelo =>{
+          paralelo.sigla = paralelo.sigla.trim()
           this.obtenerOpciones(paralelo)
         })
         this.dataSource = new MatTableDataSource(this.paralelos);

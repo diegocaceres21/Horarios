@@ -310,10 +310,12 @@ export class OpcionesHorariosComponent {
       result => {
         // Handle the result here
         this.paralelos = result
+        this.paralelos.map( paralelo => {
+          paralelo.sigla = paralelo.sigla.trim()
+        })
         if (this.paralelos.length == 0){
           this.openSnackBar()
         }
-        console.log(result);
         this.agruparCursos()
         // Call another function or do something else with the result
       },

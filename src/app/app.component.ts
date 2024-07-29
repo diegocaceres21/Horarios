@@ -40,6 +40,12 @@ export class AppComponent {
       route: 'reportes',
     },
     {
+      displayName: 'Simulador',
+      iconName: 'payments',
+      route: 'simulador-pagos',
+      disabled: true
+    },
+    {
       displayName: 'Revisar pagos',
       iconName: 'payments',
       route: 'settings',

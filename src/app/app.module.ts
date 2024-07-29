@@ -45,6 +45,8 @@ import { CuposOpcionesComponent } from './cupos-opciones/cupos-opciones.componen
 import { TablaParalelosComponent } from './componentes/tabla-paralelos/tabla-paralelos.component';
 import { SimuladorPagosComponent } from './simulador-pagos/simulador-pagos.component';
 import { TablaDetallePagosComponent } from './componentes/tabla-detalle-pagos/tabla-detalle-pagos.component';
+import { TablaPlanPagoComponent } from './componentes/tabla-plan-pago/tabla-plan-pago.component';
+import { NumberFormatPipe } from './number-format.pipe';
 
 //import { SelectorCarreraComponent } from './componentes/selector-carrera/selector-carrera.component';
 
@@ -66,7 +68,9 @@ import { TablaDetallePagosComponent } from './componentes/tabla-detalle-pagos/ta
     CuposOpcionesComponent,
     TablaParalelosComponent,
     SimuladorPagosComponent,
-    TablaDetallePagosComponent
+    TablaDetallePagosComponent,
+    TablaPlanPagoComponent,
+    NumberFormatPipe
   ],
   imports: [
     BrowserModule,

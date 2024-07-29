@@ -1,18 +1,32 @@
 <table>
-  <tr>
-    <th>{{titulo}}</th>
-    <th>INVERSIÓN</th>
-  </tr>
-  <tr>
-    <td>Pago inicial</td>
-    <td>{{pagoInicial}}</td>
-  </tr>
-  <tr>
-    <td>Crédito tecnológico</td>
-    <td>{{valorCredito}}</td>
-  </tr>
-  <tr>
-    <td>Crédito tecnológico</td>
-    <td>{{valorCredito}}</td>
-  </tr>
+  <thead>
+    <tr>
+      <th class="primera-columna">{{titulo}}</th>
+      <th>INVERSIÓN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pago inicial</td>
+      <td>{{pagoInicial | numberFormat}} Bs</td>
+    </tr>
+    <tr>
+      <td>Crédito tecnológico</td>
+      <td>{{valorCredito | numberFormat}} Bs</td>
+    </tr>
+    <tr *ngIf="!esDescuentoProntoPago">
+      <td>Cuatro pagos mensuales de {{pagoMensual | numberFormat}} Bs</td>
+      <td>{{saldoSemestre | numberFormat}} Bs</td>
+    </tr>
+    <tr *ngIf="esDescuentoProntoPago">
+      <td>Pronto Pago (Descuento de 6%). Pago único de: </td>
+      <td>{{saldoSemestre | numberFormat}}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Total Semestre</td>
+      <td>{{montoTotalSemestre | numberFormat}} Bs</td>
+    </tr>
+  </tfoot>
 </table>

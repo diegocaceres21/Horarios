@@ -38,7 +38,7 @@ export class AppComponent {
       displayName: 'Reporte Power BI',
       iconName: 'analytics',
       route: 'reportes',
-    },
+    },/*
     {
       displayName: 'Simulador',
       iconName: 'payments',
@@ -56,7 +56,7 @@ export class AppComponent {
       iconName: 'settings',
       route: 'settings',
       disabled: true
-    }
+    }*/
   ];
   mobileQuery: MediaQueryList;
   selectedIndex: number =-1;

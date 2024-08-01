@@ -23,7 +23,6 @@ export class TokenService {
     const token = this.cookieService.get('token');
     console.log(token);
     this.cookieService.set('token', token);
-
     this.refreshService.refresh();
 
   }

@@ -11,6 +11,7 @@ export class TablaDetallePagosComponent implements OnInit {
   @Input() creditos!: number;
   @Input() esMedicina: boolean = false;
   @Input() esDescuentoProntoPago: boolean = false;
+  @Input() descuentoPagoInicial?: number;
 
   numeroDeCuotas : number = 4;
   descuentoProntoPago: number = 0.06;
@@ -19,6 +20,7 @@ export class TablaDetallePagosComponent implements OnInit {
   saldoSemestre!: number;
   montoTotalSemestre!: number;
   pagoMensual!: number;
+  //descuentoPagoInicialDisponible: boolean = false;
 
   ngOnInit(): void  {
     this.obtenerValorCredito()
@@ -30,7 +32,7 @@ export class TablaDetallePagosComponent implements OnInit {
     }
     else{
       this.obtenerSaldoSemestre()
-      this.obtenerPagoMensual() 
+      this.obtenerPagoMensual()
     }
   }
 //TODO REFACTORIZAR ESTA FUNCION
@@ -58,7 +60,7 @@ export class TablaDetallePagosComponent implements OnInit {
   obtenerPagoMensual(){
     this.pagoMensual = this.saldoSemestre / this.numeroDeCuotas;
   }
-  
+
 
   obtenerPagoTotal(){
     this.montoTotalSemestre = (this.creditos * this.valorCredito) + this.valorCredito;

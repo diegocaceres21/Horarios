@@ -1,3 +1,8 @@
-<app-tabla-plan-pago [creditos]="27" plan="ESTANDAR"></app-tabla-plan-pago>
-<app-tabla-plan-pago [creditos]="27" plan="AHORRO"></app-tabla-plan-pago>
-<app-tabla-plan-pago [creditos]="27" plan="PLUS"></app-tabla-plan-pago>
+<div class="contenedor">
+  <div class="planes-container">
+    <app-tabla-plan-pago [creditos]="27" plan="ESTANDAR"></app-tabla-plan-pago>
+    <app-tabla-plan-pago [creditos]="27" plan="AHORRO" [descuentoPagoInicial]="0.08"></app-tabla-plan-pago>
+    <app-tabla-plan-pago [creditos]="27" plan="PLUS" [descuentoPagoInicial]="0.12"></app-tabla-plan-pago>
+  </div>
+</div>
+<!--TODO: AGREGAR EN CONFIGURACION VARIABLES DE: FECHA LIMITE PLAN AHORRO, PLUS, PRONTO PAGO, % DE DESCUENTO -->

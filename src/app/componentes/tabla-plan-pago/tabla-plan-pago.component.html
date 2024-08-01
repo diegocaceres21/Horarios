@@ -1,5 +1,5 @@
 <div class="contenedor">
     <div class="titulo">PLAN {{plan}}</div>
-    <app-tabla-detalle-pagos [creditos]="creditos" [plan]="plan" titulo="PLAN MENSUAL"></app-tabla-detalle-pagos>
-    <app-tabla-detalle-pagos [creditos]="creditos" [plan]="plan" [esDescuentoProntoPago]="true" titulo="ACCEDIENDO AL PRONTO PAGO"></app-tabla-detalle-pagos>
+    <app-tabla-detalle-pagos [creditos]="creditos" [plan]="plan" titulo="PLAN MENSUAL" [descuentoPagoInicial]="descuentoPagoInicial"></app-tabla-detalle-pagos>
+    <app-tabla-detalle-pagos [creditos]="creditos" [plan]="plan" [esDescuentoProntoPago]="true" titulo="ACCEDIENDO AL PRONTO PAGO" [descuentoPagoInicial]="descuentoPagoInicial" ></app-tabla-detalle-pagos>
 </div>

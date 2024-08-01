@@ -27,6 +27,28 @@
         Email o Contraseña Incorrectos
       </mat-error>
       <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Ingresar</button>
+      <div class="google-container">
+        <div id="g_id_onload"
+             data-client_id="446198282484-g6j1vv5qeoets2jujdccfjt30h3q9v1b.apps.googleusercontent.com"
+             data-context="use"
+             data-ux_mode="popup"
+             data-auto_select="true"
+             data-itp_support="true"
+             data-login_uri="http://localhost:3000/horariosbackend/loginGoogle">
+          <!--data-login_uri="http://localhost:3000/horariosbackend/loginGoogle"-->
+
+        </div>
+
+        <div class="g_id_signin google-button"
+             data-type="standard"
+             data-shape="rectangular"
+             data-theme="outline"
+             data-text="signin_with"
+             data-size="large"
+             data-logo_alignment="left">
+        </div>
+      </div>
     </form>
   </mat-card-content>
 </mat-card>
+

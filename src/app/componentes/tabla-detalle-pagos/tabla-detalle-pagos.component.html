@@ -1,32 +1,38 @@
 <table>
   <thead>
-    <tr>
-      <th class="primera-columna">{{titulo}}</th>
-      <th>INVERSIÓN</th>
-    </tr>
+  <tr>
+    <th class="primera-columna">{{titulo}}</th>
+    <th class="segunda-columna centro">INVERSIÓN</th>
+    <th class="tercera-columna centro" *ngIf="descuentoPagoInicial">INVERSIÓN <br> CON DESCUENTO</th>
+  </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Pago inicial</td>
-      <td>{{pagoInicial | numberFormat}} Bs</td>
-    </tr>
-    <tr>
-      <td>Crédito tecnológico</td>
-      <td>{{valorCredito | numberFormat}} Bs</td>
-    </tr>
-    <tr *ngIf="!esDescuentoProntoPago">
-      <td>Cuatro pagos mensuales de {{pagoMensual | numberFormat}} Bs</td>
-      <td>{{saldoSemestre | numberFormat}} Bs</td>
-    </tr>
-    <tr *ngIf="esDescuentoProntoPago">
-      <td>Pronto Pago (Descuento de 6%). Pago único de: </td>
-      <td>{{saldoSemestre | numberFormat}}</td>
-    </tr>
+  <tr>
+    <td>Pago inicial</td>
+    <td class="centro">{{pagoInicial | numberFormat}} Bs</td>
+    <td *ngIf="descuentoPagoInicial" class="centro">{{pagoInicial * (1-descuentoPagoInicial) | numberFormat}} Bs</td>
+  </tr>
+  <tr>
+    <td>Crédito tecnológico</td>
+    <td class="centro">{{valorCredito | numberFormat}} Bs</td>
+    <td *ngIf="descuentoPagoInicial" class="centro">{{valorCredito | numberFormat}} Bs</td>
+  </tr>
+  <tr *ngIf="!esDescuentoProntoPago">
+    <td>Cuatro pagos mensuales de {{pagoMensual | numberFormat}} Bs</td>
+    <td class="centro">{{saldoSemestre | numberFormat}} Bs</td>
+    <td *ngIf="descuentoPagoInicial" class="centro">{{saldoSemestre | numberFormat}} Bs</td>
+  </tr>
+  <tr *ngIf="esDescuentoProntoPago">
+    <td>Pronto Pago (Descuento de 6%). Pago único de: </td>
+    <td class="centro">{{saldoSemestre | numberFormat}}</td>
+    <td *ngIf="descuentoPagoInicial" class="centro">{{saldoSemestre | numberFormat}}</td>
+  </tr>
   </tbody>
   <tfoot>
-    <tr>
-      <td>Total Semestre</td>
-      <td>{{montoTotalSemestre | numberFormat}} Bs</td>
-    </tr>
+  <tr>
+    <td>Total Semestre</td>
+    <td class="centro">{{montoTotalSemestre | numberFormat}} Bs</td>
+    <td *ngIf="descuentoPagoInicial" class="centro">{{montoTotalSemestre - (pagoInicial * descuentoPagoInicial) | numberFormat}} Bs</td>
+  </tr>
   </tfoot>
 </table>

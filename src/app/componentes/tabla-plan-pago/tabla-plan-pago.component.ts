@@ -8,4 +8,6 @@ import { Component, Input } from '@angular/core';
 export class TablaPlanPagoComponent {
   @Input() plan: string = "";
   @Input() creditos: number = 0;
+  @Input() descuentoPagoInicial?: number;
+
 }

@@ -1,4 +1,37 @@
 <div class="contenedor">
+  <div>
+    <app-selector-carrera name="carrera" [(ngModel)]="carrera" (ngModelChange)="cambiarHorarioCarrera($event)"></app-selector-carrera>
+    <div class="materias-container">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container  matColumnDef="sigla">
+              <th mat-header-cell *matHeaderCellDef>Sigla</th>
+              <td mat-cell *matCellDef="let materia">{{materia.sigla}}</td>
+            </ng-container>
+            <ng-container  matColumnDef="materia">
+              <th mat-header-cell *matHeaderCellDef>Asignatura</th>
+              <td mat-cell *matCellDef="let materia" >{{materia.nombre}}</td>
+            </ng-container>
+            <ng-container matColumnDef="uve">
+              <th mat-header-cell *matHeaderCellDef>U.V.E.</th>
+              <td mat-cell *matCellDef="let materia" >{{materia.uve}}</td>
+            </ng-container>
+            <!-- Position Column -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr
+              mat-row
+              (click)="clickedRows.add(row)"
+              [class.demo-row-is-clicked]="clickedRows.has(row)"
+              *matRowDef="let row; columns: displayedColumns;"
+            ></tr>
+          </table>
+
+          </div>
+      <button (click)="openDialog()" class="new-materia" mat-fab extended color="primary">
+        <mat-icon>add </mat-icon>
+        Agregar Materia
+      </button>
+      <mat-error *ngIf="errorAgregar"><b> Seleccione primero una carrera</b></mat-error>
+  </div>
   <div class="planes-container">
     <app-tabla-plan-pago [creditos]="27" plan="ESTANDAR"></app-tabla-plan-pago>
     <app-tabla-plan-pago [creditos]="27" plan="AHORRO" [descuentoPagoInicial]="0.08"></app-tabla-plan-pago>

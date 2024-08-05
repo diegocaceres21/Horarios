@@ -76,4 +76,6 @@ export class TablaDetallePagosComponent implements OnInit {
   obtenerSaldoProntoPago(){
     //this.saldoSemestre = this.montoTotalSemestre
   }
+
+  protected readonly Math = Math;
 }

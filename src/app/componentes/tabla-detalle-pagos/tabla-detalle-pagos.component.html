@@ -10,7 +10,7 @@
   <tr>
     <td>Pago inicial</td>
     <td class="centro">{{pagoInicial | numberFormat}} Bs</td>
-    <td *ngIf="descuentoPagoInicial" class="centro">{{pagoInicial * (1-descuentoPagoInicial) | numberFormat}} Bs</td>
+    <td *ngIf="descuentoPagoInicial" class="centro">{{Math.ceil(pagoInicial * (1-descuentoPagoInicial))  | numberFormat}} Bs</td>
   </tr>
   <tr>
     <td>Crédito tecnológico</td>
@@ -24,15 +24,15 @@
   </tr>
   <tr *ngIf="esDescuentoProntoPago">
     <td>Pronto Pago (Descuento de 6%). Pago único de: </td>
-    <td class="centro">{{saldoSemestre | numberFormat}}</td>
-    <td *ngIf="descuentoPagoInicial" class="centro">{{saldoSemestre | numberFormat}}</td>
+    <td class="centro">{{saldoSemestre | numberFormat}} Bs</td>
+    <td *ngIf="descuentoPagoInicial" class="centro">{{saldoSemestre | numberFormat}} Bs</td>
   </tr>
   </tbody>
   <tfoot>
   <tr>
     <td>Total Semestre</td>
     <td class="centro">{{montoTotalSemestre | numberFormat}} Bs</td>
-    <td *ngIf="descuentoPagoInicial" class="centro">{{montoTotalSemestre - (pagoInicial * descuentoPagoInicial) | numberFormat}} Bs</td>
+    <td *ngIf="descuentoPagoInicial" class="centro">{{montoTotalSemestre - Math.floor((pagoInicial * descuentoPagoInicial)) | numberFormat}} Bs</td>
   </tr>
   </tfoot>
 </table>

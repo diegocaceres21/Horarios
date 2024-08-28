@@ -87,12 +87,10 @@ export class OpcionesHorariosComponent {
 
   getDocente(paraleloDeseado: HorarioMateria) : string{
     const docente = this.ofertaAcademicaSiaan[paraleloDeseado.sigla]?.paralelos!.find((paralelo) => paralelo.paralelo === paraleloDeseado.paralelo)?.docente ?? "";
-    console.log(docente)
     return docente
   }
   getCupos(paraleloDeseado: HorarioMateria) : number{
     const cupos = this.ofertaAcademicaSiaan[paraleloDeseado.sigla]?.paralelos!.find((paralelo) => paralelo.paralelo === paraleloDeseado.paralelo)?.disponibles ?? -1;
-    console.log(cupos)
     return cupos
   }
   cambiarHorarioNormal() {

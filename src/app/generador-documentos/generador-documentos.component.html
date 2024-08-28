@@ -1,0 +1,59 @@
+<!--<button (click)="descargarCartaTraspaso('654af8bde37161b66d3d5e34')">Download and Print Document</button>
+<button (click)="descargarDocumentosEntregados()">Download and Print Document</button>-->
+<div class="external-container">
+  <div class="buttons-container">
+    <mat-form-field *ngIf="!llenadoManualActivado" appearance="outline" class="full-width">
+      <mat-label>Carnet de Identidad</mat-label>
+      <input required matInput>
+    </mat-form-field>
+    <button (click)="buscarPorCarnetDeIdentidad()" mat-flat-button color="primary">Buscar por CI</button>
+    <button (click)="mostrarLlenadoManual()" *ngIf="!llenadoManualActivado" mat-flat-button color="accent">Rellenar Manualmente</button>
+  </div>
+
+
+  <form [formGroup]="form">
+
+      <div *ngIf="llenadoManualActivado" class="form-container">
+        <mat-form-field  appearance="fill" class="full-width">
+          <mat-label>Nombre Completo</mat-label>
+          <input  required matInput formControlName="nombre_completo">
+          <mat-error class="error" *ngIf="isSubmitted && form.get('nombre_completo')!.hasError('required')">
+            Este campo es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Carnet de Identidad</mat-label>
+          <input required matInput formControlName="carnet">
+          <mat-error class="error" *ngIf="isSubmitted && form.get('carnet')!.hasError('required')">
+            Este campo es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div *ngIf="mostrarDocumentosEntregados">
+        <h3 class="titulo-documentos">Documentos entregados</h3>
+        <mat-checkbox class="checkbox-documento" color="primary">Fotocopia Legalizada Titulo de Bachiller (SEDUCA)</mat-checkbox>
+        <mat-checkbox class="checkbox-documento" color="primary">Fotocopia Legalizada Titulo de Bachiller (gratuita)</mat-checkbox>
+        <mat-checkbox class="checkbox-documento" color="primary">Fotocopia simple de Título de Bachiller</mat-checkbox>
+        <mat-checkbox class="checkbox-documento" color="primary">Fotocopia simple de libreta de 6to de secundaria</mat-checkbox>
+        <mat-checkbox class="checkbox-documento" color="primary">Fotocopia simple de Cédula de Identidad</mat-checkbox>
+        <mat-checkbox class="checkbox-documento" color="primary">Certificado de Nacimiento Original</mat-checkbox>
+        <mat-checkbox class="checkbox-documento" color="primary">Fotos 3 x 3</mat-checkbox>
+      </div>
+
+
+  </form>
+
+  <div *ngIf="isTraspaso" class="buttons-container">
+    <h3 class="titulo-documentos">Generar Documentos</h3>
+    <button mat-stroked-button color="primary">Documentos Entregados</button>
+    <button mat-stroked-button color="primary">Hoja de Vida</button>
+    <button mat-stroked-button color="primary">Condiciones Generales PRE UCB</button>
+    <button mat-stroked-button color="primary">Condiciones Generales Carrera</button>
+    <button mat-stroked-button color="primary">Pagos Pendientes</button>
+
+    <button mat-stroked-button disabled color="primary">Carta de Solicitud de Traspaso</button>
+    <button mat-stroked-button disabled color="primary">Compromiso documentos Traspaso</button>
+
+  </div>
+</div>

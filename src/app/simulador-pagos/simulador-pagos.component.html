@@ -1,7 +1,7 @@
 <div class="contenedor">
-  <div>
-    <app-selector-carrera name="carrera" [(ngModel)]="carrera" (ngModelChange)="cambiarHorarioCarrera($event)"></app-selector-carrera>
-    <div class="materias-container">
+  <div class="contenedor-materias">
+    <app-selector-carrera name="carrera" [(ngModel)]="carrera" (ngModelChange)="cambiarTarifarioCarrera($event)"></app-selector-carrera>
+    <div *ngIf="materias.length > 0" class="materias-container">
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <ng-container  matColumnDef="sigla">
               <th mat-header-cell *matHeaderCellDef>Sigla</th>
@@ -19,8 +19,6 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr
               mat-row
-              (click)="clickedRows.add(row)"
-              [class.demo-row-is-clicked]="clickedRows.has(row)"
               *matRowDef="let row; columns: displayedColumns;"
             ></tr>
           </table>

@@ -47,6 +47,7 @@ import { SimuladorPagosComponent } from './simulador-pagos/simulador-pagos.compo
 import { TablaDetallePagosComponent } from './componentes/tabla-detalle-pagos/tabla-detalle-pagos.component';
 import { TablaPlanPagoComponent } from './componentes/tabla-plan-pago/tabla-plan-pago.component';
 import { NumberFormatPipe } from './number-format.pipe';
+import { GeneradorDocumentosComponent } from './generador-documentos/generador-documentos.component';
 
 //import { SelectorCarreraComponent } from './componentes/selector-carrera/selector-carrera.component';
 
@@ -70,7 +71,8 @@ import { NumberFormatPipe } from './number-format.pipe';
     SimuladorPagosComponent,
     TablaDetallePagosComponent,
     TablaPlanPagoComponent,
-    NumberFormatPipe
+    NumberFormatPipe,
+    GeneradorDocumentosComponent
   ],
   imports: [
     BrowserModule,
@@ -79,6 +81,7 @@ import { NumberFormatPipe } from './number-format.pipe';
     MatSlideToggleModule,
     MatSortModule,
     MatCheckboxModule,
+    ReactiveFormsModule,
     MatDialogModule,
     MatSidenavModule,
     MatCardModule,

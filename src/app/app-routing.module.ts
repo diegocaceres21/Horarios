@@ -9,6 +9,7 @@ import {CuposComponent} from "./cupos/cupos.component";
 import {ReportesComponent} from "./reportes/reportes.component";
 import {CuposOpcionesComponent} from "./cupos-opciones/cupos-opciones.component";
 import {SimuladorPagosComponent} from "./simulador-pagos/simulador-pagos.component";
+import {GeneradorDocumentosComponent} from "./generador-documentos/generador-documentos.component";
 
 const routes: Routes = [
   //{ path: 'horarios', children: [
@@ -20,7 +21,7 @@ const routes: Routes = [
       { path: 'cupos-opciones', component: CuposOpcionesComponent, canActivate: [PaginasGuard] },
       { path: 'reportes', component: ReportesComponent, canActivate: [PaginasGuard] },
       { path: 'simulador-pagos', component: SimuladorPagosComponent, canActivate: [PaginasGuard] },
-
+      { path: 'documentos', component: GeneradorDocumentosComponent, canActivate: [PaginasGuard] },
       { path: 'login', component: LoginComponent, canActivate: [LoginGuard] }
     //]}
 ];

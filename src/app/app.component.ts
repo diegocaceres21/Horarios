@@ -1,14 +1,15 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { NavItem } from './nav-item';
 import { MediaMatcher } from '@angular/cdk/layout';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  header:string = ''
-  menu: NavItem [] = [
+  header: string = '';
+  menu: NavItem[] = [
     {
       displayName: 'Nuevo Horario',
       iconName: 'edit_calendar',
@@ -38,30 +39,17 @@ export class AppComponent {
       displayName: 'Reporte Power BI',
       iconName: 'analytics',
       route: 'reportes',
-    },/*
-    {
-      displayName: 'Simulador',
-      iconName: 'payments',
-      route: 'simulador-pagos',
-      disabled: true
     },
     {
-      displayName: 'Revisar pagos',
+      displayName: 'Simulador de pagos',
       iconName: 'payments',
-      route: 'settings',
-      disabled: true
-    },
-    {
-      displayName: 'Configuración',
-      iconName: 'settings',
-      route: 'settings',
-      disabled: true
-    }*/
+      route: '',
+    }
   ];
   mobileQuery: MediaQueryList;
-  selectedIndex: number =-1;
+  selectedIndex: number = -1;
   title = 'UCB';
-  message:any = null;
+  message: any = null;
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
@@ -69,18 +57,24 @@ export class AppComponent {
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
-  changeTitle(title:string){
+
+  changeTitle(title: string) {
     this.header = title;
   }
+
   select(index: number) {
     this.selectedIndex = index;
+    if (this.menu[index].displayName === 'Simulador de pagos') {
+      window.open('https://cba.ucb.edu.bo/simulador-pagos/login', '_blank');
+    }
   }
+
   ngOnInit(): void {
-    //this.requestPermission();
-    //this.listen();
+    // this.requestPermission();
+    // this.listen();
   }
+
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-
 }

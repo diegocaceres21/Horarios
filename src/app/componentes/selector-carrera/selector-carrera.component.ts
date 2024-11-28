@@ -30,13 +30,15 @@ export class SelectorCarreraComponent implements ControlValueAccessor{
   registerOnTouched() {}
 
   carrerasPorDepartamento : any[] =  [
-    {departamento: "MEDICINA", carreras: [
+    {departamento: "CIENCIAS DE LA SALUD", carreras: [
         {nombre: 'MEDICINA'},
+        {nombre: 'ODONTOLOGÍA'},
       ]},
     {departamento: "DAEF", carreras: [
         {nombre: 'ADMINISTRACIÓN DE EMPRESAS'},
         {nombre: 'CONTADURÍA PÚBLICA'},
         {nombre: 'INGENIERÍA COMERCIAL'},
+        {nombre: "INGENIERÍA EN COMERCIO Y FINANZAS INTERNACIONALES"},
         {nombre: 'INGENIERÍA EMPRESARIAL'},
         {nombre: 'INGENIERÍA FINANCIERA'},
         {nombre: 'TÉCNICO SUPERIOR EN CONTADURÍA GENERAL'}

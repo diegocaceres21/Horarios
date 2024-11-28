@@ -141,7 +141,7 @@ export class CuposComponent implements AfterViewInit{
     }
   }
   ObtenerTodasLasOpciones(){
-    this.horariosService.getAllHorarios().subscribe(
+    this.horariosService.getAllHorariosByTipo("NUEVO").subscribe(
       result => {
         this.opciones = result
         this.getParalelosMaterias()

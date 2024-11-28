@@ -1,27 +1,37 @@
 <body>
-
 <div class="container">
   <div>
-
     <h1>Guardar Horario</h1>
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Carrera</mat-label>
-      <mat-select [(ngModel)]="carrera"> <!--[formControl]="carrera"-->
-        <!--<mat-option>-- None --</mat-option>-->
-        <mat-optgroup *ngFor="let group of carrerasPorDepartamento" [label]="group.departamento">
-          <mat-option *ngFor="let carrera of group.carreras" [value]="carrera.nombre">
-            {{carrera.nombre}}
-          </mat-option>
-        </mat-optgroup>
-      </mat-select>
-    </mat-form-field>
+    <form [formGroup]="form">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Carrera</mat-label>
+        <mat-select formControlName="carrera">
+          <mat-optgroup *ngFor="let group of carrerasPorDepartamento" [label]="group.departamento">
+            <mat-option *ngFor="let carrera of group.carreras" [value]="carrera.nombre">
+              {{carrera.nombre}}
+            </mat-option>
+          </mat-optgroup>
+        </mat-select>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Comentarios (Opcional)</mat-label>
-      <textarea matInput [(ngModel)]="comentarios"></textarea>
-    </mat-form-field>
-    <button [disabled]="!carrera" (click)="crearMateria()" mat-raised-button color="primary" class="margin">Guardar</button>
-    <button mat-raised-button color="warn" [mat-dialog-close]>Cancelar</button>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nuevo o Traspaso</mat-label>
+        <mat-select formControlName="traspaso">
+            <mat-option *ngFor="let opcion of ['TRASPASO', 'NUEVO']" [value]="opcion">
+              {{opcion}}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Comentarios (Opcional)</mat-label>
+        <textarea matInput formControlName="comentarios"></textarea>
+      </mat-form-field>
+
+
+
+      <button [disabled]="form.invalid" (click)="crearMateria()" mat-raised-button color="primary" class="margin">Guardar</button>
+      <button mat-raised-button color="warn" [mat-dialog-close]>Cancelar</button>
+    </form>
   </div>
 </div>
 </body>

@@ -34,6 +34,13 @@ export class SiaanServiceService {
 
   }
 
+  getIdEstudiante(carnet: string){
+
+  }
+
+  getDatosEstudiante(idEstudiante: string){
+
+  }
   private handleError() {
     this.login()
     let errorMessage = 'An error occurred';

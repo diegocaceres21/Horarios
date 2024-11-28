@@ -1,12 +1,20 @@
 <mat-toolbar class="tool-options">
-  <app-selector-carrera [opcionTodosHabilitado]="true" name="carrera" [(ngModel)]="carrera" (ngModelChange)="filtrarPorCarrera()"></app-selector-carrera>
+  <app-selector-carrera style="padding-top: 1.5% " [opcionTodosHabilitado]="true" name="carrera" [(ngModel)]="carrera" (ngModelChange)="filtrarPorCarrera()"></app-selector-carrera>
+  <mat-form-field appearance="outline" class="opcion">
+    <mat-label>Tipo</mat-label>
+    <mat-select [(ngModel)]="tipoHorario" (ngModelChange)="getHorariosOrdenadosPorCarrera()">
+      <mat-option *ngFor="let opt of ['NUEVO', 'TRASPASO']" [value]="opt">
+        {{opt}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </mat-toolbar>
 
-<div class="spinner" *ngIf="loaderService.isLoading | async">
+<div class="spinner-container" *ngIf="loaderService.isLoading | async; else contentReady">
   <mat-spinner></mat-spinner>
 </div>
-
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" multiTemplateDataRows>
+<ng-template #contentReady>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" multiTemplateDataRows>
   <!-- Cabecera de la tabla -->
   <ng-container  matColumnDef="carrera">
     <th mat-header-cell *matHeaderCellDef>Carrera</th>
@@ -70,3 +78,4 @@
   <!--<tr mat-row *matRowDef="let row; columns: displayedColumns;"
       [ngClass]="{'red-background': obtenerMenorCantidadDeCupos(row.horario)!.disponibles! <= 0}"></tr>-->
 </table>
+</ng-template>

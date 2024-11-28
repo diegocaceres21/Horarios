@@ -5,6 +5,7 @@ import {HorariosService} from "./horarios.service";
 import {HorarioMateria} from "../interfaces/horario-materia";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Materia} from "../interfaces/materia";
+import {SiaanService} from "./siaan.service";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ import {Materia} from "../interfaces/materia";
 export class OfertaSiaanService {
   paralelos :HorarioMateria[] = []
   materias: Materia[] = []
+  idPeriodoAnual = '';
+  idPeriodoSemestral = '';
   carrerasPorDepartamento : any[] =  [
     {departamento: "MEDICINA", carreras: [
         {nombre: 'MEDICINA', codigo: "dXco5R3mrnsfT189GptIEg=="},
@@ -47,21 +50,45 @@ export class OfertaSiaanService {
       ]}
   ]
   ofertaAcademicaSiaan: { [clave: string]: Materia } = {};
-  constructor( private _snackBar: MatSnackBar, private siaanService: SiaanServiceService,  private horariosService: HorariosService) { }
+  constructor( private _snackBar: MatSnackBar, private siaanService: SiaanService,  private horariosService: HorariosService) { }
+
+  /*obtenerOfertaAcademica(periodo: 'Semestral' | 'Anual') {
+    const idPeriodo = periodo === 'Semestral' ? this.idPeriodoSemestral : this.idPeriodoAnual;
+    const carreras = periodo === 'Semestral' ? this.carrerasDepartamentoSemestral : this.carrerasDepartamentoAnual;
+    const requests = carreras.map(carrera =>
+      this.siaanService.obtenerOfertaAcademicaSiaanPorCarrera(carrera.valor, idPeriodo)
+    );
+
+    this.forkRequestsSiaan(requests).subscribe({
+      next: (result) => this.agregarAOfertaDeMaterias(result),
+      //error: (e) => console.error(e),
+      complete: () => {
+        if (periodo === 'Semestral') {
+          this.obtenerOfertaAcademica('Anual');
+        } else {
+          this.limpiarOfertaAcademica();
+          this.globalService.setOfertaAcademica(this.ofertaAcademica);
+        }
+        // Manually trigger change detection
+      }
+    });
+  }*/
+
   getDatosSiaan(carrera: string, conAula: boolean = false): Observable<any> {
+    console.log("PRUEBA")
     let requests: Observable<any>[];
 
     if (carrera === 'MEDICINA') {
       requests = [
-        //this.siaanService.getDatos("dXco5R3mrnsfT189GptIEg==", "dz1tK1XOR8MjlSoqwp2RUw=="), REQUEST DEL PERIODO ANUAL
-        this.siaanService.getDatos("dXco5R3mrnsfT189GptIEg==", "zYDmWvkm28DPTATEijmGZw=="),
-        this.siaanService.getDatos("ar5fLGPWaFBY769VhXhTWg==", "zYDmWvkm28DPTATEijmGZw=="),
-        this.siaanService.getDatos("yEnQVCqv9j5/kHAsOhZ6AQ==", "zYDmWvkm28DPTATEijmGZw=="),
+        this.siaanService.obtenerOfertaAcademicaSiaanPorCarrera("dXco5R3mrnsfT189GptIEg==", "slotnyMXLH2CccFpWBjU8A=="),
+        this.siaanService.obtenerOfertaAcademicaSiaanPorCarrera("dXco5R3mrnsfT189GptIEg==", "%25252b0Qc7H9m5ccZVlNL9hP2fw=="),
+        this.siaanService.obtenerOfertaAcademicaSiaanPorCarrera("ar5fLGPWaFBY769VhXhTWg==", "%25252b0Qc7H9m5ccZVlNL9hP2fw=="),
+        this.siaanService.obtenerOfertaAcademicaSiaanPorCarrera("yEnQVCqv9j5/kHAsOhZ6AQ==", "%25252b0Qc7H9m5ccZVlNL9hP2fw=="),
       ];
     } else {
       const payloads: string[] = this.carrerasPorDepartamento.flatMap(x => x.carreras.map((c: { codigo: any; }) => c.codigo));
-      const idPeriodo = "zYDmWvkm28DPTATEijmGZw==";
-      requests = payloads.map(payload => this.siaanService.getDatos(payload, idPeriodo));
+      const idPeriodo = "%25252b0Qc7H9m5ccZVlNL9hP2fw==";
+      requests = payloads.map(payload => this.siaanService.obtenerOfertaAcademicaSiaanPorCarrera(payload, idPeriodo));
     }
 
     return this.forkRequestsSiaan(requests, conAula);

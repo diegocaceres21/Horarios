@@ -82,6 +82,7 @@ export class HorarioComponent implements OnInit{
       ['', '', '', '', '', ''],
       ['', '', '', '', '', ''],
     ];
+  cargaInicio = true;
 
   //previewIndices: { row: number, col: number }[] = [];
   isPreview: boolean[][] = [];
@@ -94,7 +95,13 @@ export class HorarioComponent implements OnInit{
   clickedRows = new Set<HorarioMateria>();
   horarioSeleccionado :HorarioMateria[] = []
   errorAgregar = false;
-  constructor(private ofertaSiaanService: OfertaSiaanService,private carreraService: CarreraService,private horariosService: HorariosService, private route: ActivatedRoute, private _snackBar: MatSnackBar,private siaanService: SiaanServiceService,public dialog: MatDialog, public loaderService: LoaderService){
+  constructor(private ofertaSiaanService: OfertaSiaanService,
+              private carreraService: CarreraService,
+              private horariosService: HorariosService,
+              private route: ActivatedRoute,
+              private _snackBar: MatSnackBar,
+              public dialog: MatDialog,
+              public loaderService: LoaderService){
     this.inicializarFalsoEstilo()
     //this.carrera.nombre = ""
   }
@@ -173,6 +180,9 @@ export class HorarioComponent implements OnInit{
       this.getValueCarrera()
       this.getHorario()
     }
+    else {
+      this.cargaInicio = false;
+    }
   }
 
   getValueCarrera(){
@@ -187,6 +197,7 @@ export class HorarioComponent implements OnInit{
         this.paralelos.map( paralelo => {
           paralelo.sigla = paralelo.sigla.trim()
         })
+        this.cargaInicio = false;
         this.agruparCursos()
       },
       error => {
@@ -197,8 +208,6 @@ export class HorarioComponent implements OnInit{
   getHorario() {
     this.horariosService.getHorarioById(this._id!).subscribe(
       (data: Horario) => {
-        // Save the token in your app's cookies for later use
-        //this.horarioSeleccionado = data.horario;
         data.horario.map(paralelo => this.fijarHorario(paralelo,true))
         this.getParalelosMaterias()
       },

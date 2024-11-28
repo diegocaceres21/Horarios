@@ -8,7 +8,6 @@ import {HorariosService} from "../servicios/horarios.service";
 import {LoaderService} from "../servicios/loader.service";
 import {CarreraService} from "../servicios/carrera.service";
 import {Router} from "@angular/router";
-import {Materia} from "../interfaces/materia";
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
@@ -26,6 +25,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 export class CuposOpcionesComponent {
 
   dataSource!: MatTableDataSource<Horario>;
+  tipoHorario = "NUEVO"
   carrera: any
   carreraOpciones: CarreraOpciones[] = []
   displayedColumns: string[] = ['carrera', 'opcion', 'cupos',"materia", 'editar'];
@@ -38,11 +38,10 @@ export class CuposOpcionesComponent {
     this.getHorariosOrdenadosPorCarrera()
   }
   getHorariosOrdenadosPorCarrera(){
-    this.horariosService.getAllHorarios().subscribe(
+    this.horariosService.getAllHorariosByTipo(this.tipoHorario).subscribe(
       result =>{
         this.opciones = result
         this.getParalelosMaterias()
-
       },
       error => {
         console.error(error)
@@ -53,7 +52,6 @@ export class CuposOpcionesComponent {
     return horario.reduce((min, current) =>
       (current.disponibles ?? Infinity) < (min.disponibles ?? Infinity) ? current : min
     );
-    //return horarioMinimo.disponibles
   }
   getParalelosMaterias(){
     this.ofertaSiaanService.getDatosSiaan(this.carrera).subscribe(
@@ -62,12 +60,10 @@ export class CuposOpcionesComponent {
         this.paralelos.map( paralelo => {
           paralelo.sigla = paralelo.sigla.trim()
         })
-        console.log(this.paralelos)
         this.paralelos.map(paralelo =>{
           this.obtenerCuposMaterias()
         })
-
-
+        this.filtrarPorCarrera()
       },
       error => {
         console.error(error);
@@ -79,17 +75,20 @@ export class CuposOpcionesComponent {
     this.opciones.map(opcion =>{
       opcion.horario.map(horario =>{
         horario.disponibles = this.getCupos(horario)
+        horario.docente = this.getDocente(horario)
       })
     })
     this.dataSource = new MatTableDataSource(this.opciones);
   }
   getCupos(paraleloDeseado: HorarioMateria) : number{
-    const cupos = this.paralelos.find((paralelo) => paralelo.sigla == paraleloDeseado.sigla && paralelo.paralelo == paraleloDeseado.paralelo)?.disponibles ?? -1;
-    return cupos
+    return this.paralelos.find((paralelo) => paralelo.sigla == paraleloDeseado.sigla && paralelo.paralelo == paraleloDeseado.paralelo)?.disponibles ?? -1;
+  }
+
+  getDocente(paraleloDeseado: HorarioMateria) : string{
+    return this.paralelos.find((paralelo) => paralelo.sigla == paraleloDeseado.sigla && paralelo.paralelo == paraleloDeseado.paralelo)?.docente ?? "";
   }
 
   filtrarPorCarrera(){
-    console.log(this.carrera)
     if(this.carrera){
       this.dataSource.filter = this.carrera.nombre.trim().toLowerCase();
     }

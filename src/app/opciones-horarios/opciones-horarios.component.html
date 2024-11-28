@@ -1,115 +1,75 @@
 <mat-toolbar class="tool-options">
+    <div class="filters">
+      <app-selector-carrera name="carrera" [(ngModel)]="carrera" (ngModelChange)="getOptions()"></app-selector-carrera>
+      <mat-form-field *ngIf="carrera" appearance="outline" class="opcion">
+        <mat-label>Tipo</mat-label>
+        <mat-select [(ngModel)]="tipoHorario" (ngModelChange)="getOptionsByTipo()">
+          <mat-option *ngFor="let opt of ['NUEVO', 'TRASPASO']" [value]="opt">
+            {{opt}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field *ngIf="carrera && opciones.length != 0" appearance="outline" class="opcion">
+        <mat-label>Opción</mat-label>
+        <mat-select [(ngModel)]="opcion" (ngModelChange)="getHorario()">
+          <mat-option *ngFor="let opt of opciones" [value]="opt">
+            {{opt}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
-  <app-selector-carrera name="carrera" [(ngModel)]="carrera" (ngModelChange)="getOptions()"></app-selector-carrera>
-  <div *ngIf="carrera && opciones.length ===0">
-    No existe ningun horario guardado para esta carrera
-  </div>
-  <mat-form-field *ngIf="carrera && opciones.length !==0" appearance="outline" class="opcion">
-    <mat-label>Opción</mat-label>
-    <mat-select [(ngModel)]="opcion" (ngModelChange)="getHorario()"> <!--[formControl]="carrera"-->
-      <!--<mat-option>-- None --</mat-option>-->
-        <mat-option *ngFor="let opt of opciones" [value]="opt">
-          {{opt}}
-        </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <div class="buttons-container">
-    <button class="print" mat-mini-fab color="primary" *ngIf="carrera && opciones.length !==0" (click)="openDialog()"><mat-icon>print</mat-icon></button>
-    <button class="extra-buttons" mat-raised-button color="primary" *ngIf="carrera && opcion && carrera.nombre!='MEDICINA'" (click)="navigateToEditar()">Editar</button>
-    <button class="extra-buttons" mat-raised-button color="warn" *ngIf="carrera && opcion" (click)="deleteHorario()">Eliminar</button>
+
+  <div class="buttons-container" *ngIf="carrera && !!opcion">
+    <button class="print" mat-mini-fab color="primary" (click)="openDialog()"><mat-icon>print</mat-icon></button>
+    <button class="extra-buttons" mat-raised-button color="primary" *ngIf="opcion && carrera.nombre !== 'MEDICINA'" (click)="navigateToEditar()">Editar</button>
+    <button class="extra-buttons" mat-raised-button color="warn" *ngIf="opcion" (click)="deleteHorario()">Eliminar</button>
   </div>
 </mat-toolbar>
 
-  <div *ngIf="loaderService.isLoading | async; else contentReady">
-    <mat-spinner></mat-spinner>
-  </div>
-  <ng-template #contentReady>
-    <div *ngIf="carrera && opcion" class="container-paralelos">
-      <div class="inside-flex">
-        <div  class="materias-container">
-          <table  mat-table [dataSource]="horario!.horario" class="mat-elevation-z8">
-            <!-- Position Column -->
-            <ng-container matColumnDef="sigla">
-              <th mat-header-cell *matHeaderCellDef>Sigla</th>
-              <td mat-cell *matCellDef="let paralelo">{{paralelo.sigla}}</td>
+<div *ngIf="loaderService.isLoading | async; else contentReady">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="mensaje-centro" *ngIf="carrera && opciones.length === 0">
+  <b>No existe ningun horario guardado para esta carrera</b>
+</div>
+<ng-template #contentReady>
+  <div *ngIf="carrera && opcion" class="container-paralelos">
+    <div class="inside-flex">
+      <div class="materias-container">
+        <table mat-table [dataSource]="horario!.horario" class="mat-elevation-z8">
+          <ng-container *ngFor="let column of displayedColumns">
+            <ng-container [matColumnDef]="column">
+              <th mat-header-cell *matHeaderCellDef>{{ column | titlecase }}</th>
+              <td mat-cell *matCellDef="let paralelo">{{ paralelo[column] }}</td>
             </ng-container>
-
-            <ng-container  matColumnDef="materia">
-              <th mat-header-cell *matHeaderCellDef>Nombre</th>
-              <td mat-cell *matCellDef="let paralelo">{{paralelo.materia}}</td>
-            </ng-container>
-            <ng-container matColumnDef="docente">
-              <th mat-header-cell *matHeaderCellDef>Docente</th>
-              <td mat-cell *matCellDef="let paralelo">
-                <ng-container *ngIf="getDocente(paralelo) as docente; else noDocente">
-                  <div>
-                    {{ docente }}
-                  </div>
-                </ng-container>
-                <ng-template #noDocente>
-                  <!-- Your content when cupos is falsy (0) -->
-                  <div >
-                    <!-- Your other content when cupos is 0 -->
-                  </div>
-                </ng-template>
-              </td>
-            </ng-container>
-            <ng-container  matColumnDef="paralelo">
-              <th mat-header-cell *matHeaderCellDef>Paralelo</th>
-              <td mat-cell *matCellDef="let paralelo">{{paralelo.paralelo}}</td>
-            </ng-container>
-
-            <!-- Name Column -->
-            <ng-container matColumnDef="cupos">
-              <th mat-header-cell *matHeaderCellDef>Cupos</th>
-              <td mat-cell *matCellDef="let paralelo">
-                <ng-container *ngIf="getCupos(paralelo) as cupos; else noCupos">
-                  <div [ngStyle]="{'backgroundColor': cupos > 0 ? 'white' : 'pink'}">
-                    {{ cupos }}
-                  </div>
-                </ng-container>
-                <ng-template #noCupos>
-                  <!-- Your content when cupos is falsy (0) -->
-                  <div [ngStyle]="{'backgroundColor': 'pink'}">
-                    0
-                    <!-- Your other content when cupos is 0 -->
-                  </div>
-                </ng-template>
-              </td>
-            </ng-container>
-
-            <!-- Weight Column -->
-            <ng-container matColumnDef="horarios">
-              <th mat-header-cell *matHeaderCellDef>Horario</th>
-              <td mat-cell *matCellDef="let paralelo">{{paralelo.horario}}</td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr
-              mat-row
-              *matRowDef="let row; columns: displayedColumns;"
-            ></tr>
-          </table>
-        </div>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
       </div>
-      <div id="horarioContent" #horarioContent class="inside-flex">
-        <table class="horario-table">
-            <thead>
-              <tr>
-                <th></th>
-                <th *ngFor="let day of days">{{ day }}</th>
-              </tr>
-            </thead>
-            <tbody>
-                <ng-container *ngFor="let timeSlot of timeSlots; let timeSlotIndex = index">
-                    <tr>
-                      <td>{{ timeSlot }}</td>
-                      <td *ngFor="let data of userScheduleData[timeSlotIndex]; let dayIndex = index">{{data}}</td>
-                    </tr>
-                  </ng-container>
-            </tbody>
-          </table>
-        </div>
     </div>
-  </ng-template>
-
+    <div id="horarioContent" #horarioContent class="inside-flex">
+      <table class="horario-table">
+        <thead>
+        <tr>
+          <th></th>
+          <th *ngFor="let day of days">{{ day }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngFor="let timeSlot of timeSlots; let timeSlotIndex = index">
+          <tr>
+            <td>{{ timeSlot }}</td>
+            <td *ngFor="let data of userScheduleData[timeSlotIndex]; let dayIndex = index">{{data}}</td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+      <div class="comentarios" *ngIf="horario?.comentario">
+        <h4><b>COMENTARIOS:</b></h4>
+        {{horario?.comentario | uppercase}}
+      </div>
+    </div>
+  </div>
+</ng-template>

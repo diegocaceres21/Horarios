@@ -21,11 +21,15 @@ export class HorariosService {
   getAllHorarios(){
     return this.httpClient.get<Horario[]>(this.url + "/all", {withCredentials: true})
   }
+
+  getAllHorariosByTipo(tipo: string){
+    return this.httpClient.get<Horario[]>(this.url + "/PorTipo?tipo=" + tipo, {withCredentials: true})
+  }
   deleteHorario(_id: string){
     return this.httpClient.delete(this.url + "/" + _id, {withCredentials: true})
   }
-  getOpciones(carrera: string){
-    return this.httpClient.get<number[]>(this.url + "/opciones?carrera=" + carrera, {withCredentials: true})
+  getOpciones(carrera: string, tipo: string){
+    return this.httpClient.get<number[]>(this.url + "/opciones?carrera=" + carrera + "&tipo=" + tipo, {withCredentials: true})
   }
 
   updateHorario(_id: string, horario: HorarioMateria[]){

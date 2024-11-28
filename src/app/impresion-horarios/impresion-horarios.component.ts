@@ -64,7 +64,7 @@ export class ImpresionHorariosComponent {
       this.segundoAnio = true;
     }
     if (data.horario){
-      this.opciones.push({opcion: 1,carrera: data.carrera, horario: data.horario})
+      this.opciones.push({opcion: 1,carrera: data.carrera, horario: data.horario, tipo: data.tipo})
       console.log(data.segundoAnio);
       if (data.carrera == "MEDICINA"){
           this.cambiarHorarioMedicina(0)

@@ -44,7 +44,7 @@
 
   </form>
 
-  <div *ngIf="isTraspaso" class="buttons-container">
+  <div *ngIf="datosLlenadosCompleto" class="buttons-container">
     <h3 class="titulo-documentos">Generar Documentos</h3>
     <button mat-stroked-button color="primary">Documentos Entregados</button>
     <button mat-stroked-button color="primary">Hoja de Vida</button>
@@ -52,8 +52,8 @@
     <button mat-stroked-button color="primary">Condiciones Generales Carrera</button>
     <button mat-stroked-button color="primary">Pagos Pendientes</button>
 
-    <button mat-stroked-button disabled color="primary">Carta de Solicitud de Traspaso</button>
-    <button mat-stroked-button disabled color="primary">Compromiso documentos Traspaso</button>
+    <button *ngIf="isTraspaso" mat-stroked-button disabled color="primary">Carta de Solicitud de Traspaso</button>
+    <button *ngIf="isTraspaso" mat-stroked-button disabled color="primary">Compromiso documentos Traspaso</button>
 
   </div>
 </div>

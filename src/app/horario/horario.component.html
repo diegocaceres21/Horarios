@@ -13,6 +13,10 @@
   <button class="print" mat-mini-fab color="primary" *ngIf="horarioSeleccionado.length >0" (click)="openDialogPrint()"><mat-icon>print</mat-icon></button>
 </mat-toolbar>
 
+<div class="spinner-container" *ngIf="cargaInicio && (loaderService.isLoading | async); else contentReady">
+  <mat-spinner></mat-spinner>
+</div>
+<ng-template #contentReady>
 <div class="container-paralelos">
   <div class="inside-flex">
     <div class="materias-container">
@@ -74,7 +78,6 @@
                     <mat-icon>remove</mat-icon>
                   </button>
                 </td>
-
               </ng-container>
 
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -94,7 +97,7 @@
           <div class="error-paralelo" *ngIf="!mat.paralelos">No existen paralelos para esta materia</div>
         </mat-expansion-panel>
       </mat-accordion>
-      <button (click)="openDialog()" class="new-materia" mat-fab extended color="primary">
+      <button [disabled]="!carrera" (click)="openDialog()" class="new-materia" mat-fab extended color="primary">
         <mat-icon>add </mat-icon>
         Agregar Materia
       </button>
@@ -120,3 +123,4 @@
       </table>
     </div>
 </div>
+</ng-template>

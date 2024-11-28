@@ -6,4 +6,5 @@ export interface Horario {
   opcion?: number;
   comentario?: string;
   horario: HorarioMateria[];
+  tipo: string;
 }

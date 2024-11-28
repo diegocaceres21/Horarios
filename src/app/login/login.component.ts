@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit{
 
   }
   ngOnInit(): void {
+    this.establecerId()
     // Asegúrate de que la función manejarRespuestOAuth esté disponible en el ámbito global
     window.addEventListener('message', (event) => {
       if (event.origin === 'http://localhost:3000') { // Asegúrate de que el origen sea tu backend
@@ -47,11 +48,21 @@ export class LoginComponent implements OnInit{
     this._snackBar.open("Ha ocurrido un error al iniciar sesión. Intentelo nuevamente.", "Cerrar", {duration: 3000});
   }
 
+  establecerId() {
+    localStorage.getItem("uniquecodeadm") || localStorage.setItem("uniquecodeadm", this.generarCadenaAleatoria())
+  }
+
+  generarCadenaAleatoria() {
+    const e = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let t = "";
+    for (let o = 0; o < 15; o++)
+      t += e.charAt(Math.floor(Math.random() * e.length));
+    return t
+  }
   loginGoogleRequest(credential){
     this.authService.loginGoogle(credential).pipe(take(10)).subscribe(
       (response: any) => {
         console.log(response)
-        //this.tokenService.setToken()
         this.router.navigate(['opciones']);
       },
       (error) => {
@@ -68,7 +79,7 @@ export class LoginComponent implements OnInit{
         this.router.navigate(['opciones']);
       },
       (error) => {
-        this.loginValid = false   // Handle login error
+        this.loginValid = false
       }
     )
   }

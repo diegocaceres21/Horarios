@@ -54,7 +54,7 @@ export class CuposOpcionesComponent {
     );
   }
   getParalelosMaterias(){
-    this.ofertaSiaanService.getDatosSiaan(this.carrera).subscribe(
+    this.ofertaSiaanService.getAllDatosSiaan().subscribe(
       result => {
         this.paralelos = result
         this.paralelos.map( paralelo => {

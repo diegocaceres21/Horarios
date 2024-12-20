@@ -102,7 +102,7 @@ export class ImpresionHorariosComponent {
     this.fijarTodosLosHorarios()
   }
   generatePDF() {
-    const pdf = new jsPDF("p","px","a4");
+    const pdf = new jsPDF("p", "px", "a4");
 
     this.opcionesFiltradas.forEach((item, index) => {
       if (index > 0) {
@@ -110,29 +110,55 @@ export class ImpresionHorariosComponent {
       }
 
       // Add title to the PDF
+      pdf.setFontSize(18);
+      pdf.setFont("times", "bold");
+      const width = pdf.internal.pageSize.getWidth();
+      pdf.text(this.carrera, width / 2, 30, { align: 'center' });
       pdf.setFontSize(22);
-      pdf.setFont("times","bold")
-      var width = pdf.internal.pageSize.getWidth()
-      pdf.text("Opción " + item.opcion, width/2, 20, {
-        align: 'center'
+      pdf.text("Opción " + item.opcion, width / 2, 50, { align: 'center' });
+
+      // Set the starting Y position for the table
+      const startY = 70;
+      let fontSize = 10;
+      if(this.carrera == "MEDICINA"){
+        fontSize = 9
+      }
+      autoTable(pdf, {
+        html: '#table-' + index,
+        startY: startY,
+        theme: 'grid',
+        headStyles: { halign: 'center', fillColor: [18, 4, 79], fontSize: fontSize },
+        bodyStyles: { lineColor: [0, 0, 0], fontSize: fontSize }
       });
 
-      // Add table to the PDF using jsPDF.autotable
-      //const columns = Object.keys(item.tableData[0]);
-      //const rows = item.tableData.map(row => Object.values(row));
-
-      autoTable(pdf,{html: '#table-' + index, theme: 'grid', headStyles: { halign: 'center', fillColor: [18, 4, 79] }, bodyStyles: { lineColor: [0,0,0]}});
-      if(this.mostrarAulasHabilitado){
-        autoTable(pdf,{html: '#opcion-' + index, theme: 'grid',  headStyles: { halign: 'center', fillColor: [18, 4, 79] },bodyStyles: { halign: 'center',valign:'middle',cellPadding:2, lineColor: [0,0,0], fontSize: 9},didParseCell: function (data) {
-            //var rows = data.table.columns;
+      if (this.mostrarAulasHabilitado) {
+        autoTable(pdf, {
+          html: '#opcion-' + index,
+          startY:(pdf as any).lastAutoTable.finalY + 10, // Start below the previous table
+          theme: 'grid',
+          headStyles: { halign: 'center', fillColor: [18, 4, 79] },
+          bodyStyles: {
+            halign: 'center',
+            valign: 'middle',
+            cellPadding: 2,
+            lineColor: [0, 0, 0],
+            fontSize: 9
+          },
+          didParseCell: function (data) {
             if (data.column.index === 0) {
-              data.column.minWidth = 55
+              data.column.minWidth = 55;
               data.cell.styles.fontSize = 10;
             }
-          } });
-      }
-      else{
-        autoTable(pdf,{html: '#opcion-' + index, theme: 'grid',  headStyles: { halign: 'center', fillColor: [18, 4, 79] },bodyStyles: { halign: 'center', lineColor: [0,0,0]} });
+          }
+        });
+      } else {
+        autoTable(pdf, {
+          html: '#opcion-' + index,
+          startY: (pdf as any).lastAutoTable.finalY + 10, // Start below the previous table
+          theme: 'grid',
+          headStyles: { halign: 'center', fillColor: [18, 4, 79] },
+          bodyStyles: { halign: 'center', lineColor: [0, 0, 0] }
+        });
       }
     });
 
@@ -224,27 +250,41 @@ export class ImpresionHorariosComponent {
   }
   cambiarHorarioMedicina(index:number){
     this.timeSlots = [
-      '07:15 - 08:45', '08:45 - 09:30', '09:30 - 09:45', '09:45 - 10:00',
-      '10:00 - 12:00', '12:00 - 12:15', '12:15 - 14:00', '14:00 - 14:45',
-      '14:45 - 16:15', '16:15 - 17:00', '17:00 - 17:45', '17:45 - 20:00',
+      '07:15 - 08:45', '08:45 - 09:00', '09:00 - 09:30','09:30 - 09:45', '09:45 - 10:00',  '10:00 - 10:30',
+      '10:45 - 11:30', '11:30 - 12:15', '12:30 - 13:15', '13:15 - 14:00',  '14:15 - 15:00', '15:00 - 15:45',
+      '16:00 - 16:45', '16:45 - 17:30', '17:45 - 18:30', '18:30 - 19:15', '19:30 - 20:15', '20:15 - 21:00',
     ];
     let newSchedule : UserScheduleData = {
         schedule: [
-            ['', '', '', '', '', ''],
-            ['', '', '', '', '', ''],
-            ['', '', '', '', '', ''],
-            ['', '', '', '', '', ''],
-            ['', '', '', '', '', ''],
-            ['', '', '', '', '', ''],
-            ['', '', '', '', '', ''],
-            ['', '', '', '', '', ''],
-            ['', '', '', '', '', ''],
-            ['', '', '', '', '', ''],
-            ['', '', '', '', '', ''],
-            ['', '', '', '', '', '']
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', '']
         ]};
     let newScheduleAula : UserScheduleData = {
       schedule: [
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
         ['', '', '', '', '', ''],
         ['', '', '', '', '', ''],
         ['', '', '', '', '', ''],
@@ -314,6 +354,8 @@ export class ImpresionHorariosComponent {
         horas = this.timeSlots
           .map((item, index) => (item.split(' - ')[0] == horasInicioFin[0] || item.split(' - ')[1] == horasInicioFin[1] ? index : -1))
           .filter(index => index !== -1);
+
+        horas = this.range(horas[0], horas[1])
       } else {
         horas = this.timeSlots
           .map((item, index) => (horasInicioFin.some(substring => item.includes(substring)) ? index : -1))
@@ -323,6 +365,13 @@ export class ImpresionHorariosComponent {
     return horas
   }
 
+  range(start: number, end: number): number[] {
+    let result: number[] = [];
+    for (let i = start; i <= end; i++) {
+      result.push(i);
+    }
+    return result;
+  }
   agregarAlHorarioFinal(paral: HorarioMateria, indexSchedule, horas, dia, i) {
     if (paral.paralelo.includes("-")) {
       const sigla = paral.sigla + " - " + paral.paralelo.split("-")[1]

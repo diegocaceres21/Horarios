@@ -108,9 +108,9 @@ export class OpcionesHorariosComponent implements OnInit {
 
   cambiarHorarioMedicina() {
     this.timeSlots = [
-      '07:15 - 08:45', '08:45 - 09:30', '09:30 - 09:45', '09:45 - 10:00',
-      '10:00 - 12:00', '12:00 - 12:15', '12:15 - 14:00', '14:00 - 14:45',
-      '14:45 - 16:15', '16:15 - 17:00', '17:00 - 17:45', '17:45 - 20:00'
+      '07:15 - 08:45', '08:45 - 09:00', '09:00 - 09:30','09:30 - 09:45', '09:45 - 10:00',  '10:00 - 10:30',
+      '10:45 - 11:30', '11:30 - 12:15', '12:30 - 13:15', '13:15 - 14:00',  '14:15 - 15:00', '15:00 - 15:45',
+      '16:00 - 16:45', '16:45 - 17:30', '17:45 - 18:30', '18:30 - 19:15', '19:30 - 20:15', '20:15 - 21:00',
     ];
     this.resetUserScheduleData();
   }
@@ -119,7 +119,13 @@ export class OpcionesHorariosComponent implements OnInit {
     this.userScheduleData = Array(this.timeSlots.length).fill(Array(6).fill(''));
   }
 
-
+  range(start: number, end: number): number[] {
+    let result: number[] = [];
+    for (let i = start; i <= end; i++) {
+      result.push(i);
+    }
+    return result;
+  }
   requestGetOpciones(){
     this.horariosService.getOpciones(this.carrera.nombre, this.tipoHorario).subscribe(
       (data: number[]) => {
@@ -203,9 +209,11 @@ export class OpcionesHorariosComponent implements OnInit {
       return [this.timeSlots.indexOf(horario)];
     } else {
       const [inicio, fin] = horario.split(' - ');
-      return this.timeSlots
+      const horas =  this.timeSlots
         .map((slot, index) => (slot.startsWith(inicio) || slot.endsWith(fin) ? index : -1))
         .filter(index => index !== -1);
+
+      return this.range(horas[0], horas[1])
     }
   }
 

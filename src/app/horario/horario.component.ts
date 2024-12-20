@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NuevaMateriaComponent } from '../modals/nueva-materia/nueva-materia.component';
 import { HorarioMateria } from '../interfaces/horario-materia';
 import { LoaderService } from '../servicios/loader.service';
-import {catchError, forkJoin, throwError} from 'rxjs';
+import {catchError, forkJoin, range, throwError} from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {NuevoHorarioConfirmarComponent} from "../modals/nuevo-horario-confirmar/nuevo-horario-confirmar.component";
 import {ConfirmarComponent} from "../modals/confirmar/confirmar.component";
@@ -390,11 +390,18 @@ export class HorarioComponent implements OnInit{
   }
   cambiarHorarioMedicina(){
       this.timeSlots = [
-          '07:15 - 08:45', '08:45 - 09:30', '09:30 - 09:45', '09:45 - 10:00',
-          '10:00 - 12:00', '12:00 - 12:15', '12:15 - 14:00', '14:00 - 14:45',
-          '14:45 - 16:15', '16:15 - 17:00', '17:00 - 17:45', '17:45 - 20:00',
+          '07:15 - 08:45', '08:45 - 09:00', '09:00 - 09:30','09:30 - 09:45', '09:45 - 10:00',  '10:00 - 10:30',
+          '10:45 - 11:30', '11:30 - 12:15', '12:30 - 13:15', '13:15 - 14:00',  '14:15 - 15:00', '15:00 - 15:45',
+          '16:00 - 16:45', '16:45 - 17:30', '17:45 - 18:30', '18:30 - 19:15', '19:30 - 20:15', '20:15 - 21:00',
       ];
       this.userScheduleData= [
+         ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+        ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
+          ['', '', '', '', '', ''],
           ['', '', '', '', '', ''],
           ['', '', '', '', '', ''],
           ['', '', '', '', '', ''],
@@ -436,12 +443,10 @@ export class HorarioComponent implements OnInit{
     return false;
   }
   fijarHorario(paral:HorarioMateria, isClicked: boolean, isNewHorario= true ): void {
-    //if (this.isHovered) {
       this.materiaTieneChoque(paral)//eliminar
       let horarioSeparado = this.separarHorario(paral.horario)
       for (let i =0; i<horarioSeparado.length; i =i + 2){
         let dia = this.days.indexOf(horarioSeparado[i])
-        //Trabajamos con la hora
         let horas: number[] =[];
         if(this.timeSlots.some(x=> x === horarioSeparado[i + 1]))
         {
@@ -450,11 +455,13 @@ export class HorarioComponent implements OnInit{
         else{
           const timeSlotRange =horarioSeparado[i + 1].split(' - ');
           let horasInicioFin = [timeSlotRange[0], timeSlotRange[1]]
-          //console.log(horasInicioFin)
           if(this.carrera.nombre === "MEDICINA"){
             horas = this.timeSlots
               .map((item, index) => (item.split(' - ')[0] == horasInicioFin[0] || item.split(' - ')[1] == horasInicioFin[1] ? index : -1))
               .filter(index => index !== -1);
+            horas = this.range(horas[0], horas[1])
+            //horas = Array.from({ length: horas[0] - horas[1] + 1 }, (_, i) => horas[0] + i);
+
           }
           else{
             horas = this.timeSlots
@@ -484,6 +491,14 @@ export class HorarioComponent implements OnInit{
     this.agregarParaleloAHorarioFinal(paral);
 
     //}
+  }
+
+  range(start: number, end: number): number[] {
+    let result: number[] = [];
+    for (let i = start; i <= end; i++) {
+      result.push(i);
+    }
+    return result;
   }
 
   agregarParaleloAHorarioFinal(paral: HorarioMateria){

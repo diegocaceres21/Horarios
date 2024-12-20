@@ -47,6 +47,7 @@ export class OfertaSiaanService {
         {nombre: 'CIENCIAS EXACTAS', codigo:"hnZqOrd3x0J5meyJY0UlCg=="},
         {nombre: 'PASTORAL UNIVERSITARIA', codigo:'ar5fLGPWaFBY769VhXhTWg=='},
         {nombre: 'IDIOMAS',codigo:'yEnQVCqv9j5/kHAsOhZ6AQ=='},
+        {nombre: 'INTERSEDES', codigo: 'su02Y8Pb/k8gDVy6pj4s/A=='}
       ]}
   ]
   ofertaAcademicaSiaan: { [clave: string]: Materia } = {};
@@ -92,6 +93,19 @@ export class OfertaSiaanService {
     }
 
     return this.forkRequestsSiaan(requests, conAula);
+  }
+
+  getAllDatosSiaan(){
+    let requests: Observable<any>[];
+    requests = [
+      this.siaanService.obtenerOfertaAcademicaSiaanPorCarrera("dXco5R3mrnsfT189GptIEg==", "slotnyMXLH2CccFpWBjU8A=="),
+      this.siaanService.obtenerOfertaAcademicaSiaanPorCarrera("dXco5R3mrnsfT189GptIEg==", "%25252b0Qc7H9m5ccZVlNL9hP2fw=="),
+    ];
+    const payloads: string[] = this.carrerasPorDepartamento.flatMap(x => x.carreras.map((c: { codigo: any; }) => c.codigo));
+    const idPeriodo = "%25252b0Qc7H9m5ccZVlNL9hP2fw==";
+    requests.push(...payloads.map(payload => this.siaanService.obtenerOfertaAcademicaSiaanPorCarrera(payload, idPeriodo)));
+
+    return this.forkRequestsSiaan(requests, false);
   }
 
   forkRequestsSiaan(requests: Observable<any>[], conAula: boolean): Observable<any> {
